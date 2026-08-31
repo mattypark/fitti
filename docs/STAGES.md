@@ -56,8 +56,15 @@ Live checklist. Updated as each stage lands; each one is committed on completion
   - `PHPickerViewController` needs no photo-library permission at all, returns no
     location data, and imports unlimited selections as raw bytes
 
-- [ ] **8 — Email receipt import**
-  - Per-user inbound address, VLM parse, product image fetch, dedupe
+- [x] **8 — Receipt forwarding** *(parser done and tested; needs a domain to receive mail)*
+  - Structured data first, model second — retailer emails often carry schema.org
+    JSON-LD, and parsing it is free, instant and exact
+  - HMAC signature checked before the body is read; unsigned mail is refused outright
+  - Unknown recipients get the same response as known ones, so the endpoint is not
+    an account-enumeration oracle
+  - Every image URL is validated before fetch — a forwarded email is attacker-
+    controlled input, so `file://`, localhost and cloud metadata are all blocked
+  - 11 tests passing, including the full SSRF set
 
 - [ ] **9 — Bulk photo split**
   - SAM 3 with a mandatory review grid. Never auto-commits.
