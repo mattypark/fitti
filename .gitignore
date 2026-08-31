@@ -61,3 +61,5 @@ graphify-out/cache/
 .build/
 .swiftpm/
 Package.resolved
+
+ios/Fitti/Secrets.xcconfig

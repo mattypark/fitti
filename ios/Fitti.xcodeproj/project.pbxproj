@@ -14,6 +14,7 @@
 		157550F9AA2853FB3BEE6105 /* MockCloset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB3C577653B74F746E9132 /* MockCloset.swift */; };
 		18F78AAB526647CE6136CD55 /* ImagePipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696CE2BF07BCB3E144C70C4 /* ImagePipeline.swift */; };
 		1A2DC53F817853C0094D37D4 /* BlobDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432DE04B822CA01CA7277AB /* BlobDots.swift */; };
+		1B9347D4CB1C7B3843BD6A80 /* AuthConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA196CF3C4ECF01298BE935B /* AuthConfiguration.swift */; };
 		1C1C8C0E84C4608F23725A24 /* LibraryImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0537E153F726AA028CC382 /* LibraryImport.swift */; };
 		1E0428CD2F4DF2BAD5A600D3 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C39858CC81D5485F37D4D23 /* AppGroup.swift */; };
 		1FE3F6BD23F108B82306DFB1 /* OutfitFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */; };
@@ -23,6 +24,7 @@
 		4AE37454E9F8DE68A983C51A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AEA4711A463996E0FBE60 /* RootView.swift */; };
 		5142D87E9C37BADB2CB5CB95 /* YouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404463EAF586A240F2745FCA /* YouView.swift */; };
 		51CC56DFAE1AE6248BC975F4 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A4CB6F123472ED628E028D /* CaptureView.swift */; };
+		51DCD3F0B125F356015547E8 /* Secrets.xcconfig.example in Resources */ = {isa = PBXBuildFile; fileRef = 392669B54B81750ADBEE89AD /* Secrets.xcconfig.example */; };
 		524485FC4410AC8D25C1513E /* FittiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FA0AAD024EC690A12A6A1 /* FittiApp.swift */; };
 		5413313D32BC40EF3731987F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B600506594AD66C711E8F /* AppState.swift */; };
 		559AFF3F3CBF9BEAD8BF4B83 /* OutfitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E450B3F33E88DB8EBD82590 /* OutfitsView.swift */; };
@@ -36,6 +38,7 @@
 		89FEFFCE9B54AB0F8AF87C21 /* CaptureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC214A2790F1B31AC3B0992A /* CaptureItem.swift */; };
 		8E9B96C0E6FF9D48CE09EC67 /* RootGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DC35D70D5ABE8836246932 /* RootGate.swift */; };
 		95550376DDA815443892F28D /* SharedInbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC91082661EBE5FEB81516 /* SharedInbox.swift */; };
+		996AEE8AE3B745BFA7D6139E /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB952A5CCCB454E83C93561 /* Supabase */; };
 		9B64EA9DFF629D51FD2A2F3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B49747846F9E0724C42F07E /* Assets.xcassets */; };
 		9C3EA37D56FFDDDAEEB53998 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BA39694A9FA5019689054 /* Entitlements.swift */; };
 		A585CD34B87F8F9498A90CF0 /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066E85FFA903207CE4626768 /* Mascot.swift */; };
@@ -48,6 +51,7 @@
 		EC70246D5DB5D95D239D2083 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C39858CC81D5485F37D4D23 /* AppGroup.swift */; };
 		EE64E8FD6FD36330EAD95084 /* CutoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34AA96F83E878E9C7D77BA /* CutoutService.swift */; };
 		EFDFB0F4D4B1FCBE04D533F8 /* ClosetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133E8BDA773FA9239CD9B81 /* ClosetView.swift */; };
+		FADE44F388623332601F450B /* SupabaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783163BB1FB95E3C135642AD /* SupabaseAuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +88,7 @@
 		1545C3FB121A35033002CA58 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		1E450B3F33E88DB8EBD82590 /* OutfitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitsView.swift; sourceTree = "<group>"; };
 		2C41DB872F198D1C10437CAE /* LimitMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitMeter.swift; sourceTree = "<group>"; };
+		392669B54B81750ADBEE89AD /* Secrets.xcconfig.example */ = {isa = PBXFileReference; path = Secrets.xcconfig.example; sourceTree = "<group>"; };
 		3C39858CC81D5485F37D4D23 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		404463EAF586A240F2745FCA /* YouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouView.swift; sourceTree = "<group>"; };
 		40A4CB6F123472ED628E028D /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
@@ -92,6 +97,7 @@
 		5A34AA96F83E878E9C7D77BA /* CutoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutoutService.swift; sourceTree = "<group>"; };
 		64DC35D70D5ABE8836246932 /* RootGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootGate.swift; sourceTree = "<group>"; };
 		7125F22E450C282EF85110DD /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		783163BB1FB95E3C135642AD /* SupabaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseAuthService.swift; sourceTree = "<group>"; };
 		7E9E2BFD6B0337E113ADFF16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		82CF32D16ACE0AD1E6058CB6 /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		8610A02F8B973CC7117DF2FE /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 		9572F402D3F3A4F3C8E8A7D6 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		9D0A59926269C48C949A67EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9E0BA39694A9FA5019689054 /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
+		AA196CF3C4ECF01298BE935B /* AuthConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfiguration.swift; sourceTree = "<group>"; };
 		B4DE59FD59476C8332385D52 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		B616639345066C0F0D92C66B /* ShareExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B696CE2BF07BCB3E144C70C4 /* ImagePipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePipeline.swift; sourceTree = "<group>"; };
@@ -127,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2C8544A01804A01741C71E1 /* FittiDesign in Frameworks */,
+				996AEE8AE3B745BFA7D6139E /* Supabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,8 +183,10 @@
 		6D76002877E854D27D665D67 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				AA196CF3C4ECF01298BE935B /* AuthConfiguration.swift */,
 				D275C55980E36D741B280774 /* AuthService.swift */,
 				82CF32D16ACE0AD1E6058CB6 /* MockAuthService.swift */,
+				783163BB1FB95E3C135642AD /* SupabaseAuthService.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -241,6 +251,7 @@
 				93F6691610DA7B5A988990B6 /* Fitti.entitlements */,
 				9D0A59926269C48C949A67EC /* Info.plist */,
 				D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */,
+				392669B54B81750ADBEE89AD /* Secrets.xcconfig.example */,
 				845D9812FDD8D5603028B15C /* Sources */,
 			);
 			path = Fitti;
@@ -299,6 +310,7 @@
 			name = Fitti;
 			packageProductDependencies = (
 				7006F125F21C75A43BE223B0 /* FittiDesign */,
+				1FB952A5CCCB454E83C93561 /* Supabase */,
 			);
 			productName = Fitti;
 			productReference = 0ACC00DCCC5B78DD1A9A2017 /* Fitti.app */;
@@ -348,6 +360,7 @@
 			mainGroup = C85152ABF58CD30CF4BA941E;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				491FF46EF250B65B00AF29E9 /* XCRemoteSwiftPackageReference "supabase-swift" */,
 				6F3E4FDD167DC7ADB806E35A /* XCLocalSwiftPackageReference "FittiDesign" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -368,6 +381,7 @@
 			files = (
 				9B64EA9DFF629D51FD2A2F3F /* Assets.xcassets in Resources */,
 				D62C4AC08A732B56579C4438 /* PrivacyInfo.xcprivacy in Resources */,
+				51DCD3F0B125F356015547E8 /* Secrets.xcconfig.example in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +394,7 @@
 			files = (
 				EC70246D5DB5D95D239D2083 /* AppGroup.swift in Sources */,
 				5413313D32BC40EF3731987F /* AppState.swift in Sources */,
+				1B9347D4CB1C7B3843BD6A80 /* AuthConfiguration.swift in Sources */,
 				7A5209434350EFE552A65096 /* AuthService.swift in Sources */,
 				1A2DC53F817853C0094D37D4 /* BlobDots.swift in Sources */,
 				6C23B4658A6A4CE76828CF35 /* BlobShape.swift in Sources */,
@@ -409,6 +424,7 @@
 				8E9B96C0E6FF9D48CE09EC67 /* RootGate.swift in Sources */,
 				4AE37454E9F8DE68A983C51A /* RootView.swift in Sources */,
 				95550376DDA815443892F28D /* SharedInbox.swift in Sources */,
+				FADE44F388623332601F450B /* SupabaseAuthService.swift in Sources */,
 				67AEAF8D3C0757C4EEFC9F56 /* TabBar.swift in Sources */,
 				7080EE8FC002F88F9E8B4371 /* WelcomeView.swift in Sources */,
 				5142D87E9C37BADB2CB5CB95 /* YouView.swift in Sources */,
@@ -686,7 +702,23 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		491FF46EF250B65B00AF29E9 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		1FB952A5CCCB454E83C93561 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 491FF46EF250B65B00AF29E9 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
 		7006F125F21C75A43BE223B0 /* FittiDesign */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FittiDesign;

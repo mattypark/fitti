@@ -8,6 +8,9 @@ options:
 packages:
   FittiDesign:
     path: FittiDesign
+  Supabase:
+    url: https://github.com/supabase/supabase-swift
+    from: 2.0.0
 
 targets:
   Fitti:
@@ -17,6 +20,8 @@ targets:
       - path: Fitti
     dependencies:
       - package: FittiDesign
+      - package: Supabase
+        product: Supabase
       - target: ShareExtension
     info:
       path: Fitti/Info.plist
@@ -39,6 +44,13 @@ targets:
         # TestFlight upload. True only if we ever add non-exempt cryptography;
         # HTTPS alone is exempt.
         ITSAppUsesNonExemptEncryption: false
+        # Populated from Secrets.xcconfig, which is gitignored. Absent means the
+        # app runs on the local mock, which is a working state rather than a broken one.
+        SUPABASE_URL: $(SUPABASE_URL)
+        SUPABASE_ANON_KEY: $(SUPABASE_ANON_KEY)
+        CFBundleURLTypes:
+          - CFBundleURLSchemes:
+              - fitti
     entitlements:
       path: Fitti/Fitti.entitlements
     settings:
