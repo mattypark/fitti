@@ -69,7 +69,19 @@ Live checklist. Updated as each stage lands; each one is committed on completion
 - [ ] **9 — Bulk photo split**
   - SAM 3 with a mandatory review grid. Never auto-commits.
 
-- [ ] **10 — Closet + Outfits**
+- [~] **10 — Outfit engine** *(scoring done and tested; UI wiring next)*
+  - Deterministic filter and score; the model writes the "why" but never picks
+    the clothes — it doesn't know what's clean, what was worn yesterday, or the weather
+  - Colour harmony from the hue circle: analogous and complementary both read as
+    deliberate; only the 60–120° band is penalised
+  - Warmth is a band, so a parka is as wrong in July as a vest is in January
+  - A wear-balance term surfaces pieces you never wear — the fix for the loudest
+    complaint about every competitor
+  - Two-pass selection: substantially different outfits first, then top up, so a
+    small closet still gets three options
+  - 23 tests passing
+
+- [ ] **10b — Closet + Outfits UI**
   - Grid, filters, detail sheet, wear tracking
   - Outfit engine: SQL filter → colour/pattern/novelty ranking → LLM pass with the reason
 
