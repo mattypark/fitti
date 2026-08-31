@@ -125,11 +125,11 @@ public struct Palette: Equatable, Sendable {
 /// The three colors that never move, whatever ground the user is on.
 public enum Fixed {
     /// The mascot's marks, the app icon, statements that must be absolute.
-    static let ink = Color(red: 0.055, green: 0.055, blue: 0.047)
+    public static let ink = Color(red: 0.055, green: 0.055, blue: 0.047)
     /// The Discover grid — a white gallery, so the clothes are the only color on screen.
-    static let paper = Color(red: 0.984, green: 0.980, blue: 0.965)
+    public static let paper = Color(red: 0.984, green: 0.980, blue: 0.965)
     /// The brand mark: logo, launch screen, App Store icon.
-    static let yellow = Color(red: 0.937, green: 0.773, blue: 0.247)
+    public static let yellow = Color(red: 0.937, green: 0.773, blue: 0.247)
 }
 
 /// The rainbow blob dots. Saturated enough to register on any ground, never loud enough

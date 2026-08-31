@@ -62,6 +62,21 @@ fittie/
 └── docs/        Design system, data model, decisions
 ```
 
+## Research
+
+- **[docs/ANIMATION.md](docs/ANIMATION.md)** — why the mascot is a Metal shader and
+  not a sprite sheet or a transparent video, what each shader does, and the Rive
+  plan for when we want real character performance.
+- **[docs/DECISIONS.md](docs/DECISIONS.md)** — why the stack is what it is, with
+  the numbers that settled each call.
+- **[docs/DESIGN.md](docs/DESIGN.md)** — the colour system, and why blue sets the
+  chroma budget for every other hue.
+- **[docs/STAGES.md](docs/STAGES.md)** — build progress.
+- **[docs/RUNNING.md](docs/RUNNING.md)** — how to run it.
+
+App Store submission is covered by the `ios-app-store-readiness` skill, with the
+automatable half in `scripts/pre-submit.sh`.
+
 ## Status
 
-Early. Building in stages.
+Runs on iOS. Building in stages.

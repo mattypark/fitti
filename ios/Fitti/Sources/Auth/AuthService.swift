@@ -47,7 +47,13 @@ protocol AuthService: Sendable {
     func deleteAccount() async
 }
 
-/// Swap point. `AuthProvider.current = SupabaseAuthService()` once the SDK lands.
+/// Swap point. `AuthProvider.current = SupabaseAuthService()` once configured.
 enum AuthProvider {
-    static var current: any AuthService = MockAuthService()
+    /// Written exactly once, from `FittiApp.init`, before any other code runs or
+    /// any concurrency exists. Read-only for the rest of the process lifetime.
+    ///
+    /// `nonisolated(unsafe)` rather than a lock or actor isolation because the
+    /// alternative is making every call site `await` a hop for a value that can
+    /// never change after launch — cost with no safety gained.
+    nonisolated(unsafe) static var current: any AuthService = MockAuthService()
 }

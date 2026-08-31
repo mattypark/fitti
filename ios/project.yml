@@ -18,6 +18,10 @@ targets:
     platform: iOS
     sources:
       - path: Fitti
+      # Excluded from the bundle: it documents the real Secrets.xcconfig, which
+      # is gitignored, and has no business shipping inside the app.
+      - path: Fitti/Secrets.xcconfig.example
+        buildPhase: none
     dependencies:
       - package: FittiDesign
       - package: FittiDesign
@@ -46,6 +50,9 @@ targets:
         # TestFlight upload. True only if we ever add non-exempt cryptography;
         # HTTPS alone is exempt.
         ITSAppUsesNonExemptEncryption: false
+        UIAppFonts:
+          - BagelFatOne-Regular.ttf
+          - GloriaHallelujah-Regular.ttf
         # Populated from Secrets.xcconfig, which is gitignored. Absent means the
         # app runs on the local mock, which is a working state rather than a broken one.
         SUPABASE_URL: $(SUPABASE_URL)
@@ -90,6 +97,12 @@ targets:
       path: ShareExtension/Info.plist
       properties:
         CFBundleDisplayName: Fitti
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.share-services
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ShareViewController
+          NSExtensionAttributes:
+            NSExtensionActivationRule:
+              NSExtensionActivationSupportsImageWithMaxCount: 20
     entitlements:
       path: ShareExtension/ShareExtension.entitlements
       properties:

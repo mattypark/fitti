@@ -13,29 +13,34 @@ struct OutfitFigure: View {
     var isGhost: Bool = false
 
     var body: some View {
-        VStack(spacing: 0) {
-            // head
+        // Proportions matter more than detail here. Equal-width stacked shapes
+        // read as a snowman; a narrow head, shoulders wider than the head, and
+        // legs longer than the torso read as a person even at 74pt.
+        VStack(spacing: -height * 0.012) {
             Circle()
                 .fill(skin)
-                .frame(width: height * 0.13, height: height * 0.13)
+                .frame(width: height * 0.115, height: height * 0.115)
 
-            // top
-            BlobShape(seed: outfit.id.uuidString.paletteSeed, wobble: 0.09)
-                .fill(color(outfit.topHue, 0.62))
-                .frame(width: height * 0.34, height: height * 0.33)
-                .offset(y: -height * 0.015)
+            // Top: widest element, short. Shoulders are what say "clothed body".
+            BlobShape(seed: outfit.id.uuidString.paletteSeed, wobble: 0.06)
+                .fill(color(outfit.topHue, 0.60))
+                .frame(width: height * 0.30, height: height * 0.30)
 
-            // bottom
-            RoundedRectangle(cornerRadius: height * 0.05, style: .continuous)
-                .fill(color(outfit.bottomHue, 0.48))
-                .frame(width: height * 0.27, height: height * 0.42)
-                .offset(y: -height * 0.02)
+            // Bottom: narrower than the top and longer, which is what makes it
+            // read as legs rather than as a second torso.
+            UnevenRoundedRectangle(
+                topLeadingRadius: height * 0.02,
+                bottomLeadingRadius: height * 0.05,
+                bottomTrailingRadius: height * 0.05,
+                topTrailingRadius: height * 0.02,
+                style: .continuous
+            )
+            .fill(color(outfit.bottomHue, 0.46))
+            .frame(width: height * 0.20, height: height * 0.40)
 
-            // shoes
             Capsule()
-                .fill(color(outfit.shoeHue, 0.42))
-                .frame(width: height * 0.24, height: height * 0.05)
-                .offset(y: -height * 0.015)
+                .fill(color(outfit.shoeHue, 0.38))
+                .frame(width: height * 0.23, height: height * 0.045)
         }
         .frame(height: height)
         .opacity(isGhost ? 0.22 : 1)
@@ -58,18 +63,22 @@ struct GhostFigure: View {
     let palette: Palette
 
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: -height * 0.012) {
             Circle()
                 .fill(palette.onGroundSoft.opacity(0.14))
-                .frame(width: height * 0.13, height: height * 0.13)
-            BlobShape(seed: "ghost".paletteSeed, wobble: 0.1)
+                .frame(width: height * 0.115, height: height * 0.115)
+            BlobShape(seed: "ghost".paletteSeed, wobble: 0.06)
                 .fill(palette.onGroundSoft.opacity(0.12))
-                .frame(width: height * 0.34, height: height * 0.33)
-                .offset(y: -height * 0.015)
-            RoundedRectangle(cornerRadius: height * 0.05, style: .continuous)
-                .fill(palette.onGroundSoft.opacity(0.10))
-                .frame(width: height * 0.27, height: height * 0.42)
-                .offset(y: -height * 0.02)
+                .frame(width: height * 0.30, height: height * 0.30)
+            UnevenRoundedRectangle(
+                topLeadingRadius: height * 0.02,
+                bottomLeadingRadius: height * 0.05,
+                bottomTrailingRadius: height * 0.05,
+                topTrailingRadius: height * 0.02,
+                style: .continuous
+            )
+            .fill(palette.onGroundSoft.opacity(0.10))
+            .frame(width: height * 0.20, height: height * 0.40)
         }
         .frame(height: height)
         .accessibilityHidden(true)

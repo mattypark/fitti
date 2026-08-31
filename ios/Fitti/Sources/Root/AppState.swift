@@ -11,7 +11,21 @@ enum Tab: Hashable, CaseIterable {
 @Observable
 @MainActor
 final class AppState {
-    var tab: Tab = .outfits
+    var tab: Tab = {
+        #if DEBUG
+        // Screenshot/UI-test affordance, DEBUG-only so it cannot ship.
+        if let index = ProcessInfo.processInfo.arguments.firstIndex(of: "-fittiTab"),
+           index + 1 < ProcessInfo.processInfo.arguments.count {
+            switch ProcessInfo.processInfo.arguments[index + 1] {
+            case "closet": return .closet
+            case "discover": return .discover
+            case "you": return .you
+            default: break
+            }
+        }
+        #endif
+        return .outfits
+    }()
     var isCapturing = false
 
     /// The screen colour. Assigned at signup today; later derived from the

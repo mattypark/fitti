@@ -58,5 +58,6 @@ struct VisionCutoutService: CutoutService {
 
 /// Swap point for the cloud fallback (BiRefNet) used by web uploads.
 enum CutoutProvider {
-    static var current: any CutoutService = VisionCutoutService()
+    /// Set at launch, never afterwards. See the note on `AuthProvider.current`.
+    nonisolated(unsafe) static var current: any CutoutService = VisionCutoutService()
 }

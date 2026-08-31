@@ -28,10 +28,11 @@ struct BlobDots: View {
         return (0..<count).map { index in
             let seed = generator.next()
             let color = palette[Int(generator.next() % UInt64(palette.count))]
-            // Kept away from the vertical centre so dots never sit under the
-            // content people are actually reading.
-            let x = 0.06 + Double(generator.next() % 880) / 1000
-            let y = 0.04 + Double(generator.next() % 920) / 1000
+            // Inset far enough that a blob's radius stays on screen. Positions
+            // are the blob's CENTRE, so anything under ~0.1 clips against the
+            // edge and reads as a bug rather than as scenery.
+            let x = 0.12 + Double(generator.next() % 760) / 1000
+            let y = 0.10 + Double(generator.next() % 800) / 1000
             let size = 14 + CGFloat(generator.next() % 32)
             let speed = 14 + Double(generator.next() % 12)
             return Dot(seed: seed, color: color,

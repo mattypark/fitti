@@ -29,6 +29,9 @@ struct RootGate: View {
                     withAnimation(Motion.settle) { session = newSession }
                 }
                 .transition(.opacity)
+                // Without this the system accent leaks into text fields and
+                // makes placeholder text look like a link.
+                .tint(Palette(.butter).onGround)
             }
         }
         .task {

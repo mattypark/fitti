@@ -20,6 +20,9 @@ final class Entitlements {
     private(set) var isPurchasing = false
     private(set) var loadFailed = false
 
+    /// Retained so the listener's lifetime is visible, though it is never
+    /// cancelled: `Transaction.updates` should run for the whole app lifetime,
+    /// and this object lives as long as the app does.
     private var updatesTask: Task<Void, Never>?
 
     init() {
@@ -33,8 +36,6 @@ final class Entitlements {
             }
         }
     }
-
-    deinit { updatesTask?.cancel() }
 
     func refresh() async {
         await loadProduct()

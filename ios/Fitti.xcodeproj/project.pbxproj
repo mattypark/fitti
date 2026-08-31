@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		048EAB5BA20184F2A22A10EE /* CaptureTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA57EAEA89E0A8A37DEEFA02 /* CaptureTile.swift */; };
+		053075B7B926C6AD0425AEBC /* AIConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6F87F819DBE3950203195 /* AIConsentView.swift */; };
 		05C905B05F02848150848B81 /* LimitMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C41DB872F198D1C10437CAE /* LimitMeter.swift */; };
 		07319892CADCA44401974D84 /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CF32D16ACE0AD1E6058CB6 /* MockAuthService.swift */; };
 		0A040C5F4BAB49AE77EA0144 /* GarmentTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F576CE8E8A2C8529009A2C60 /* GarmentTile.swift */; };
@@ -26,6 +27,7 @@
 		51CC56DFAE1AE6248BC975F4 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A4CB6F123472ED628E028D /* CaptureView.swift */; };
 		51DCD3F0B125F356015547E8 /* Secrets.xcconfig.example in Resources */ = {isa = PBXBuildFile; fileRef = 392669B54B81750ADBEE89AD /* Secrets.xcconfig.example */; };
 		524485FC4410AC8D25C1513E /* FittiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FA0AAD024EC690A12A6A1 /* FittiApp.swift */; };
+		53955DFDFD081B6CE73F7A0E /* BagelFatOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8570A02D93663E89ADDC8462 /* BagelFatOne-Regular.ttf */; };
 		5413313D32BC40EF3731987F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B600506594AD66C711E8F /* AppState.swift */; };
 		559AFF3F3CBF9BEAD8BF4B83 /* OutfitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E450B3F33E88DB8EBD82590 /* OutfitsView.swift */; };
 		638A574999ED159B6BDFDC32 /* ClosetBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB652C7FA179A1F9E73EF6D7 /* ClosetBridge.swift */; };
@@ -39,15 +41,18 @@
 		89FEFFCE9B54AB0F8AF87C21 /* CaptureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC214A2790F1B31AC3B0992A /* CaptureItem.swift */; };
 		8E9B96C0E6FF9D48CE09EC67 /* RootGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DC35D70D5ABE8836246932 /* RootGate.swift */; };
 		95550376DDA815443892F28D /* SharedInbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC91082661EBE5FEB81516 /* SharedInbox.swift */; };
+		970FFEA0AE9FD555CD671E9B /* Blob.metal in Sources */ = {isa = PBXBuildFile; fileRef = 8AE1D6A93CA30B9DA6183227 /* Blob.metal */; };
 		996AEE8AE3B745BFA7D6139E /* FittiEngine in Frameworks */ = {isa = PBXBuildFile; productRef = E438AD8A472FCD83220810C8 /* FittiEngine */; };
 		9B64EA9DFF629D51FD2A2F3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B49747846F9E0724C42F07E /* Assets.xcassets */; };
 		9C3EA37D56FFDDDAEEB53998 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BA39694A9FA5019689054 /* Entitlements.swift */; };
 		A585CD34B87F8F9498A90CF0 /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066E85FFA903207CE4626768 /* Mascot.swift */; };
 		AF66445F8402133F9527F958 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB952A5CCCB454E83C93561 /* Supabase */; };
 		B2C8544A01804A01741C71E1 /* FittiDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 7006F125F21C75A43BE223B0 /* FittiDesign */; };
+		B51CA8211E53EA91EECDB029 /* GloriaHallelujah-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B69C0A2580DFD631755FF26 /* GloriaHallelujah-Regular.ttf */; };
 		CACB8AFBA0190326E364372F /* CaptureWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109C6EA1433685F8E3900A9E /* CaptureWorker.swift */; };
 		CB049C4CD8F5D61216DC6A58 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610A02F8B973CC7117DF2FE /* CameraController.swift */; };
 		D62C4AC08A732B56579C4438 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */; };
+		DB522038ED1DE320EB0CAA74 /* FittiBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392184995BA15A41F4BABBD /* FittiBlob.swift */; };
 		E5E1155B9CB5B463B7D687EC /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572F402D3F3A4F3C8E8A7D6 /* DiscoverView.swift */; };
 		EB0E20980DF6F6EB7AAD127C /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DE59FD59476C8332385D52 /* PaywallView.swift */; };
 		EC70246D5DB5D95D239D2083 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C39858CC81D5485F37D4D23 /* AppGroup.swift */; };
@@ -90,7 +95,9 @@
 		1545C3FB121A35033002CA58 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		1E450B3F33E88DB8EBD82590 /* OutfitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitsView.swift; sourceTree = "<group>"; };
 		2C41DB872F198D1C10437CAE /* LimitMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitMeter.swift; sourceTree = "<group>"; };
+		3392184995BA15A41F4BABBD /* FittiBlob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FittiBlob.swift; sourceTree = "<group>"; };
 		392669B54B81750ADBEE89AD /* Secrets.xcconfig.example */ = {isa = PBXFileReference; path = Secrets.xcconfig.example; sourceTree = "<group>"; };
+		3B69C0A2580DFD631755FF26 /* GloriaHallelujah-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GloriaHallelujah-Regular.ttf"; sourceTree = "<group>"; };
 		3C39858CC81D5485F37D4D23 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		404463EAF586A240F2745FCA /* YouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouView.swift; sourceTree = "<group>"; };
 		40A4CB6F123472ED628E028D /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
@@ -102,7 +109,9 @@
 		783163BB1FB95E3C135642AD /* SupabaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseAuthService.swift; sourceTree = "<group>"; };
 		7E9E2BFD6B0337E113ADFF16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		82CF32D16ACE0AD1E6058CB6 /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
+		8570A02D93663E89ADDC8462 /* BagelFatOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BagelFatOne-Regular.ttf"; sourceTree = "<group>"; };
 		8610A02F8B973CC7117DF2FE /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		8AE1D6A93CA30B9DA6183227 /* Blob.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Blob.metal; sourceTree = "<group>"; };
 		8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitFigure.swift; sourceTree = "<group>"; };
 		8B2922D787E623D64E7026B1 /* BlobShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobShape.swift; sourceTree = "<group>"; };
 		8B49747846F9E0724C42F07E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +132,7 @@
 		DB0EF109F3A5815A1C82530B /* CaptureQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureQueue.swift; sourceTree = "<group>"; };
 		E14402A507A35E89A8EA27C8 /* MockDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDay.swift; sourceTree = "<group>"; };
 		E34040D6478C0E7F77A935A4 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
+		E6A6F87F819DBE3950203195 /* AIConsentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIConsentView.swift; sourceTree = "<group>"; };
 		EA0537E153F726AA028CC382 /* LibraryImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryImport.swift; sourceTree = "<group>"; };
 		EA57EAEA89E0A8A37DEEFA02 /* CaptureTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureTile.swift; sourceTree = "<group>"; };
 		F44B600506594AD66C711E8F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -156,6 +166,7 @@
 		3851609581E74423776C8BA8 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E6A6F87F819DBE3950203195 /* AIConsentView.swift */,
 				40A4CB6F123472ED628E028D /* CaptureView.swift */,
 				9133E8BDA773FA9239CD9B81 /* ClosetView.swift */,
 				9572F402D3F3A4F3C8E8A7D6 /* DiscoverView.swift */,
@@ -165,6 +176,14 @@
 				404463EAF586A240F2745FCA /* YouView.swift */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		4946709FE5F3803190987DEF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FB6C38FEA85358AA4FFBA285 /* Fonts */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		5A0EF5D53949475F918B44C1 /* Capture */ = {
@@ -204,6 +223,7 @@
 				3851609581E74423776C8BA8 /* Features */,
 				C95AC3DBEC5B05B657E4C01C /* Model */,
 				964ADECFF7377554401A8ACC /* Root */,
+				D23A187519B5D9710113E7CE /* Shaders */,
 				C1CF7E9E8DA40BD73AA87CF4 /* Store */,
 			);
 			path = Sources;
@@ -257,9 +277,18 @@
 				9D0A59926269C48C949A67EC /* Info.plist */,
 				D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */,
 				392669B54B81750ADBEE89AD /* Secrets.xcconfig.example */,
+				4946709FE5F3803190987DEF /* Resources */,
 				845D9812FDD8D5603028B15C /* Sources */,
 			);
 			path = Fitti;
+			sourceTree = "<group>";
+		};
+		D23A187519B5D9710113E7CE /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				8AE1D6A93CA30B9DA6183227 /* Blob.metal */,
+			);
+			path = Shaders;
 			sourceTree = "<group>";
 		};
 		EEAADDF00301E11A560F5005 /* Products */ = {
@@ -277,12 +306,22 @@
 				1432DE04B822CA01CA7277AB /* BlobDots.swift */,
 				8B2922D787E623D64E7026B1 /* BlobShape.swift */,
 				EA57EAEA89E0A8A37DEEFA02 /* CaptureTile.swift */,
+				3392184995BA15A41F4BABBD /* FittiBlob.swift */,
 				F576CE8E8A2C8529009A2C60 /* GarmentTile.swift */,
 				2C41DB872F198D1C10437CAE /* LimitMeter.swift */,
 				066E85FFA903207CE4626768 /* Mascot.swift */,
 				8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		FB6C38FEA85358AA4FFBA285 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8570A02D93663E89ADDC8462 /* BagelFatOne-Regular.ttf */,
+				3B69C0A2580DFD631755FF26 /* GloriaHallelujah-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		FCF11A95A98196226BCE613E /* ShareExtension */ = {
@@ -386,6 +425,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B64EA9DFF629D51FD2A2F3F /* Assets.xcassets in Resources */,
+				53955DFDFD081B6CE73F7A0E /* BagelFatOne-Regular.ttf in Resources */,
+				B51CA8211E53EA91EECDB029 /* GloriaHallelujah-Regular.ttf in Resources */,
 				D62C4AC08A732B56579C4438 /* PrivacyInfo.xcprivacy in Resources */,
 				51DCD3F0B125F356015547E8 /* Secrets.xcconfig.example in Resources */,
 			);
@@ -398,10 +439,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053075B7B926C6AD0425AEBC /* AIConsentView.swift in Sources */,
 				EC70246D5DB5D95D239D2083 /* AppGroup.swift in Sources */,
 				5413313D32BC40EF3731987F /* AppState.swift in Sources */,
 				1B9347D4CB1C7B3843BD6A80 /* AuthConfiguration.swift in Sources */,
 				7A5209434350EFE552A65096 /* AuthService.swift in Sources */,
+				970FFEA0AE9FD555CD671E9B /* Blob.metal in Sources */,
 				1A2DC53F817853C0094D37D4 /* BlobDots.swift in Sources */,
 				6C23B4658A6A4CE76828CF35 /* BlobShape.swift in Sources */,
 				CB049C4CD8F5D61216DC6A58 /* CameraController.swift in Sources */,
@@ -417,6 +460,7 @@
 				E5E1155B9CB5B463B7D687EC /* DiscoverView.swift in Sources */,
 				9C3EA37D56FFDDDAEEB53998 /* Entitlements.swift in Sources */,
 				524485FC4410AC8D25C1513E /* FittiApp.swift in Sources */,
+				DB522038ED1DE320EB0CAA74 /* FittiBlob.swift in Sources */,
 				0A040C5F4BAB49AE77EA0144 /* GarmentTile.swift in Sources */,
 				18F78AAB526647CE6136CD55 /* ImagePipeline.swift in Sources */,
 				1C1C8C0E84C4608F23725A24 /* LibraryImport.swift in Sources */,

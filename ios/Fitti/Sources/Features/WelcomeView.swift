@@ -129,6 +129,7 @@ struct WelcomeView: View {
         } else {
             HStack(spacing: Space.xs) {
                 TextField("you@email.com", text: $email)
+                    .foregroundStyle(palette.onGround)
                     .textContentType(.emailAddress)
                     .keyboardType(.emailAddress)
                     .textInputAutocapitalization(.never)
@@ -154,6 +155,7 @@ struct WelcomeView: View {
             .padding(.horizontal, Space.sm)
             .frame(height: 52)
             .background(palette.groundLift, in: RoundedRectangle(cornerRadius: Radius.sm, style: .continuous))
+            .tint(palette.onGround)
         }
     }
 

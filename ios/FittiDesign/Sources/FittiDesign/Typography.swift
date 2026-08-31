@@ -5,8 +5,13 @@ import SwiftUI
 ///
 /// Both Google faces ship bundled under the OFL. Nothing is fetched at runtime.
 public enum Typeface {
+    /// PostScript names, NOT filenames. SwiftUI's `Font.custom` matches on the
+    /// PostScript name and falls back to the system font **silently** when it
+    /// doesn't — no warning, no crash, just the wrong typeface. Gloria's is
+    /// "GloriaHallelujah" even though the file is GloriaHallelujah-Regular.ttf,
+    /// which is exactly the kind of mismatch that ships unnoticed.
     public static let bagel = "BagelFatOne-Regular"
-    public static let gloria = "GloriaHallelujah-Regular"
+    public static let gloria = "GloriaHallelujah"
 }
 
 public extension Font {

@@ -14,9 +14,15 @@ final class CameraController: NSObject {
     private(set) var isReady = false
     private(set) var permissionDenied = false
 
-    nonisolated let session = AVCaptureSession()
+    /// AVCaptureSession is not Sendable, but every mutation here is serialised
+    /// onto `sessionQueue` and reads from the preview layer happen on the main
+    /// thread — which is exactly the contract AVFoundation asks for. Marking it
+    /// unsafe states that explicitly rather than hiding it behind a copy.
+    nonisolated(unsafe) let session = AVCaptureSession()
     private let sessionQueue = DispatchQueue(label: "app.fitti.camera")
-    private let output = AVCapturePhotoOutput()
+    /// Same contract as `session`: configured and used only on `sessionQueue`,
+    /// with delegate callbacks hopping back to the main actor.
+    private nonisolated(unsafe) let output = AVCapturePhotoOutput()
 
     /// Called with the encoded photo. Deliberately raw `Data` straight from
     /// AVFoundation — never a UIImage, which would decode a ~48MB bitmap on the

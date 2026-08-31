@@ -12,6 +12,19 @@ actor MockAuthService: AuthService {
     private let key = "fitti.mock.session"
 
     init() {
+        #if DEBUG
+        // Screenshot and UI-test affordance: start signed in so automation can
+        // reach the tabs without driving the sign-in screen. DEBUG-only, so it
+        // cannot ship — a launch argument that survived into release would be a
+        // hidden feature under App Store guideline 2.3.1.
+        if ProcessInfo.processInfo.arguments.contains("-fittiSignedIn") {
+            session = Session(userID: "preview-user",
+                              email: "you@fitti.app",
+                              displayName: "Matthew")
+            return
+        }
+        #endif
+
         if let saved = store.dictionary(forKey: key),
            let id = saved["id"] as? String {
             session = Session(userID: id,
