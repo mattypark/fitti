@@ -52,6 +52,7 @@
 		B51CA8211E53EA91EECDB029 /* GloriaHallelujah-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B69C0A2580DFD631755FF26 /* GloriaHallelujah-Regular.ttf */; };
 		CACB8AFBA0190326E364372F /* CaptureWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109C6EA1433685F8E3900A9E /* CaptureWorker.swift */; };
 		CB049C4CD8F5D61216DC6A58 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610A02F8B973CC7117DF2FE /* CameraController.swift */; };
+		CB9BE3079A0EDD409D0F2468 /* WelcomeSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B316D01B7E75A1FD69AE07A /* WelcomeSequence.swift */; };
 		D62C4AC08A732B56579C4438 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */; };
 		DB522038ED1DE320EB0CAA74 /* FittiBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392184995BA15A41F4BABBD /* FittiBlob.swift */; };
 		DF99091A3ECEB36D2F5EECD3 /* RiveMascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C389A66D92B592DAF6102 /* RiveMascot.swift */; };
@@ -116,6 +117,7 @@
 		8AE1D6A93CA30B9DA6183227 /* Blob.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Blob.metal; sourceTree = "<group>"; };
 		8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitFigure.swift; sourceTree = "<group>"; };
 		8B2922D787E623D64E7026B1 /* BlobShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobShape.swift; sourceTree = "<group>"; };
+		8B316D01B7E75A1FD69AE07A /* WelcomeSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSequence.swift; sourceTree = "<group>"; };
 		8B49747846F9E0724C42F07E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		910C389A66D92B592DAF6102 /* RiveMascot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiveMascot.swift; sourceTree = "<group>"; };
 		9133E8BDA773FA9239CD9B81 /* ClosetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetView.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				066E85FFA903207CE4626768 /* Mascot.swift */,
 				8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */,
 				910C389A66D92B592DAF6102 /* RiveMascot.swift */,
+				8B316D01B7E75A1FD69AE07A /* WelcomeSequence.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				95550376DDA815443892F28D /* SharedInbox.swift in Sources */,
 				FADE44F388623332601F450B /* SupabaseAuthService.swift in Sources */,
 				67AEAF8D3C0757C4EEFC9F56 /* TabBar.swift in Sources */,
+				CB9BE3079A0EDD409D0F2468 /* WelcomeSequence.swift in Sources */,
 				7080EE8FC002F88F9E8B4371 /* WelcomeView.swift in Sources */,
 				5142D87E9C37BADB2CB5CB95 /* YouView.swift in Sources */,
 			);

@@ -18,10 +18,25 @@ struct WelcomeView: View {
 
     private let palette = Palette(.butter)
 
+    private static let tagline = "your closet, but it knows what's in it"
+
     var body: some View {
+        WelcomeSequence(palette: palette, tagline: Self.tagline) { beat in
+            content(beat)
+        }
+    }
+
+    @ViewBuilder
+    private func content(_ beat: WelcomeBeat) -> some View {
         ZStack {
             palette.ground.ignoresSafeArea()
-            BlobDots(screen: "welcome", count: 4).ignoresSafeArea()
+
+            // The blobs are pushed outward by the landing, so the impact has a
+            // consequence beyond the mascot itself.
+            BlobDots(screen: "welcome", count: 4)
+                .scaleEffect(0.6 + 0.4 * beat.dotScatter)
+                .opacity(beat.dotScatter)
+                .ignoresSafeArea()
 
             VStack(spacing: Space.lg) {
                 #if DEBUG
@@ -48,15 +63,23 @@ struct WelcomeView: View {
                 Spacer()
 
                 RiveMascot(size: 130)
+                    .scaleEffect(x: 2 - beat.mascotStretch, y: beat.mascotStretch,
+                                 anchor: .bottom)
+                    .offset(y: beat.mascotDrop)
 
                 VStack(spacing: Space.xs) {
                     Text("Fitti")
                         .font(.fittiDisplay)
                         .foregroundStyle(palette.onGround)
-                    Text("your closet, but it knows\nwhat's in it")
-                        .font(.fittiHand)
-                        .multilineTextAlignment(.center)
-                        .foregroundStyle(palette.onGroundSoft)
+                        .opacity(beat.wordmark)
+                        .offset(y: (1 - beat.wordmark) * 18)
+
+                    WritingText(text: Self.tagline,
+                                visibleWords: beat.taglineWords,
+                                palette: palette)
+                    // Narrow enough to break into two balanced lines rather
+                    // than one long line and an orphan.
+                    .frame(maxWidth: 220)
                 }
 
                 Spacer()
@@ -66,6 +89,12 @@ struct WelcomeView: View {
                     magicLinkField
                     googleButton
                 }
+                .opacity(beat.controls)
+                .offset(y: (1 - beat.controls) * 26)
+                // Nothing is tappable until the app has finished introducing
+                // itself — a button that moves under a finger is worse than a
+                // button that arrives a moment later.
+                .allowsHitTesting(beat.controls > 0.9)
 
                 if let error {
                     Text(error)
