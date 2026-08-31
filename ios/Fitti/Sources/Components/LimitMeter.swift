@@ -10,34 +10,16 @@ struct LimitMeter: View {
     let used: Int
     let limit: Int
 
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @State private var phase: Double = 0
-
     private var fraction: Double {
         min(Double(used) / Double(max(limit, 1)), 1)
     }
 
-    /// Slack at 0, taut at the ceiling.
-    private var wobble: Double { 0.22 * (1 - fraction * 0.8) }
-
     var body: some View {
         HStack(spacing: Space.sm) {
-            ZStack {
-                BlobShape(seed: "limit".paletteSeed, wobble: wobble, phase: phase)
-                    .fill(Color.primary.opacity(0.08))
-
-                BlobShape(seed: "limit".paletteSeed, wobble: wobble, phase: phase)
-                    .fill(Fixed.yellow)
-                    .mask(alignment: .bottom) {
-                        // Fills from the bottom, like liquid rather than a bar.
-                        GeometryReader { geometry in
-                            Rectangle()
-                                .frame(height: geometry.size.height * fraction)
-                                .frame(maxHeight: .infinity, alignment: .bottom)
-                        }
-                    }
-            }
-            .frame(width: 34, height: 34)
+            // The mascot IS the meter: he fills with liquid as the closet does.
+            // The fill is a Metal shader masked by his own alpha, so the level is
+            // exact to the pixel and the baked shading survives being coloured in.
+            FittiBlob(size: 38, level: fraction, liquid: Fixed.yellow, amplitude: 6)
 
             VStack(alignment: .leading, spacing: 1) {
                 Text("\(used) of \(limit)")
@@ -48,12 +30,6 @@ struct LimitMeter: View {
                     .foregroundStyle(.secondary)
             }
             Spacer(minLength: 0)
-        }
-        .onAppear {
-            guard !reduceMotion else { return }
-            withAnimation(.easeInOut(duration: 3).repeatForever(autoreverses: true)) {
-                phase = 1
-            }
         }
         .accessibilityElement(children: .combine)
         .accessibilityLabel("\(used) of \(limit) pieces saved")
