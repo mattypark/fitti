@@ -25,11 +25,11 @@ actor MockAuthService: AuthService {
         }
         #endif
 
-        if let saved = store.dictionary(forKey: key),
-           let id = saved["id"] as? String {
+        if let saved = store.dictionary(forKey: key) as? [String: String],
+           let id = saved["id"] {
             session = Session(userID: id,
-                              email: saved["email"] as? String,
-                              displayName: saved["name"] as? String)
+                              email: saved["email"],
+                              displayName: saved["name"])
         }
     }
 
@@ -68,9 +68,16 @@ actor MockAuthService: AuthService {
     @discardableResult
     private func persist(_ new: Session) -> Session {
         session = new
-        store.set(["id": new.userID,
-                   "email": new.email as Any,
-                   "name": new.displayName as Any], forKey: key)
+
+        // Only real values go in. `nil as Any` is not a property-list type, and
+        // UserDefaults throws rather than skipping it — which is how signing in
+        // with Apple crashed the app, since Apple returns no email on any sign-in
+        // after the first.
+        var stored: [String: String] = ["id": new.userID]
+        if let email = new.email { stored["email"] = email }
+        if let name = new.displayName { stored["name"] = name }
+        store.set(stored, forKey: key)
+
         return new
     }
 }

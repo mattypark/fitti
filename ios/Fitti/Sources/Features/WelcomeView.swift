@@ -24,9 +24,30 @@ struct WelcomeView: View {
             BlobDots(screen: "welcome", count: 4).ignoresSafeArea()
 
             VStack(spacing: Space.lg) {
+                #if DEBUG
+                // Development only. Lets the app be driven without a real
+                // account while the product is still being shaped. Compiled out
+                // of release, so it cannot ship — a skip button in a shipped
+                // build is a hidden feature under App Store guideline 2.3.1.
+                HStack {
+                    Spacer()
+                    Button("Skip") {
+                        onSignedIn(Session(userID: "local-preview",
+                                           email: "you@fitti.app",
+                                           displayName: "Matthew"))
+                    }
+                    .font(.fittiCallout)
+                    .foregroundStyle(palette.onGroundSoft)
+                    .padding(.horizontal, Space.sm)
+                    .padding(.vertical, Space.xxs)
+                    .background(palette.groundLift, in: Capsule())
+                }
+                .padding(.top, Space.xs)
+                #endif
+
                 Spacer()
 
-                Mascot(size: 130)
+                RiveMascot(size: 130)
 
                 VStack(spacing: Space.xs) {
                     Text("Fitti")
@@ -128,8 +149,20 @@ struct WelcomeView: View {
             .background(palette.groundLift, in: RoundedRectangle(cornerRadius: Radius.sm, style: .continuous))
         } else {
             HStack(spacing: Space.xs) {
-                TextField("you@email.com", text: $email)
+                // Drawn rather than using TextField's own placeholder. Neither
+                // .foregroundStyle nor .tint reliably governs that placeholder's
+                // colour, and it kept rendering in the system accent, which made
+                // it read as a tappable link rather than as a hint.
+                TextField("", text: $email)
                     .foregroundStyle(palette.onGround)
+                    .overlay(alignment: .leading) {
+                        if email.isEmpty {
+                            Text("you@email.com")
+                                .font(.fittiBody)
+                                .foregroundStyle(palette.onGroundSoft)
+                                .allowsHitTesting(false)
+                        }
+                    }
                     .textContentType(.emailAddress)
                     .keyboardType(.emailAddress)
                     .textInputAutocapitalization(.never)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03B36422394371D342B6B656 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 0F6A6CC9F08FFB4C9B961805 /* RiveRuntime */; };
 		048EAB5BA20184F2A22A10EE /* CaptureTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA57EAEA89E0A8A37DEEFA02 /* CaptureTile.swift */; };
 		053075B7B926C6AD0425AEBC /* AIConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6F87F819DBE3950203195 /* AIConsentView.swift */; };
 		05C905B05F02848150848B81 /* LimitMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C41DB872F198D1C10437CAE /* LimitMeter.swift */; };
@@ -53,6 +54,7 @@
 		CB049C4CD8F5D61216DC6A58 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610A02F8B973CC7117DF2FE /* CameraController.swift */; };
 		D62C4AC08A732B56579C4438 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */; };
 		DB522038ED1DE320EB0CAA74 /* FittiBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392184995BA15A41F4BABBD /* FittiBlob.swift */; };
+		DF99091A3ECEB36D2F5EECD3 /* RiveMascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C389A66D92B592DAF6102 /* RiveMascot.swift */; };
 		E5E1155B9CB5B463B7D687EC /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572F402D3F3A4F3C8E8A7D6 /* DiscoverView.swift */; };
 		EB0E20980DF6F6EB7AAD127C /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DE59FD59476C8332385D52 /* PaywallView.swift */; };
 		EC70246D5DB5D95D239D2083 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C39858CC81D5485F37D4D23 /* AppGroup.swift */; };
@@ -115,6 +117,7 @@
 		8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitFigure.swift; sourceTree = "<group>"; };
 		8B2922D787E623D64E7026B1 /* BlobShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobShape.swift; sourceTree = "<group>"; };
 		8B49747846F9E0724C42F07E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		910C389A66D92B592DAF6102 /* RiveMascot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiveMascot.swift; sourceTree = "<group>"; };
 		9133E8BDA773FA9239CD9B81 /* ClosetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetView.swift; sourceTree = "<group>"; };
 		93F6691610DA7B5A988990B6 /* Fitti.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fitti.entitlements; sourceTree = "<group>"; };
 		9572F402D3F3A4F3C8E8A7D6 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 				B2C8544A01804A01741C71E1 /* FittiDesign in Frameworks */,
 				996AEE8AE3B745BFA7D6139E /* FittiEngine in Frameworks */,
 				AF66445F8402133F9527F958 /* Supabase in Frameworks */,
+				03B36422394371D342B6B656 /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +315,7 @@
 				2C41DB872F198D1C10437CAE /* LimitMeter.swift */,
 				066E85FFA903207CE4626768 /* Mascot.swift */,
 				8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */,
+				910C389A66D92B592DAF6102 /* RiveMascot.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 				7006F125F21C75A43BE223B0 /* FittiDesign */,
 				E438AD8A472FCD83220810C8 /* FittiEngine */,
 				1FB952A5CCCB454E83C93561 /* Supabase */,
+				0F6A6CC9F08FFB4C9B961805 /* RiveRuntime */,
 			);
 			productName = Fitti;
 			productReference = 0ACC00DCCC5B78DD1A9A2017 /* Fitti.app */;
@@ -405,6 +411,7 @@
 			mainGroup = C85152ABF58CD30CF4BA941E;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				F93545A4A60D0C187D8CE76F /* XCRemoteSwiftPackageReference "rive-ios" */,
 				491FF46EF250B65B00AF29E9 /* XCRemoteSwiftPackageReference "supabase-swift" */,
 				6F3E4FDD167DC7ADB806E35A /* XCLocalSwiftPackageReference "FittiDesign" */,
 			);
@@ -472,6 +479,7 @@
 				1FE3F6BD23F108B82306DFB1 /* OutfitFigure.swift in Sources */,
 				559AFF3F3CBF9BEAD8BF4B83 /* OutfitsView.swift in Sources */,
 				EB0E20980DF6F6EB7AAD127C /* PaywallView.swift in Sources */,
+				DF99091A3ECEB36D2F5EECD3 /* RiveMascot.swift in Sources */,
 				8E9B96C0E6FF9D48CE09EC67 /* RootGate.swift in Sources */,
 				4AE37454E9F8DE68A983C51A /* RootView.swift in Sources */,
 				95550376DDA815443892F28D /* SharedInbox.swift in Sources */,
@@ -762,9 +770,22 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		F93545A4A60D0C187D8CE76F /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0F6A6CC9F08FFB4C9B961805 /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F93545A4A60D0C187D8CE76F /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
+		};
 		1FB952A5CCCB454E83C93561 /* Supabase */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 491FF46EF250B65B00AF29E9 /* XCRemoteSwiftPackageReference "supabase-swift" */;

@@ -64,6 +64,8 @@ fittie/
 
 ## Research
 
+- **[docs/RIVE.md](docs/RIVE.md)** — how to author the mascot's animation file,
+  and why Rive and the shader both earn their place.
 - **[docs/ANIMATION.md](docs/ANIMATION.md)** — why the mascot is a Metal shader and
   not a sprite sheet or a transparent video, what each shader does, and the Rive
   plan for when we want real character performance.
