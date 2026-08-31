@@ -1,5 +1,15 @@
 # Animating Fitti in Rive
 
+**Rive ships an official MCP server, and it is already running on this Mac** at
+`127.0.0.1:9791`, registered as `rive`. It exposes 39 tools, including
+`mesh_rigging_tool` — which does `generateMesh` (traced to the image silhouette),
+`bindBones`, and `autoWeight`. That is the rigging this document previously said
+had to be done by hand.
+
+**So Claude can build `fitti.riv` directly.** The only manual step left is
+creating the bones: no tool exposes bone creation, so a human presses **B** and
+drags three times. About two minutes, once.
+
 The runtime is wired and building. Drop `fitti.riv` into
 `ios/Fitti/Resources/` and `RiveMascot` picks it up automatically — no code
 change. Until then it falls back to the Metal shader, so nothing is ever broken
@@ -22,11 +32,32 @@ blink is tedious. Use each for what it's good at.
 | | |
 |---|---|
 | Runtime | `RiveRuntime` 6.25.0, **MIT**, free forever |
-| Editor | Free tier works; **$9/seat/mo** to ship to production |
+| Editor | **$9/seat/mo (Cadet) required — the Free tier cannot export at all.** Not "no production rights": you cannot get a `.riv` out for even a debug build |
 | Min iOS | 14.0 — we're on 18, fine |
 | Already in | `ios/project.yml`, resolved and building |
 
 ## Authoring the file
+
+**The short version now:** open Rive, make a 512×512 artboard named `Fitti`, draw
+three bones, and hand the rest to Claude through the MCP:
+
+```
+upload_asset       assets/logo/mascot-cutout.png     ← the one WITH alpha
+assets_tool        addImageInstance
+mesh_rigging_tool  generateMesh { trace: true, detail: 0.5, subdivisions: 2 }
+mesh_rigging_tool  bindBones { boneNames: ["root", "squish", "lobe"] }
+animation_editor   createStateMachine "Fitti"  (mood / level / lookX / poke)
+export_file        { format: "riv", destination: "ios/Fitti/Resources" }
+```
+
+Two gotchas: binding a target the first time **auto-weights it**, so a separate
+`autoWeight` call is only needed to re-run with different settings. And if
+several overlapping shapes share bones, weight them in **one** call or the
+artwork tears at the seam.
+
+Use `mascot-cutout.png`, not `mascot.png` — the latter has no alpha channel.
+
+The manual version, for reference:
 
 1. **New file** in the Rive editor, **512 × 512** artboard named `Fitti`.
 2. **Import** `assets/logo/mascot-cutout.png` (already background-free).
@@ -80,13 +111,23 @@ RiveMascot(size: 130, mood: outfitScore, level: closetFullness)
 need (meshes, and bone binding/weighting). About **8–16 hours** to a shippable
 blob if you've never used it.
 
-Rive's **AI Agent** (free tier, hourly quota) is genuinely useful for the state
-machine plumbing. It will **not** rig the PNG for you — that's still the manual
-part, and it's the part worth learning.
+Rive's MCP **does** rig the PNG — `mesh_rigging_tool` traces the mesh to the
+silhouette and auto-computes vertex weights. Only bone creation is manual.
 
-## Before shipping it
+## App size — measured, and it is a non-issue
 
-**Measure the app-size delta.** The XCFramework zip is 115 MB all-platform-fat;
-the thinned arm64 contribution is much smaller, but check an App Store size
-report before committing. That's the single biggest reason a small app rejects
-Rive, and it's better to know now than after the animation work is done.
+The xcframework is 397 MB on disk, but that is eight platform slices plus dSYMs.
+The artifact that actually ships is `ios-arm64/RiveRuntime.framework/RiveRuntime`
+= **6.0 MB**, and roughly **2–3 MB** after App Store thinning. This was listed as
+the main reason to hesitate. It isn't one.
+
+## What still needs a human
+
+1. **Creating the bones** — no MCP tool exposes it. Press B, drag three times.
+2. **The $9/mo Cadet seat** — the Free tier cannot export a `.riv` at all.
+3. **Looking at it.** `simulateStateMachine` returns a console trace and does not
+   render pixels. Nothing tells you whether the blob looks alive or looks like
+   melting wax — which is exactly the judgment that killed the drawn version.
+4. **Where the forced edges go.** `detail` and `subdivisions` are parameters;
+   "put forced edges around the face so it doesn't smear" is a call about where
+   the character's structure is.

@@ -51,16 +51,33 @@ The lesson: the PNG's appeal is its *rendering* — subsurface-ish shading, soft
 specular, real depth. A gradient-filled vector path cannot reach that, and the gap
 is obvious side by side.
 
-**Research is in flight** on the right pipeline: Blender MCP driven headlessly,
-OpenUSD authored in Python (`UsdSkel` blend shapes), image-to-3D services (Tripo,
-Meshy, Rodin, Hunyuan3D), programmatic Lottie generation, and whether any MCP can
-author a `.riv`. The question is which of these an agent can drive end to end
-versus which need a human in a GUI.
+**The research came back with a clear answer: use Rive, driven by its official
+MCP.** That MCP exists, is already running on this Mac at `127.0.0.1:9791`, and
+is registered with Claude as `rive`. Its `mesh_rigging_tool` traces a mesh to the
+image silhouette, binds bones and auto-computes weights — the step previously
+believed to be manual.
 
-**Constraint that shaped the question:** Rive has no MCP, and `.riv` is a compiled
-binary its editor produces — so it cannot be authored from a coding session. Rive
-remains wired in the app (`RiveMascot`, falls back to the shader) if we later
-decide a human should rig it. `docs/RIVE.md` has that path.
+This is the only route that **deforms the actual approved artwork** rather than
+redrawing it, which is precisely why it cannot repeat the flat-vector failure.
+
+**Do this next:**
+
+1. Open Rive, new file, **512×512 artboard named `Fitti`**.
+2. Draw **three bones** — root at the base, a squish bone up the centre, one lobe
+   bone. This is the only manual step; no MCP tool creates bones.
+3. Hand the rest to Claude via the `rive` MCP — see `docs/RIVE.md` for the exact
+   tool sequence.
+4. Export to `ios/Fitti/Resources/fitti.riv`. `RiveMascot` already loads it and
+   already sends `mood` / `level` / `poke`; add `lookX` for the gaze.
+
+**Needs paying for: $9/mo Cadet.** Rive's Free tier cannot export a `.riv` at
+all — not even for a debug build. That is the one purchase this route requires.
+App size is **6 MB** arm64, ~2–3 MB after thinning, so the size worry is dead.
+
+Rejected alternatives, with reasons, are in `docs/ANIMATION.md`: Lottie can't
+mesh-deform (same flat-vector failure), Blender means rebuilding a character we
+already have, and a RealityKit route keeps a render loop awake for a mascot on
+every screen. SceneKit is now hard-deprecated, and `Model3D` is visionOS-only.
 
 ---
 

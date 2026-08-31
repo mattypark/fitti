@@ -186,9 +186,9 @@ final class FittiRive: ObservableObject {
 }
 ```
 
-**Learning path:** [Rive 101](https://rive101.com/) lessons **5.2 and 5.4** cover
-meshes and bone binding — the only two you need. **8–16 hours** to a shippable
-blob for someone who isn't an animator.
+**Learning path:** largely obsolete now that the MCP does the rigging. Realistic
+cost is ~15 minutes of human work (draw three bones), $9/month, and an afternoon
+of agent iteration — not the 8–16 hours originally budgeted.
 
 **Before committing, measure the app-size delta.** The XCFramework zip is 115 MB
 all-platform-fat; the thinned arm64 contribution is far smaller, but check an App
