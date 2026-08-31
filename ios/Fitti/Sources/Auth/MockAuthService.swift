@@ -48,6 +48,10 @@ actor MockAuthService: AuthService {
         store.removeObject(forKey: key)
     }
 
+    func deleteAccount() async {
+        await signOut()
+    }
+
     @discardableResult
     private func persist(_ new: Session) -> Session {
         session = new

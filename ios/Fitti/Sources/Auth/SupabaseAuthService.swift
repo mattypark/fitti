@@ -66,6 +66,14 @@ actor SupabaseAuthService: AuthService {
         return session
     }
 
+    /// Deletion runs server-side: the anon key cannot remove a user, and it must
+    /// cascade to garments, outfits and stored images. The route verifies the
+    /// caller's own session before deleting anything.
+    func deleteAccount() async {
+        _ = try? await client.functions.invoke("delete-account")
+        try? await client.auth.signOut()
+    }
+
     func signOut() async {
         try? await client.auth.signOut()
     }

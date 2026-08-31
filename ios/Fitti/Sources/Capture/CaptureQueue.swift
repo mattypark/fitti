@@ -108,6 +108,22 @@ actor CaptureQueue {
         }
     }
 
+    /// Removes every stored image and the queue itself. Used by account deletion,
+    /// where leaving photos of someone's bedroom on disk after they asked for
+    /// everything to go would be the worst possible bug to ship.
+    func deleteEverything() {
+        load()
+        for item in order.compactMap({ items[$0] }) {
+            for file in [item.originalFile, item.thumbnailFile, item.cutoutFile].compactMap({ $0 })
+            where !file.isEmpty {
+                try? FileManager.default.removeItem(at: AppGroup.url(for: file))
+            }
+        }
+        items.removeAll()
+        order.removeAll()
+        try? FileManager.default.removeItem(at: logURL)
+    }
+
     /// Rewrites the log without superseded records. Cheap to run at launch; without
     /// it the file grows forever, since every state change appends.
     func compact() {

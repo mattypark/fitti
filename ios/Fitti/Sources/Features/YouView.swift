@@ -6,6 +6,9 @@ struct YouView: View {
     let session: Session
     var onSignOut: () -> Void
 
+    @State private var confirmingDelete = false
+    @State private var deleting = false
+
     private let swatches = [GridItem(.adaptive(minimum: 52), spacing: Space.sm)]
 
     var body: some View {
@@ -69,6 +72,16 @@ struct YouView: View {
                         .font(.fittiCallout)
                         .foregroundStyle(state.palette.accent)
                         .padding(.top, Space.xxs)
+
+                    // Required by App Store guideline 5.1.1(v) since June 2022:
+                    // an app with accounts must offer deletion from inside the
+                    // app. Signing out does not satisfy it, and burying it behind
+                    // a support email does not either.
+                    Button("Delete my account") { confirmingDelete = true }
+                        .font(.fittiCallout)
+                        .foregroundStyle(state.palette.onGroundSoft)
+                        .padding(.top, Space.xxs)
+                        .disabled(deleting)
                 }
             }
             .padding(.horizontal, Space.gutter)
@@ -76,6 +89,32 @@ struct YouView: View {
             .padding(.bottom, Space.xxl)
         }
         .scrollIndicators(.hidden)
+        .confirmationDialog(
+            "Delete your account?",
+            isPresented: $confirmingDelete,
+            titleVisibility: .visible
+        ) {
+            Button("Delete everything", role: .destructive) {
+                Task { await deleteAccount() }
+            }
+            Button("Keep my closet", role: .cancel) {}
+        } message: {
+            // Say what actually goes, and that it is permanent. A vague warning
+            // is how people delete things they meant to keep.
+            Text("This removes your closet, your outfits and your photos for good. It can't be undone.")
+        }
+    }
+
+    /// Deletes the account and everything attached to it.
+    ///
+    /// Local files go first: if the server call fails the user is still signed
+    /// out with nothing left on the device, which is the safer half to get wrong.
+    private func deleteAccount() async {
+        deleting = true
+        defer { deleting = false }
+        await CaptureQueue.shared.deleteEverything()
+        await AuthProvider.current.deleteAccount()
+        onSignOut()
     }
 
     private func swatch(_ ground: Ground) -> some View {

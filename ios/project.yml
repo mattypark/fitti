@@ -55,6 +55,12 @@ targets:
               - fitti
     entitlements:
       path: Fitti/Fitti.entitlements
+      properties:
+        com.apple.developer.applesignin:
+          - Default
+        # Shared with the share extension: it writes here, the app drains it.
+        com.apple.security.application-groups:
+          - group.com.matthewpark.fitti
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.matthewpark.fitti
@@ -86,6 +92,9 @@ targets:
         CFBundleDisplayName: Fitti
     entitlements:
       path: ShareExtension/ShareExtension.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.matthewpark.fitti
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.matthewpark.fitti.share

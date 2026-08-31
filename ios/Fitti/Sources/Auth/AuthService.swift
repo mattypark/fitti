@@ -41,6 +41,10 @@ protocol AuthService: Sendable {
     func sendMagicLink(to email: String) async throws
     func signInWithGoogle() async throws -> Session
     func signOut() async
+
+    /// Permanently deletes the account and its server-side data.
+    /// App Store guideline 5.1.1(v) — not optional for any app with accounts.
+    func deleteAccount() async
 }
 
 /// Swap point. `AuthProvider.current = SupabaseAuthService()` once the SDK lands.
