@@ -44,6 +44,7 @@ struct OutfitsView: View {
                 weekStrip
                 askBar
                 greeting
+                verdict
                 todaysLook
                 suggestions
             }
@@ -264,6 +265,15 @@ struct OutfitsView: View {
     }
 
     // MARK: - Suggestions
+
+    @ViewBuilder
+    private var verdict: some View {
+        if let best = suggested.first {
+            FittiVerdict(outfit: best, palette: palette)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, Space.md)
+        }
+    }
 
     private var suggestions: some View {
         VStack(alignment: .leading, spacing: Space.sm) {

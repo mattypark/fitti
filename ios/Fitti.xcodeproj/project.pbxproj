@@ -20,6 +20,7 @@
 		1C1C8C0E84C4608F23725A24 /* LibraryImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0537E153F726AA028CC382 /* LibraryImport.swift */; };
 		1E0428CD2F4DF2BAD5A600D3 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C39858CC81D5485F37D4D23 /* AppGroup.swift */; };
 		1FE3F6BD23F108B82306DFB1 /* OutfitFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */; };
+		36B67379770B22E15DF4C141 /* FittiSilhouette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7365A6B93FDAFDB9687902 /* FittiSilhouette.swift */; };
 		3DD2883297F376315A6EB16E /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B616639345066C0F0D92C66B /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3E8C7E8AEF01552E13D5A25D /* MockDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14402A507A35E89A8EA27C8 /* MockDay.swift */; };
 		42C2AC5625E173C0CC57E57A /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125F22E450C282EF85110DD /* CameraPreview.swift */; };
@@ -46,6 +47,7 @@
 		996AEE8AE3B745BFA7D6139E /* FittiEngine in Frameworks */ = {isa = PBXBuildFile; productRef = E438AD8A472FCD83220810C8 /* FittiEngine */; };
 		9B64EA9DFF629D51FD2A2F3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B49747846F9E0724C42F07E /* Assets.xcassets */; };
 		9C3EA37D56FFDDDAEEB53998 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BA39694A9FA5019689054 /* Entitlements.swift */; };
+		A068C30391F5A2E99B21A509 /* FittiCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD202FC8BC1494C6966FEFC /* FittiCharacter.swift */; };
 		A585CD34B87F8F9498A90CF0 /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066E85FFA903207CE4626768 /* Mascot.swift */; };
 		AF66445F8402133F9527F958 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB952A5CCCB454E83C93561 /* Supabase */; };
 		B2C8544A01804A01741C71E1 /* FittiDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 7006F125F21C75A43BE223B0 /* FittiDesign */; };
@@ -57,6 +59,7 @@
 		DB522038ED1DE320EB0CAA74 /* FittiBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3392184995BA15A41F4BABBD /* FittiBlob.swift */; };
 		DF99091A3ECEB36D2F5EECD3 /* RiveMascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910C389A66D92B592DAF6102 /* RiveMascot.swift */; };
 		E5E1155B9CB5B463B7D687EC /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572F402D3F3A4F3C8E8A7D6 /* DiscoverView.swift */; };
+		E9DD1531854088DDF8F846C3 /* FittiVerdict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761A7CC601373B7446C46C86 /* FittiVerdict.swift */; };
 		EB0E20980DF6F6EB7AAD127C /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DE59FD59476C8332385D52 /* PaywallView.swift */; };
 		EC70246D5DB5D95D239D2083 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C39858CC81D5485F37D4D23 /* AppGroup.swift */; };
 		EE64E8FD6FD36330EAD95084 /* CutoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34AA96F83E878E9C7D77BA /* CutoutService.swift */; };
@@ -109,16 +112,19 @@
 		5A34AA96F83E878E9C7D77BA /* CutoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutoutService.swift; sourceTree = "<group>"; };
 		64DC35D70D5ABE8836246932 /* RootGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootGate.swift; sourceTree = "<group>"; };
 		7125F22E450C282EF85110DD /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		761A7CC601373B7446C46C86 /* FittiVerdict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FittiVerdict.swift; sourceTree = "<group>"; };
 		783163BB1FB95E3C135642AD /* SupabaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseAuthService.swift; sourceTree = "<group>"; };
 		7E9E2BFD6B0337E113ADFF16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		82CF32D16ACE0AD1E6058CB6 /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		8570A02D93663E89ADDC8462 /* BagelFatOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BagelFatOne-Regular.ttf"; sourceTree = "<group>"; };
 		8610A02F8B973CC7117DF2FE /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		8A7365A6B93FDAFDB9687902 /* FittiSilhouette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FittiSilhouette.swift; sourceTree = "<group>"; };
 		8AE1D6A93CA30B9DA6183227 /* Blob.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Blob.metal; sourceTree = "<group>"; };
 		8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitFigure.swift; sourceTree = "<group>"; };
 		8B2922D787E623D64E7026B1 /* BlobShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobShape.swift; sourceTree = "<group>"; };
 		8B316D01B7E75A1FD69AE07A /* WelcomeSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeSequence.swift; sourceTree = "<group>"; };
 		8B49747846F9E0724C42F07E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8BD202FC8BC1494C6966FEFC /* FittiCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FittiCharacter.swift; sourceTree = "<group>"; };
 		910C389A66D92B592DAF6102 /* RiveMascot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiveMascot.swift; sourceTree = "<group>"; };
 		9133E8BDA773FA9239CD9B81 /* ClosetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetView.swift; sourceTree = "<group>"; };
 		93F6691610DA7B5A988990B6 /* Fitti.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fitti.entitlements; sourceTree = "<group>"; };
@@ -313,6 +319,9 @@
 				8B2922D787E623D64E7026B1 /* BlobShape.swift */,
 				EA57EAEA89E0A8A37DEEFA02 /* CaptureTile.swift */,
 				3392184995BA15A41F4BABBD /* FittiBlob.swift */,
+				8BD202FC8BC1494C6966FEFC /* FittiCharacter.swift */,
+				8A7365A6B93FDAFDB9687902 /* FittiSilhouette.swift */,
+				761A7CC601373B7446C46C86 /* FittiVerdict.swift */,
 				F576CE8E8A2C8529009A2C60 /* GarmentTile.swift */,
 				2C41DB872F198D1C10437CAE /* LimitMeter.swift */,
 				066E85FFA903207CE4626768 /* Mascot.swift */,
@@ -471,6 +480,9 @@
 				9C3EA37D56FFDDDAEEB53998 /* Entitlements.swift in Sources */,
 				524485FC4410AC8D25C1513E /* FittiApp.swift in Sources */,
 				DB522038ED1DE320EB0CAA74 /* FittiBlob.swift in Sources */,
+				A068C30391F5A2E99B21A509 /* FittiCharacter.swift in Sources */,
+				36B67379770B22E15DF4C141 /* FittiSilhouette.swift in Sources */,
+				E9DD1531854088DDF8F846C3 /* FittiVerdict.swift in Sources */,
 				0A040C5F4BAB49AE77EA0144 /* GarmentTile.swift in Sources */,
 				18F78AAB526647CE6136CD55 /* ImagePipeline.swift in Sources */,
 				1C1C8C0E84C4608F23725A24 /* LibraryImport.swift in Sources */,
