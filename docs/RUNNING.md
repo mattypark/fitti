@@ -1,7 +1,11 @@
 # Running Fitti locally
 
 Honest status: stages 0–2 are done, so what runs today is the design system and
-its tests. The iOS app and web app get scaffolded in stages 3 and 12.
+the database. The iOS app and web app get scaffolded in stages 3 and 12.
+
+**Fitti runs on its own ports** (`54421`–`54429`) so it never collides with the
+Supabase stacks of your other projects. `rit-web` holds the default `5432x`
+range; both can be up at once.
 
 ## What works right now
 
@@ -25,22 +29,30 @@ Requires **Docker running** — that's the only prerequisite you're missing.
 ```bash
 open -a Docker            # wait for the whale in the menu bar
 cd /Users/matthewpark/Downloads/current-projects/appscurrent/fittie
-supabase init             # once
-supabase start            # prints your local URL + keys
+supabase start            # already init'd; prints your local URL + keys
 supabase db reset         # applies supabase/migrations/*.sql
 ```
 
-`supabase start` prints a URL and an anon key — paste those into `.env.local`.
-Studio comes up at http://localhost:54323 for poking at tables by hand.
+- API → http://127.0.0.1:54421
+- Studio → http://127.0.0.1:54423
+- Postgres → `postgresql://postgres:postgres@127.0.0.1:54422/postgres`
+- Mail catcher → http://127.0.0.1:54424
 
-To verify RLS is actually doing its job (this is the test that matters):
+`supabase start` prints the anon and service-role keys; paste them into `.env.local`.
+
+### The test that actually matters
 
 ```bash
-supabase db reset && psql "$(supabase status -o env | grep DB_URL | cut -d= -f2-)" \
-  -c "select tablename, rowsecurity from pg_tables where schemaname='public';"
+./scripts/test-db.sh
 ```
 
-Every row must say `t`. A `f` means a table is readable by anyone.
+Seven checks, run inside the database: a user sees only their own garments;
+looking one up by primary key still returns nothing; an insert with a forged
+`user_id` is rejected; update and delete of someone else's row touch zero rows;
+entitlements are readable but not self-grantable; the 25-garment ceiling is
+enforced by trigger; and every public table has RLS on.
+
+It runs in a transaction that rolls back, so it never leaves test data behind.
 
 ## What doesn't exist yet
 

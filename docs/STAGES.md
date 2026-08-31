@@ -18,7 +18,9 @@ Live checklist. Updated as each stage lands; each one is committed on completion
   - 14 tables: garments, assets, embeddings, outfits, wears, catalog, events, entitlements, jobs
   - RLS deny-by-default on every table, `force row level security` so even the owning role obeys
   - Free-tier ceiling enforced by database trigger, not by route handlers
-  - Not yet executed — needs Docker running for `supabase start`
+  - Explicit table grants — a policy without a GRANT still yields "permission denied"
+  - **Applied and verified locally**: 7 RLS isolation tests passing (`./scripts/test-db.sh`)
+  - Runs on ports 54421–54429 so it never collides with other projects' stacks
 
 - [ ] **3 — iOS shell + motion**
   - Xcode project, five tabs with the oversized centre capture button

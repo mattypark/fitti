@@ -184,3 +184,52 @@ drop trigger if exists garments_enforce_limit on public.garments;
 create trigger garments_enforce_limit
   before insert on public.garments
   for each row execute function public.enforce_garment_limit();
+
+-- ---------------------------------------------------------------------------
+-- Table grants
+--
+-- RLS and GRANT are two different gates and BOTH are required. A policy decides
+-- which rows a role may touch; a grant decides whether the role may touch the
+-- table at all. Without the grant, a perfectly correct policy still yields
+-- "permission denied for table garments".
+--
+-- Written out explicitly rather than inherited from ALTER DEFAULT PRIVILEGES.
+-- Supabase's defaults are set per creating-role, so what a table ends up with
+-- depends on which role happened to run the migration — a dependency that is
+-- invisible in the file and breaks silently. Being explicit means the grants a
+-- table has are the grants this file says it has.
+--
+-- anon gets nothing anywhere: Fitti requires sign-in.
+-- ---------------------------------------------------------------------------
+do $$
+declare
+  target text;
+  -- Full CRUD, then narrowed to your own rows by the policies above.
+  rw_tables text[] := array[
+    'profiles', 'garments', 'garment_assets', 'garment_embeddings',
+    'outfits', 'outfit_items', 'wears', 'style_context',
+    'feed_requests', 'events', 'ai_usage', 'ingest_jobs'
+  ];
+  -- Read-only to clients. Written server-side only.
+  ro_tables text[] := array['catalog_items', 'catalog_embeddings', 'entitlements'];
+begin
+  foreach target in array rw_tables loop
+    execute format('grant select, insert, update, delete on public.%I to authenticated', target);
+  end loop;
+
+  foreach target in array ro_tables loop
+    execute format('grant select on public.%I to authenticated', target);
+  end loop;
+
+  -- events.id is a bigserial; without usage on its sequence, inserts fail.
+  grant usage, select on all sequences in schema public to authenticated;
+end
+$$;
+
+-- The service role bypasses RLS by design and is used only by the server, after
+-- it has done its own ownership check.
+grant all on all tables in schema public to service_role;
+grant all on all sequences in schema public to service_role;
+
+-- Nothing is public. Sign-in is required to see anything at all.
+revoke all on all tables in schema public from anon;
