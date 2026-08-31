@@ -24,7 +24,7 @@ struct RootView: View {
                     switch state.tab {
                     case .closet:   ClosetView(state: state)
                     case .discover: DiscoverView()
-                    case .outfits:  OutfitsView(palette: state.palette)
+                    case .outfits:  OutfitsView(palette: state.palette, name: session.displayName)
                     case .you:      YouView(state: state, session: session, onSignOut: onSignOut)
                     }
                 }

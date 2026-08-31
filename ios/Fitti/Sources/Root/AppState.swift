@@ -11,7 +11,7 @@ enum Tab: Hashable, CaseIterable {
 @Observable
 @MainActor
 final class AppState {
-    var tab: Tab = .closet
+    var tab: Tab = .outfits
     var isCapturing = false
 
     /// The screen colour. Assigned at signup today; later derived from the
