@@ -1,0 +1,41 @@
+{
+  "identifier" : "FITTI-LOCAL",
+  "nonRenewingSubscriptions" : [],
+  "products" : [],
+  "settings" : {
+    "_applicationInternalID" : "0",
+    "_developerTeamID" : "",
+    "_lastSynchronizedDate" : 0
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21500001",
+      "localizations" : [],
+      "name" : "Fitti",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [],
+          "codeOffers" : [],
+          "displayPrice" : "3.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "21500002",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Keep as many pieces as you actually own.",
+              "displayName" : "Fitti Plus",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "com.matthewpark.fitti.plus.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Fitti Plus Monthly",
+          "subscriptionGroupID" : "21500001",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : { "major" : 4, "minor" : 0 }
+}

@@ -38,6 +38,8 @@ targets:
         # TestFlight upload. True only if we ever add non-exempt cryptography;
         # HTTPS alone is exempt.
         ITSAppUsesNonExemptEncryption: false
+    entitlements:
+      path: Fitti/Fitti.entitlements
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.matthewpark.fitti
@@ -61,6 +63,9 @@ schemes:
         Fitti: all
     run:
       config: Debug
+      # Lets the paywall be exercised end to end with no App Store Connect record
+      # and no sandbox account. Ignored in Release.
+      storeKitConfiguration: Fitti.storekit
     test:
       config: Debug
     profile:

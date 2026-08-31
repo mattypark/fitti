@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		05C905B05F02848150848B81 /* LimitMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C41DB872F198D1C10437CAE /* LimitMeter.swift */; };
+		07319892CADCA44401974D84 /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CF32D16ACE0AD1E6058CB6 /* MockAuthService.swift */; };
 		0A040C5F4BAB49AE77EA0144 /* GarmentTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F576CE8E8A2C8529009A2C60 /* GarmentTile.swift */; };
 		157550F9AA2853FB3BEE6105 /* MockCloset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB3C577653B74F746E9132 /* MockCloset.swift */; };
 		1A2DC53F817853C0094D37D4 /* BlobDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432DE04B822CA01CA7277AB /* BlobDots.swift */; };
@@ -19,11 +20,16 @@
 		559AFF3F3CBF9BEAD8BF4B83 /* OutfitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E450B3F33E88DB8EBD82590 /* OutfitsView.swift */; };
 		67AEAF8D3C0757C4EEFC9F56 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E51D01B4C9CDAC8793385 /* TabBar.swift */; };
 		6C23B4658A6A4CE76828CF35 /* BlobShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2922D787E623D64E7026B1 /* BlobShape.swift */; };
+		7080EE8FC002F88F9E8B4371 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1545C3FB121A35033002CA58 /* WelcomeView.swift */; };
+		7A5209434350EFE552A65096 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D275C55980E36D741B280774 /* AuthService.swift */; };
+		8E9B96C0E6FF9D48CE09EC67 /* RootGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DC35D70D5ABE8836246932 /* RootGate.swift */; };
 		9B64EA9DFF629D51FD2A2F3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B49747846F9E0724C42F07E /* Assets.xcassets */; };
+		9C3EA37D56FFDDDAEEB53998 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BA39694A9FA5019689054 /* Entitlements.swift */; };
 		A585CD34B87F8F9498A90CF0 /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066E85FFA903207CE4626768 /* Mascot.swift */; };
 		B2C8544A01804A01741C71E1 /* FittiDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 7006F125F21C75A43BE223B0 /* FittiDesign */; };
 		D62C4AC08A732B56579C4438 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */; };
 		E5E1155B9CB5B463B7D687EC /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572F402D3F3A4F3C8E8A7D6 /* DiscoverView.swift */; };
+		EB0E20980DF6F6EB7AAD127C /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DE59FD59476C8332385D52 /* PaywallView.swift */; };
 		EFDFB0F4D4B1FCBE04D533F8 /* ClosetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133E8BDA773FA9239CD9B81 /* ClosetView.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,19 +38,26 @@
 		066E85FFA903207CE4626768 /* Mascot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mascot.swift; sourceTree = "<group>"; };
 		0ACC00DCCC5B78DD1A9A2017 /* Fitti.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Fitti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1432DE04B822CA01CA7277AB /* BlobDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobDots.swift; sourceTree = "<group>"; };
+		1545C3FB121A35033002CA58 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		1E450B3F33E88DB8EBD82590 /* OutfitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitsView.swift; sourceTree = "<group>"; };
 		2C41DB872F198D1C10437CAE /* LimitMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitMeter.swift; sourceTree = "<group>"; };
 		404463EAF586A240F2745FCA /* YouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouView.swift; sourceTree = "<group>"; };
 		40A4CB6F123472ED628E028D /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
 		412E51D01B4C9CDAC8793385 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		438B4D1A37F42683388FD483 /* FittiDesign */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FittiDesign; path = FittiDesign; sourceTree = SOURCE_ROOT; };
+		64DC35D70D5ABE8836246932 /* RootGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootGate.swift; sourceTree = "<group>"; };
+		82CF32D16ACE0AD1E6058CB6 /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		8B2922D787E623D64E7026B1 /* BlobShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobShape.swift; sourceTree = "<group>"; };
 		8B49747846F9E0724C42F07E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9133E8BDA773FA9239CD9B81 /* ClosetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetView.swift; sourceTree = "<group>"; };
+		93F6691610DA7B5A988990B6 /* Fitti.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fitti.entitlements; sourceTree = "<group>"; };
 		9572F402D3F3A4F3C8E8A7D6 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 		9D0A59926269C48C949A67EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9E0BA39694A9FA5019689054 /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
+		B4DE59FD59476C8332385D52 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		CACB3C577653B74F746E9132 /* MockCloset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCloset.swift; sourceTree = "<group>"; };
 		D09FA0AAD024EC690A12A6A1 /* FittiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FittiApp.swift; sourceTree = "<group>"; };
+		D275C55980E36D741B280774 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		F44B600506594AD66C711E8F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		F576CE8E8A2C8529009A2C60 /* GarmentTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarmentTile.swift; sourceTree = "<group>"; };
@@ -77,18 +90,31 @@
 				9133E8BDA773FA9239CD9B81 /* ClosetView.swift */,
 				9572F402D3F3A4F3C8E8A7D6 /* DiscoverView.swift */,
 				1E450B3F33E88DB8EBD82590 /* OutfitsView.swift */,
+				B4DE59FD59476C8332385D52 /* PaywallView.swift */,
+				1545C3FB121A35033002CA58 /* WelcomeView.swift */,
 				404463EAF586A240F2745FCA /* YouView.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
+		6D76002877E854D27D665D67 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				D275C55980E36D741B280774 /* AuthService.swift */,
+				82CF32D16ACE0AD1E6058CB6 /* MockAuthService.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		845D9812FDD8D5603028B15C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6D76002877E854D27D665D67 /* Auth */,
 				EFA11147CE55166762ED556E /* Components */,
 				3851609581E74423776C8BA8 /* Features */,
 				C95AC3DBEC5B05B657E4C01C /* Model */,
 				964ADECFF7377554401A8ACC /* Root */,
+				C1CF7E9E8DA40BD73AA87CF4 /* Store */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -98,10 +124,19 @@
 			children = (
 				F44B600506594AD66C711E8F /* AppState.swift */,
 				D09FA0AAD024EC690A12A6A1 /* FittiApp.swift */,
+				64DC35D70D5ABE8836246932 /* RootGate.swift */,
 				040AEA4711A463996E0FBE60 /* RootView.swift */,
 				412E51D01B4C9CDAC8793385 /* TabBar.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		C1CF7E9E8DA40BD73AA87CF4 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				9E0BA39694A9FA5019689054 /* Entitlements.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 		C85152ABF58CD30CF4BA941E = {
@@ -125,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				8B49747846F9E0724C42F07E /* Assets.xcassets */,
+				93F6691610DA7B5A988990B6 /* Fitti.entitlements */,
 				9D0A59926269C48C949A67EC /* Info.plist */,
 				D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */,
 				845D9812FDD8D5603028B15C /* Sources */,
@@ -229,19 +265,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				5413313D32BC40EF3731987F /* AppState.swift in Sources */,
+				7A5209434350EFE552A65096 /* AuthService.swift in Sources */,
 				1A2DC53F817853C0094D37D4 /* BlobDots.swift in Sources */,
 				6C23B4658A6A4CE76828CF35 /* BlobShape.swift in Sources */,
 				51CC56DFAE1AE6248BC975F4 /* CaptureView.swift in Sources */,
 				EFDFB0F4D4B1FCBE04D533F8 /* ClosetView.swift in Sources */,
 				E5E1155B9CB5B463B7D687EC /* DiscoverView.swift in Sources */,
+				9C3EA37D56FFDDDAEEB53998 /* Entitlements.swift in Sources */,
 				524485FC4410AC8D25C1513E /* FittiApp.swift in Sources */,
 				0A040C5F4BAB49AE77EA0144 /* GarmentTile.swift in Sources */,
 				05C905B05F02848150848B81 /* LimitMeter.swift in Sources */,
 				A585CD34B87F8F9498A90CF0 /* Mascot.swift in Sources */,
+				07319892CADCA44401974D84 /* MockAuthService.swift in Sources */,
 				157550F9AA2853FB3BEE6105 /* MockCloset.swift in Sources */,
 				559AFF3F3CBF9BEAD8BF4B83 /* OutfitsView.swift in Sources */,
+				EB0E20980DF6F6EB7AAD127C /* PaywallView.swift in Sources */,
+				8E9B96C0E6FF9D48CE09EC67 /* RootGate.swift in Sources */,
 				4AE37454E9F8DE68A983C51A /* RootView.swift in Sources */,
 				67AEAF8D3C0757C4EEFC9F56 /* TabBar.swift in Sources */,
+				7080EE8FC002F88F9E8B4371 /* WelcomeView.swift in Sources */,
 				5142D87E9C37BADB2CB5CB95 /* YouView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +352,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Fitti/Fitti.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -397,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Fitti/Fitti.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

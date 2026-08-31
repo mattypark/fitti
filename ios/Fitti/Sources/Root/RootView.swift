@@ -2,6 +2,9 @@ import SwiftUI
 import FittiDesign
 
 struct RootView: View {
+    let session: Session
+    var onSignOut: () -> Void
+
     @State private var state = AppState()
 
     var body: some View {
@@ -22,14 +25,14 @@ struct RootView: View {
                     case .closet:   ClosetView(state: state)
                     case .discover: DiscoverView()
                     case .outfits:  OutfitsView(palette: state.palette)
-                    case .you:      YouView(state: state)
+                    case .you:      YouView(state: state, session: session, onSignOut: onSignOut)
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 
                 TabBar(
                     selection: $state.tab,
-                    onCapture: { state.isCapturing = true },
+                    onCapture: { state.requestCapture() },
                     palette: state.palette
                 )
             }
@@ -38,6 +41,10 @@ struct RootView: View {
         .sheet(isPresented: $state.isCapturing) {
             CaptureView(palette: state.palette)
         }
+        .sheet(isPresented: $state.showPaywall) {
+            PaywallView(entitlements: state.entitlements, palette: state.palette)
+        }
+        .task { await state.entitlements.refresh() }
         .tint(state.palette.accent)
     }
 

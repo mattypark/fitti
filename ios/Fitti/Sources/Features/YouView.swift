@@ -3,6 +3,8 @@ import FittiDesign
 
 struct YouView: View {
     @Bindable var state: AppState
+    let session: Session
+    var onSignOut: () -> Void
 
     private let swatches = [GridItem(.adaptive(minimum: 52), spacing: Space.sm)]
 
@@ -32,8 +34,42 @@ struct YouView: View {
                     .padding(.top, Space.xxs)
                 }
 
-                LimitMeter(used: state.garments.count, limit: MockCloset.limit)
-                    .foregroundStyle(state.palette.onGround)
+                VStack(alignment: .leading, spacing: Space.sm) {
+                    Text("YOUR PLAN")
+                        .fittiLabelStyle()
+                        .foregroundStyle(state.palette.onGroundSoft)
+
+                    LimitMeter(used: state.garments.count,
+                               limit: Entitlements.freeLimit)
+                        .foregroundStyle(state.palette.onGround)
+
+                    if !state.entitlements.isPlus {
+                        Button("Get unlimited") { state.showPaywall = true }
+                            .font(.fittiHeadline)
+                            .foregroundStyle(Fixed.ink)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 48)
+                            .background(Fixed.yellow,
+                                        in: RoundedRectangle(cornerRadius: Radius.sm,
+                                                             style: .continuous))
+                            .buttonStyle(.squash)
+                    }
+                }
+
+                VStack(alignment: .leading, spacing: Space.xs) {
+                    Text("ACCOUNT")
+                        .fittiLabelStyle()
+                        .foregroundStyle(state.palette.onGroundSoft)
+
+                    Text(session.email ?? session.displayName ?? "Signed in")
+                        .font(.fittiBody)
+                        .foregroundStyle(state.palette.onGround)
+
+                    Button("Sign out", action: onSignOut)
+                        .font(.fittiCallout)
+                        .foregroundStyle(state.palette.accent)
+                        .padding(.top, Space.xxs)
+                }
             }
             .padding(.horizontal, Space.gutter)
             .padding(.top, Space.md)
