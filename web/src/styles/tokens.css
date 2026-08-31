@@ -1,0 +1,114 @@
+/*
+ * Fitti design tokens.
+ *
+ * Mirrors ios/FittiDesign/Sources/FittiDesign/{Palette,Motion,Spacing,Typography}.swift.
+ * Both platforms compute the same six roles from one hue angle, so a screen looks
+ * identical on iPhone and on the web. If you change a number here, change it there.
+ *
+ * Colors are authored in OKLCH so browsers do the gamut mapping — CSS Color 4 reduces
+ * chroma while preserving lightness and hue, which is exactly what OKLCH.gamutMapped()
+ * does in Swift.
+ */
+
+:root {
+  /* ---- the three fixed colors ---- */
+  --ink: #0e0e0c;
+  --paper: #fbfaf6;
+  --brand-yellow: #efc53f;
+
+  /* ---- ground hue: butter is the default, overridden by [data-ground] ---- */
+  --hue: 85;
+
+  /* ---- the six derived roles ----
+     Chroma is uniform across surfaces and text so every ground reads at the same
+     intensity; blue has the least room in sRGB and therefore sets the budget. */
+  --ground:         oklch(0.890 0.052 var(--hue));
+  --ground-sunk:    oklch(0.830 0.052 var(--hue));
+  --ground-lift:    oklch(0.955 0.020 var(--hue));
+  --on-ground:      oklch(0.320 0.052 var(--hue));
+  --on-ground-soft: oklch(0.470 0.050 var(--hue));
+  --accent:         oklch(0.460 0.085 calc(var(--hue) + 25));
+
+  /* ---- type ---- */
+  --ff-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+           system-ui, sans-serif;
+  --ff-loud: "Bagel Fat One", var(--ff-ui);
+  --ff-hand: "Gloria Hallelujah", cursive;
+
+  --fs-display: 2.125rem;  /* 34 */
+  --fs-numeral: 2.75rem;   /* 44 */
+  --fs-title: 1.375rem;    /* 22 */
+  --fs-headline: 1.0625rem;/* 17 */
+  --fs-body: 1.0625rem;    /* 17 */
+  --fs-callout: 0.9375rem; /* 15 */
+  --fs-label: 0.75rem;     /* 12 */
+  --fs-hand: 1rem;         /* 16 */
+
+  /* ---- spacing: 4pt base, 20 gutters ---- */
+  --sp-xxs: 0.25rem;
+  --sp-xs: 0.5rem;
+  --sp-sm: 0.75rem;
+  --sp-md: 1rem;
+  --sp-gutter: 1.25rem;
+  --sp-lg: 1.5rem;
+  --sp-xl: 2rem;
+  --sp-xxl: 3rem;
+  --sp-xxxl: 4rem;
+  /* Tiles nearly touch, so the closet reads as one surface, not a set of cards. */
+  --sp-grid: 2px;
+
+  --r-xs: 6px;
+  --r-sm: 12px;
+  --r-tile: 20px;
+  --r-sheet: 32px;
+  --r-pill: 999px;
+
+  /* ---- motion ----
+     CSS has no spring primitive, so these are the closest curve approximations to the
+     Swift springs. The overshoot on --ease-blob is the point; do not "fix" it. */
+  --ease-blob: linear(
+    0, 0.0088 3.3%, 0.0345 6.6%, 0.1305 12.9%, 0.4223 26.4%, 0.5487 32%,
+    0.6538 37.5%, 0.7402 43.1%, 0.8104 48.8%, 0.8668 54.7%, 0.9115 60.9%,
+    0.9464 67.6%, 0.9727 75%, 0.9915 83.4%, 1.0031 93.2%, 1.0055
+  );
+  --ease-snappy: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-settle: cubic-bezier(0.33, 1, 0.68, 1);
+  --dur-blob: 550ms;
+  --dur-snappy: 320ms;
+  --dur-settle: 450ms;
+  --dur-pour: 900ms;
+}
+
+/* The twelve grounds. Only the hue changes — every role recomputes from it. */
+[data-ground="butter"]     { --hue: 85; }
+[data-ground="amber"]      { --hue: 55; }
+[data-ground="terracotta"] { --hue: 30; }
+[data-ground="rose"]       { --hue: 15; }
+[data-ground="blush"]      { --hue: 350; }
+[data-ground="orchid"]     { --hue: 320; }
+[data-ground="violet"]     { --hue: 285; }
+[data-ground="blue"]       { --hue: 255; }
+[data-ground="sky"]        { --hue: 220; }
+[data-ground="teal"]       { --hue: 195; }
+[data-ground="jade"]       { --hue: 160; }
+[data-ground="moss"]       { --hue: 130; }
+
+/* Discover is deliberately paper, not the user's ground: a white gallery, so the only
+   color on screen belongs to the clothes. */
+[data-surface="gallery"] {
+  --ground: var(--paper);
+  --ground-lift: #ffffff;
+  --on-ground: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --ease-blob: ease-out;
+    --ease-snappy: ease-out;
+    --ease-settle: ease-out;
+    --dur-blob: 120ms;
+    --dur-snappy: 120ms;
+    --dur-settle: 120ms;
+    --dur-pour: 120ms;
+  }
+}
