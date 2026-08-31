@@ -1,5 +1,6 @@
 import SwiftUI
 import FittiDesign
+import FittiEngine
 
 /// Home.
 ///
@@ -13,12 +14,24 @@ import FittiDesign
 struct OutfitsView: View {
     let palette: Palette
     var name: String?
+    /// The real closet. Suggestions are built from these, not from a fixed list.
+    var garments: [MockGarment] = MockCloset.garments
 
     @State private var days = MockWeek.days()
     @State private var selected: UUID?
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     private let forecast = Forecast.mock
+
+    /// Run through the same engine the tests cover, against today's weather.
+    private var suggested: [Outfit] {
+        OutfitEngine.build(
+            from: ClosetBridge.pieces(from: garments),
+            conditions: Conditions(temperatureF: forecast.temperature,
+                                   isRaining: forecast.symbol.contains("rain")),
+            limit: 3
+        )
+    }
 
     private var selectedDay: ClosetDay? {
         days.first { $0.id == selected } ?? days.first(where: \.isToday) ?? days.last
@@ -265,15 +278,16 @@ struct OutfitsView: View {
 
             ScrollView(.horizontal) {
                 HStack(spacing: Space.md) {
-                    ForEach(MockSuggestions.all) { outfit in
+                    ForEach(suggested) { outfit in
                         VStack(spacing: Space.xs) {
-                            OutfitFigure(outfit: outfit, height: 170)
+                            OutfitFigure(outfit: figure(for: outfit), height: 170)
                                 .frame(width: 106)
                                 .padding(.vertical, Space.sm)
                                 .background(palette.groundLift,
                                             in: RoundedRectangle(cornerRadius: Radius.tile,
                                                                  style: .continuous))
-                            Text(outfit.note ?? "")
+                            // The engine's own reason, not a caption written here.
+                            Text(outfit.reasons.first ?? "worth a try")
                                 .font(.system(size: 12))
                                 .foregroundStyle(palette.onGroundSoft)
                                 .frame(width: 106)
@@ -287,6 +301,23 @@ struct OutfitsView: View {
             .padding(.horizontal, -Space.gutter)
         }
         .padding(.horizontal, Space.gutter)
+    }
+}
+
+private extension OutfitsView {
+    /// Maps a scored outfit onto the figure drawing, which wants one hue per layer.
+    func figure(for outfit: Outfit) -> WornOutfit {
+        func hue(_ slot: Slot, fallback: Double) -> Double {
+            outfit.pieces.first { $0.covers.contains(slot) }?.hue ?? fallback
+        }
+        return WornOutfit(
+            wearer: "You",
+            place: "",
+            topHue: hue(.top, fallback: 85),
+            bottomHue: hue(.bottom, fallback: 250),
+            shoeHue: hue(.footwear, fallback: 30),
+            note: outfit.reasons.first
+        )
     }
 }
 

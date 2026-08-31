@@ -20,6 +20,8 @@ targets:
       - path: Fitti
     dependencies:
       - package: FittiDesign
+      - package: FittiDesign
+        product: FittiEngine
       - package: Supabase
         product: Supabase
       - target: ShareExtension

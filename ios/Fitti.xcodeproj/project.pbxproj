@@ -28,6 +28,7 @@
 		524485FC4410AC8D25C1513E /* FittiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FA0AAD024EC690A12A6A1 /* FittiApp.swift */; };
 		5413313D32BC40EF3731987F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B600506594AD66C711E8F /* AppState.swift */; };
 		559AFF3F3CBF9BEAD8BF4B83 /* OutfitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E450B3F33E88DB8EBD82590 /* OutfitsView.swift */; };
+		638A574999ED159B6BDFDC32 /* ClosetBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB652C7FA179A1F9E73EF6D7 /* ClosetBridge.swift */; };
 		669857D5E6A7A3FE45748527 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63154BEC0703B0C155C119A /* ShareViewController.swift */; };
 		67AEAF8D3C0757C4EEFC9F56 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E51D01B4C9CDAC8793385 /* TabBar.swift */; };
 		6AE5A0F0FD65567298420D10 /* CaptureQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0EF109F3A5815A1C82530B /* CaptureQueue.swift */; };
@@ -38,10 +39,11 @@
 		89FEFFCE9B54AB0F8AF87C21 /* CaptureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC214A2790F1B31AC3B0992A /* CaptureItem.swift */; };
 		8E9B96C0E6FF9D48CE09EC67 /* RootGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DC35D70D5ABE8836246932 /* RootGate.swift */; };
 		95550376DDA815443892F28D /* SharedInbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC91082661EBE5FEB81516 /* SharedInbox.swift */; };
-		996AEE8AE3B745BFA7D6139E /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB952A5CCCB454E83C93561 /* Supabase */; };
+		996AEE8AE3B745BFA7D6139E /* FittiEngine in Frameworks */ = {isa = PBXBuildFile; productRef = E438AD8A472FCD83220810C8 /* FittiEngine */; };
 		9B64EA9DFF629D51FD2A2F3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B49747846F9E0724C42F07E /* Assets.xcassets */; };
 		9C3EA37D56FFDDDAEEB53998 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BA39694A9FA5019689054 /* Entitlements.swift */; };
 		A585CD34B87F8F9498A90CF0 /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066E85FFA903207CE4626768 /* Mascot.swift */; };
+		AF66445F8402133F9527F958 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB952A5CCCB454E83C93561 /* Supabase */; };
 		B2C8544A01804A01741C71E1 /* FittiDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 7006F125F21C75A43BE223B0 /* FittiDesign */; };
 		CACB8AFBA0190326E364372F /* CaptureWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109C6EA1433685F8E3900A9E /* CaptureWorker.swift */; };
 		CB049C4CD8F5D61216DC6A58 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610A02F8B973CC7117DF2FE /* CameraController.swift */; };
@@ -114,6 +116,7 @@
 		B616639345066C0F0D92C66B /* ShareExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B696CE2BF07BCB3E144C70C4 /* ImagePipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePipeline.swift; sourceTree = "<group>"; };
 		CACB3C577653B74F746E9132 /* MockCloset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCloset.swift; sourceTree = "<group>"; };
+		CB652C7FA179A1F9E73EF6D7 /* ClosetBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetBridge.swift; sourceTree = "<group>"; };
 		D09FA0AAD024EC690A12A6A1 /* FittiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FittiApp.swift; sourceTree = "<group>"; };
 		D275C55980E36D741B280774 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -134,7 +137,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2C8544A01804A01741C71E1 /* FittiDesign in Frameworks */,
-				996AEE8AE3B745BFA7D6139E /* Supabase in Frameworks */,
+				996AEE8AE3B745BFA7D6139E /* FittiEngine in Frameworks */,
+				AF66445F8402133F9527F958 /* Supabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +242,7 @@
 		C95AC3DBEC5B05B657E4C01C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CB652C7FA179A1F9E73EF6D7 /* ClosetBridge.swift */,
 				CACB3C577653B74F746E9132 /* MockCloset.swift */,
 				E14402A507A35E89A8EA27C8 /* MockDay.swift */,
 			);
@@ -310,6 +315,7 @@
 			name = Fitti;
 			packageProductDependencies = (
 				7006F125F21C75A43BE223B0 /* FittiDesign */,
+				E438AD8A472FCD83220810C8 /* FittiEngine */,
 				1FB952A5CCCB454E83C93561 /* Supabase */,
 			);
 			productName = Fitti;
@@ -405,6 +411,7 @@
 				048EAB5BA20184F2A22A10EE /* CaptureTile.swift in Sources */,
 				51CC56DFAE1AE6248BC975F4 /* CaptureView.swift in Sources */,
 				CACB8AFBA0190326E364372F /* CaptureWorker.swift in Sources */,
+				638A574999ED159B6BDFDC32 /* ClosetBridge.swift in Sources */,
 				EFDFB0F4D4B1FCBE04D533F8 /* ClosetView.swift in Sources */,
 				EE64E8FD6FD36330EAD95084 /* CutoutService.swift in Sources */,
 				E5E1155B9CB5B463B7D687EC /* DiscoverView.swift in Sources */,
@@ -722,6 +729,10 @@
 		7006F125F21C75A43BE223B0 /* FittiDesign */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FittiDesign;
+		};
+		E438AD8A472FCD83220810C8 /* FittiEngine */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FittiEngine;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
