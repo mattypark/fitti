@@ -32,8 +32,8 @@
   /* ---- type ---- */
   --ff-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
            system-ui, sans-serif;
-  --ff-loud: "Bagel Fat One", var(--ff-ui);
-  --ff-hand: "Gloria Hallelujah", cursive;
+  --ff-loud: var(--ff-loud-font), "Bagel Fat One", var(--ff-ui);
+  --ff-hand: var(--ff-hand-font), "Gloria Hallelujah", cursive;
 
   --fs-display: 2.125rem;  /* 34 */
   --fs-numeral: 2.75rem;   /* 44 */
