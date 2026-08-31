@@ -39,7 +39,9 @@ struct RootView: View {
         }
         .animation(Motion.settle, value: state.tab)
         .sheet(isPresented: $state.isCapturing) {
-            CaptureView(palette: state.palette)
+            CaptureView(palette: state.palette) {
+                Task { await state.reloadCaptures() }
+            }
         }
         .sheet(isPresented: $state.showPaywall) {
             PaywallView(entitlements: state.entitlements, palette: state.palette)

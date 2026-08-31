@@ -39,7 +39,7 @@ struct YouView: View {
                         .fittiLabelStyle()
                         .foregroundStyle(state.palette.onGroundSoft)
 
-                    LimitMeter(used: state.garments.count,
+                    LimitMeter(used: state.totalPieces,
                                limit: Entitlements.freeLimit)
                         .foregroundStyle(state.palette.onGround)
 

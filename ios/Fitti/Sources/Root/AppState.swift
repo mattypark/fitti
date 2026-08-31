@@ -26,13 +26,23 @@ final class AppState {
 
     let entitlements = Entitlements()
 
+    /// Real captures, newest first. Shown ahead of the mock pieces so a photo
+    /// taken thirty seconds ago is the first thing in the grid.
+    var captures: [CaptureItem] = []
+
+    func reloadCaptures() async {
+        captures = await CaptureQueue.shared.all().reversed()
+    }
+
     var palette: Palette { Palette(ground) }
 
     /// The client's copy of the rule. The database enforces the same ceiling in
     /// `enforce_garment_limit`, so this only decides whether to open the camera
     /// or the paywall — it is not what actually stops a 26th garment.
+    var totalPieces: Int { garments.count + captures.count }
+
     var canAddGarment: Bool {
-        entitlements.canAdd(currentCount: garments.count)
+        entitlements.canAdd(currentCount: totalPieces)
     }
 
     func requestCapture() {

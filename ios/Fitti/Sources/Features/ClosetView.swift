@@ -12,6 +12,11 @@ struct ClosetView: View {
                 header
 
                 LazyVGrid(columns: columns, spacing: Space.grid) {
+                    // Real captures first — a piece photographed thirty seconds
+                    // ago should be the first thing you see.
+                    ForEach(state.captures) { item in
+                        CaptureTile(item: item, palette: state.palette)
+                    }
                     ForEach(state.garments) { garment in
                         GarmentTile(garment: garment, palette: state.palette)
                     }
@@ -22,6 +27,12 @@ struct ClosetView: View {
             .padding(.bottom, Space.xxl)
         }
         .scrollIndicators(.hidden)
+        .task {
+            await state.reloadCaptures()
+            // Anything left mid-flight by a previous launch resumes here.
+            await CaptureWorker.shared.drain()
+            await state.reloadCaptures()
+        }
     }
 
     private var header: some View {
@@ -30,7 +41,7 @@ struct ClosetView: View {
                 .font(.fittiTitle)
                 .foregroundStyle(state.palette.onGround)
 
-            LimitMeter(used: state.garments.count, limit: MockCloset.limit)
+            LimitMeter(used: state.totalPieces, limit: Entitlements.freeLimit)
                 .foregroundStyle(state.palette.onGround)
         }
     }
