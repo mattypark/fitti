@@ -1,4 +1,4 @@
-import type { Conditions, Garment, Outfit, Slot } from './types';
+import type { Conditions, Garment, Outfit, Slot } from './types.ts';
 
 /**
  * Build outfits from what someone actually owns.

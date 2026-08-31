@@ -85,7 +85,16 @@ Live checklist. Updated as each stage lands; each one is committed on completion
   - Grid, filters, detail sheet, wear tracking
   - Outfit engine: SQL filter → colour/pattern/novelty ranking → LLM pass with the reason
 
-- [ ] **11 — Discover feed**
+- [~] **11 — Feed ranking** *(engine done and tested; UI + real catalogue next)*
+  - Several taste vectors, never one — averaging two interests produces a centroid
+    that means neither, and an item scores on its BEST matching interest
+  - Under ~30 signals it uses one centroid rather than fitting noise
+  - Popularity is Bayesian-smoothed, so one click in three views is not a hit
+  - Brand/seller/category caps, an adjacent-similarity ceiling, and MMR diversity
+  - Exploration in fixed slots 3/10/18 so its effect is measurable
+  - 36 tests passing
+
+- [ ] **11b — Discover feed UI**
   - Seeded catalog, five retrieval pools, MMR diversity, fixed explore slots
   - Full event logging, press-and-hold worn-photo peek
 
