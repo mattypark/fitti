@@ -34,6 +34,18 @@ final class AppState {
         captures = await CaptureQueue.shared.all().reversed()
     }
 
+    /// Adopts anything the share extension saved while the app was closed. The
+    /// extension only copies bytes and leaves a note; this is where those become
+    /// real queue items.
+    func adoptSharedItems() async {
+        let filenames = SharedInbox.drain()
+        guard !filenames.isEmpty else { return }
+        for filename in filenames {
+            await CaptureQueue.shared.adopt(filename: filename, source: .shareExtension)
+        }
+        await reloadCaptures()
+    }
+
     var palette: Palette { Palette(ground) }
 
     /// The client's copy of the rule. The database enforces the same ceiling in

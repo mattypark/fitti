@@ -48,9 +48,13 @@ Live checklist. Updated as each stage lands; each one is committed on completion
   - EXIF/GPS strip → moderation → attribute extraction → color naming → embedding
   - Cloudflare Queue consumer, retries, dead-letter, per-user spend ceiling
 
-- [ ] **7 — Share extension + library import**
-  - App Group container, enqueue-only extension (120MB limit means never decode)
-  - `PHPickerViewController` bulk import with ImageIO downsampling
+- [~] **7 — Share sheet + bulk import** *(written; unverified until the build runs)*
+  - Extension copies bytes and exits — it never decodes, because ~120MB is the
+    whole budget and one portrait photo is ~49MB decoded, twice over to re-encode
+  - Hand-off is a separate file the extension writes and the app drains, so two
+    processes never append to the same queue
+  - `PHPickerViewController` needs no photo-library permission at all, returns no
+    location data, and imports unlimited selections as raw bytes
 
 - [ ] **8 — Email receipt import**
   - Per-user inbound address, VLM parse, product image fetch, dedupe

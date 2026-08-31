@@ -49,6 +49,14 @@ actor CaptureQueue {
         return item
     }
 
+    /// Takes ownership of a file the share extension already wrote. No copy — the
+    /// bytes are already in the shared container, so this only records them.
+    func adopt(filename: String, source: CaptureItem.Source) {
+        load()
+        guard FileManager.default.fileExists(atPath: AppGroup.url(for: filename).path) else { return }
+        append(CaptureItem(source: source, originalFile: filename))
+    }
+
     func update(_ item: CaptureItem) {
         load()
         append(item)

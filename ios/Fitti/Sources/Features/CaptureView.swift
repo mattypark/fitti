@@ -18,6 +18,7 @@ struct CaptureView: View {
     @State private var shots = 0
     @State private var flash = false
     @State private var problem: String?
+    @State private var showLibrary = false
 
     var body: some View {
         ZStack {
@@ -43,7 +44,13 @@ struct CaptureView: View {
                         .foregroundStyle(Fixed.paper.opacity(0.6))
                 }
                 Spacer()
-                shutter.padding(.bottom, Space.xxl)
+                HStack(spacing: Space.xl) {
+                    libraryButton
+                    shutter
+                    // Balances the row so the shutter stays centred under the thumb.
+                    Color.clear.frame(width: 44, height: 44)
+                }
+                .padding(.bottom, Space.xxl)
             }
 
             if flash {
@@ -56,6 +63,13 @@ struct CaptureView: View {
             if camera.permissionDenied {
                 problem = "Fitti needs the camera to add clothes.\nTurn it on in Settings."
             }
+        }
+        .sheet(isPresented: $showLibrary) {
+            LibraryImport { count in
+                shots += count
+                if count > 0 { onCaptured() }
+            }
+            .ignoresSafeArea()
         }
         .onDisappear {
             camera.stop()
@@ -79,6 +93,17 @@ struct CaptureView: View {
         }
         .padding(.horizontal, Space.gutter)
         .padding(.top, Space.md)
+    }
+
+    private var libraryButton: some View {
+        Button { showLibrary = true } label: {
+            Image(systemName: "photo.on.rectangle.angled")
+                .font(.system(size: 20, weight: .medium))
+                .foregroundStyle(Fixed.paper)
+                .frame(width: 44, height: 44)
+        }
+        .buttonStyle(.squash)
+        .accessibilityLabel("Add from photo library")
     }
 
     private var shutter: some View {

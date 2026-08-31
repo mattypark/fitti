@@ -28,6 +28,7 @@ struct ClosetView: View {
         }
         .scrollIndicators(.hidden)
         .task {
+            await state.adoptSharedItems()
             await state.reloadCaptures()
             // Anything left mid-flight by a previous launch resumes here.
             await CaptureWorker.shared.drain()

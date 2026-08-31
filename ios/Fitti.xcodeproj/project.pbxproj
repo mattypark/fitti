@@ -7,46 +7,95 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048EAB5BA20184F2A22A10EE /* CaptureTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA57EAEA89E0A8A37DEEFA02 /* CaptureTile.swift */; };
 		05C905B05F02848150848B81 /* LimitMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C41DB872F198D1C10437CAE /* LimitMeter.swift */; };
 		07319892CADCA44401974D84 /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CF32D16ACE0AD1E6058CB6 /* MockAuthService.swift */; };
 		0A040C5F4BAB49AE77EA0144 /* GarmentTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F576CE8E8A2C8529009A2C60 /* GarmentTile.swift */; };
 		157550F9AA2853FB3BEE6105 /* MockCloset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB3C577653B74F746E9132 /* MockCloset.swift */; };
+		18F78AAB526647CE6136CD55 /* ImagePipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696CE2BF07BCB3E144C70C4 /* ImagePipeline.swift */; };
 		1A2DC53F817853C0094D37D4 /* BlobDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432DE04B822CA01CA7277AB /* BlobDots.swift */; };
+		1C1C8C0E84C4608F23725A24 /* LibraryImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0537E153F726AA028CC382 /* LibraryImport.swift */; };
+		1E0428CD2F4DF2BAD5A600D3 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C39858CC81D5485F37D4D23 /* AppGroup.swift */; };
+		1FE3F6BD23F108B82306DFB1 /* OutfitFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */; };
+		3DD2883297F376315A6EB16E /* ShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B616639345066C0F0D92C66B /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3E8C7E8AEF01552E13D5A25D /* MockDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14402A507A35E89A8EA27C8 /* MockDay.swift */; };
+		42C2AC5625E173C0CC57E57A /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7125F22E450C282EF85110DD /* CameraPreview.swift */; };
 		4AE37454E9F8DE68A983C51A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AEA4711A463996E0FBE60 /* RootView.swift */; };
 		5142D87E9C37BADB2CB5CB95 /* YouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404463EAF586A240F2745FCA /* YouView.swift */; };
 		51CC56DFAE1AE6248BC975F4 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A4CB6F123472ED628E028D /* CaptureView.swift */; };
 		524485FC4410AC8D25C1513E /* FittiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FA0AAD024EC690A12A6A1 /* FittiApp.swift */; };
 		5413313D32BC40EF3731987F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B600506594AD66C711E8F /* AppState.swift */; };
 		559AFF3F3CBF9BEAD8BF4B83 /* OutfitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E450B3F33E88DB8EBD82590 /* OutfitsView.swift */; };
+		669857D5E6A7A3FE45748527 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63154BEC0703B0C155C119A /* ShareViewController.swift */; };
 		67AEAF8D3C0757C4EEFC9F56 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E51D01B4C9CDAC8793385 /* TabBar.swift */; };
+		6AE5A0F0FD65567298420D10 /* CaptureQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0EF109F3A5815A1C82530B /* CaptureQueue.swift */; };
 		6C23B4658A6A4CE76828CF35 /* BlobShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2922D787E623D64E7026B1 /* BlobShape.swift */; };
 		7080EE8FC002F88F9E8B4371 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1545C3FB121A35033002CA58 /* WelcomeView.swift */; };
 		7A5209434350EFE552A65096 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D275C55980E36D741B280774 /* AuthService.swift */; };
+		7D12D395C7B158A6FC81ECF4 /* SharedInbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC91082661EBE5FEB81516 /* SharedInbox.swift */; };
+		89FEFFCE9B54AB0F8AF87C21 /* CaptureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC214A2790F1B31AC3B0992A /* CaptureItem.swift */; };
 		8E9B96C0E6FF9D48CE09EC67 /* RootGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DC35D70D5ABE8836246932 /* RootGate.swift */; };
+		95550376DDA815443892F28D /* SharedInbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC91082661EBE5FEB81516 /* SharedInbox.swift */; };
 		9B64EA9DFF629D51FD2A2F3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B49747846F9E0724C42F07E /* Assets.xcassets */; };
 		9C3EA37D56FFDDDAEEB53998 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BA39694A9FA5019689054 /* Entitlements.swift */; };
 		A585CD34B87F8F9498A90CF0 /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066E85FFA903207CE4626768 /* Mascot.swift */; };
 		B2C8544A01804A01741C71E1 /* FittiDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 7006F125F21C75A43BE223B0 /* FittiDesign */; };
+		CACB8AFBA0190326E364372F /* CaptureWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109C6EA1433685F8E3900A9E /* CaptureWorker.swift */; };
+		CB049C4CD8F5D61216DC6A58 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8610A02F8B973CC7117DF2FE /* CameraController.swift */; };
 		D62C4AC08A732B56579C4438 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */; };
 		E5E1155B9CB5B463B7D687EC /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572F402D3F3A4F3C8E8A7D6 /* DiscoverView.swift */; };
 		EB0E20980DF6F6EB7AAD127C /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DE59FD59476C8332385D52 /* PaywallView.swift */; };
+		EC70246D5DB5D95D239D2083 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C39858CC81D5485F37D4D23 /* AppGroup.swift */; };
+		EE64E8FD6FD36330EAD95084 /* CutoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A34AA96F83E878E9C7D77BA /* CutoutService.swift */; };
 		EFDFB0F4D4B1FCBE04D533F8 /* ClosetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133E8BDA773FA9239CD9B81 /* ClosetView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EC8E6C667A1ECE0D422E4608 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4293A2257E0CED92807F8C66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9540B9B588E3B258FE9B6AC;
+			remoteInfo = ShareExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3556F41B90FE368DE0C305BF /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3DD2883297F376315A6EB16E /* ShareExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		00FC91082661EBE5FEB81516 /* SharedInbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedInbox.swift; sourceTree = "<group>"; };
 		040AEA4711A463996E0FBE60 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		066E85FFA903207CE4626768 /* Mascot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mascot.swift; sourceTree = "<group>"; };
 		0ACC00DCCC5B78DD1A9A2017 /* Fitti.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Fitti.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		109C6EA1433685F8E3900A9E /* CaptureWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureWorker.swift; sourceTree = "<group>"; };
 		1432DE04B822CA01CA7277AB /* BlobDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobDots.swift; sourceTree = "<group>"; };
 		1545C3FB121A35033002CA58 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		1E450B3F33E88DB8EBD82590 /* OutfitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitsView.swift; sourceTree = "<group>"; };
 		2C41DB872F198D1C10437CAE /* LimitMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitMeter.swift; sourceTree = "<group>"; };
+		3C39858CC81D5485F37D4D23 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		404463EAF586A240F2745FCA /* YouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouView.swift; sourceTree = "<group>"; };
 		40A4CB6F123472ED628E028D /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
 		412E51D01B4C9CDAC8793385 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		438B4D1A37F42683388FD483 /* FittiDesign */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FittiDesign; path = FittiDesign; sourceTree = SOURCE_ROOT; };
+		5A34AA96F83E878E9C7D77BA /* CutoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutoutService.swift; sourceTree = "<group>"; };
 		64DC35D70D5ABE8836246932 /* RootGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootGate.swift; sourceTree = "<group>"; };
+		7125F22E450C282EF85110DD /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		7E9E2BFD6B0337E113ADFF16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		82CF32D16ACE0AD1E6058CB6 /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
+		8610A02F8B973CC7117DF2FE /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitFigure.swift; sourceTree = "<group>"; };
 		8B2922D787E623D64E7026B1 /* BlobShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobShape.swift; sourceTree = "<group>"; };
 		8B49747846F9E0724C42F07E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9133E8BDA773FA9239CD9B81 /* ClosetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetView.swift; sourceTree = "<group>"; };
@@ -55,12 +104,21 @@
 		9D0A59926269C48C949A67EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9E0BA39694A9FA5019689054 /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
 		B4DE59FD59476C8332385D52 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		B616639345066C0F0D92C66B /* ShareExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B696CE2BF07BCB3E144C70C4 /* ImagePipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePipeline.swift; sourceTree = "<group>"; };
 		CACB3C577653B74F746E9132 /* MockCloset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCloset.swift; sourceTree = "<group>"; };
 		D09FA0AAD024EC690A12A6A1 /* FittiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FittiApp.swift; sourceTree = "<group>"; };
 		D275C55980E36D741B280774 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		DB0EF109F3A5815A1C82530B /* CaptureQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureQueue.swift; sourceTree = "<group>"; };
+		E14402A507A35E89A8EA27C8 /* MockDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDay.swift; sourceTree = "<group>"; };
+		E34040D6478C0E7F77A935A4 /* ShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareExtension.entitlements; sourceTree = "<group>"; };
+		EA0537E153F726AA028CC382 /* LibraryImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryImport.swift; sourceTree = "<group>"; };
+		EA57EAEA89E0A8A37DEEFA02 /* CaptureTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureTile.swift; sourceTree = "<group>"; };
 		F44B600506594AD66C711E8F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		F576CE8E8A2C8529009A2C60 /* GarmentTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarmentTile.swift; sourceTree = "<group>"; };
+		F63154BEC0703B0C155C119A /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		FC214A2790F1B31AC3B0992A /* CaptureItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +155,23 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
+		5A0EF5D53949475F918B44C1 /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				3C39858CC81D5485F37D4D23 /* AppGroup.swift */,
+				8610A02F8B973CC7117DF2FE /* CameraController.swift */,
+				7125F22E450C282EF85110DD /* CameraPreview.swift */,
+				FC214A2790F1B31AC3B0992A /* CaptureItem.swift */,
+				DB0EF109F3A5815A1C82530B /* CaptureQueue.swift */,
+				109C6EA1433685F8E3900A9E /* CaptureWorker.swift */,
+				5A34AA96F83E878E9C7D77BA /* CutoutService.swift */,
+				B696CE2BF07BCB3E144C70C4 /* ImagePipeline.swift */,
+				EA0537E153F726AA028CC382 /* LibraryImport.swift */,
+				00FC91082661EBE5FEB81516 /* SharedInbox.swift */,
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
 		6D76002877E854D27D665D67 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				6D76002877E854D27D665D67 /* Auth */,
+				5A0EF5D53949475F918B44C1 /* Capture */,
 				EFA11147CE55166762ED556E /* Components */,
 				3851609581E74423776C8BA8 /* Features */,
 				C95AC3DBEC5B05B657E4C01C /* Model */,
@@ -144,6 +220,7 @@
 			children = (
 				CEB76D5BCEBA1C7D4E495AF8 /* Fitti */,
 				302E0CB6088A7DCD8123021C /* Packages */,
+				FCF11A95A98196226BCE613E /* ShareExtension */,
 				EEAADDF00301E11A560F5005 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -152,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				CACB3C577653B74F746E9132 /* MockCloset.swift */,
+				E14402A507A35E89A8EA27C8 /* MockDay.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				0ACC00DCCC5B78DD1A9A2017 /* Fitti.app */,
+				B616639345066C0F0D92C66B /* ShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,11 +260,23 @@
 			children = (
 				1432DE04B822CA01CA7277AB /* BlobDots.swift */,
 				8B2922D787E623D64E7026B1 /* BlobShape.swift */,
+				EA57EAEA89E0A8A37DEEFA02 /* CaptureTile.swift */,
 				F576CE8E8A2C8529009A2C60 /* GarmentTile.swift */,
 				2C41DB872F198D1C10437CAE /* LimitMeter.swift */,
 				066E85FFA903207CE4626768 /* Mascot.swift */,
+				8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		FCF11A95A98196226BCE613E /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				7E9E2BFD6B0337E113ADFF16 /* Info.plist */,
+				E34040D6478C0E7F77A935A4 /* ShareExtension.entitlements */,
+				F63154BEC0703B0C155C119A /* ShareViewController.swift */,
+			);
+			path = ShareExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,10 +289,12 @@
 				58CED4E0213B6F0FCCEB55AB /* Sources */,
 				6F019DD3FA35C9CC9B41F000 /* Resources */,
 				33BA7421A015B850DC32C609 /* Frameworks */,
+				3556F41B90FE368DE0C305BF /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7C2DBFC44B795FCD147AE805 /* PBXTargetDependency */,
 			);
 			name = Fitti;
 			packageProductDependencies = (
@@ -210,6 +303,23 @@
 			productName = Fitti;
 			productReference = 0ACC00DCCC5B78DD1A9A2017 /* Fitti.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F9540B9B588E3B258FE9B6AC /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3773FA7F725EF789133A1FF5 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
+			buildPhases = (
+				E8ACB38645CD3B1752A9BE18 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareExtension;
+			packageProductDependencies = (
+			);
+			productName = ShareExtension;
+			productReference = B616639345066C0F0D92C66B /* ShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -221,6 +331,9 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					A98DADFDDB4A97DFC4C986FB = {
+						ProvisioningStyle = Automatic;
+					};
+					F9540B9B588E3B258FE9B6AC = {
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -243,6 +356,7 @@
 			projectRoot = "";
 			targets = (
 				A98DADFDDB4A97DFC4C986FB /* Fitti */,
+				F9540B9B588E3B258FE9B6AC /* ShareExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -264,31 +378,62 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC70246D5DB5D95D239D2083 /* AppGroup.swift in Sources */,
 				5413313D32BC40EF3731987F /* AppState.swift in Sources */,
 				7A5209434350EFE552A65096 /* AuthService.swift in Sources */,
 				1A2DC53F817853C0094D37D4 /* BlobDots.swift in Sources */,
 				6C23B4658A6A4CE76828CF35 /* BlobShape.swift in Sources */,
+				CB049C4CD8F5D61216DC6A58 /* CameraController.swift in Sources */,
+				42C2AC5625E173C0CC57E57A /* CameraPreview.swift in Sources */,
+				89FEFFCE9B54AB0F8AF87C21 /* CaptureItem.swift in Sources */,
+				6AE5A0F0FD65567298420D10 /* CaptureQueue.swift in Sources */,
+				048EAB5BA20184F2A22A10EE /* CaptureTile.swift in Sources */,
 				51CC56DFAE1AE6248BC975F4 /* CaptureView.swift in Sources */,
+				CACB8AFBA0190326E364372F /* CaptureWorker.swift in Sources */,
 				EFDFB0F4D4B1FCBE04D533F8 /* ClosetView.swift in Sources */,
+				EE64E8FD6FD36330EAD95084 /* CutoutService.swift in Sources */,
 				E5E1155B9CB5B463B7D687EC /* DiscoverView.swift in Sources */,
 				9C3EA37D56FFDDDAEEB53998 /* Entitlements.swift in Sources */,
 				524485FC4410AC8D25C1513E /* FittiApp.swift in Sources */,
 				0A040C5F4BAB49AE77EA0144 /* GarmentTile.swift in Sources */,
+				18F78AAB526647CE6136CD55 /* ImagePipeline.swift in Sources */,
+				1C1C8C0E84C4608F23725A24 /* LibraryImport.swift in Sources */,
 				05C905B05F02848150848B81 /* LimitMeter.swift in Sources */,
 				A585CD34B87F8F9498A90CF0 /* Mascot.swift in Sources */,
 				07319892CADCA44401974D84 /* MockAuthService.swift in Sources */,
 				157550F9AA2853FB3BEE6105 /* MockCloset.swift in Sources */,
+				3E8C7E8AEF01552E13D5A25D /* MockDay.swift in Sources */,
+				1FE3F6BD23F108B82306DFB1 /* OutfitFigure.swift in Sources */,
 				559AFF3F3CBF9BEAD8BF4B83 /* OutfitsView.swift in Sources */,
 				EB0E20980DF6F6EB7AAD127C /* PaywallView.swift in Sources */,
 				8E9B96C0E6FF9D48CE09EC67 /* RootGate.swift in Sources */,
 				4AE37454E9F8DE68A983C51A /* RootView.swift in Sources */,
+				95550376DDA815443892F28D /* SharedInbox.swift in Sources */,
 				67AEAF8D3C0757C4EEFC9F56 /* TabBar.swift in Sources */,
 				7080EE8FC002F88F9E8B4371 /* WelcomeView.swift in Sources */,
 				5142D87E9C37BADB2CB5CB95 /* YouView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E8ACB38645CD3B1752A9BE18 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E0428CD2F4DF2BAD5A600D3 /* AppGroup.swift in Sources */,
+				669857D5E6A7A3FE45748527 /* ShareViewController.swift in Sources */,
+				7D12D395C7B158A6FC81ECF4 /* SharedInbox.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7C2DBFC44B795FCD147AE805 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9540B9B588E3B258FE9B6AC /* ShareExtension */;
+			targetProxy = EC8E6C667A1ECE0D422E4608 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		34771CBFA02D86FECE6AEC30 /* Release */ = {
@@ -372,6 +517,27 @@
 			};
 			name = Debug;
 		};
+		5C089B3E343BC0FCC9B47925 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewpark.fitti.share;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
 		5DE2810960BC255EA507024B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -435,6 +601,27 @@
 			};
 			name = Debug;
 		};
+		C1C8EB965F3220AFBCB4F47E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewpark.fitti.share;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		E186B97636C71A7CCBB72354 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -463,6 +650,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3773FA7F725EF789133A1FF5 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C089B3E343BC0FCC9B47925 /* Debug */,
+				C1C8EB965F3220AFBCB4F47E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		514543E18F437BADF9C57AC4 /* Build configuration list for PBXNativeTarget "Fitti" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

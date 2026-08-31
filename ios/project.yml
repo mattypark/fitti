@@ -17,6 +17,7 @@ targets:
       - path: Fitti
     dependencies:
       - package: FittiDesign
+      - target: ShareExtension
     info:
       path: Fitti/Info.plist
       properties:
@@ -56,6 +57,31 @@ targets:
 
 # XcodeGen does not emit a shared scheme unless one is declared, and xcodebuild
 # refuses to build without one ("Found no destinations for the scheme").
+  ShareExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: ShareExtension
+      # Shared with the app rather than duplicated, so the container path and the
+      # inbox format cannot drift between the two targets.
+      - path: Fitti/Sources/Capture/AppGroup.swift
+      - path: Fitti/Sources/Capture/SharedInbox.swift
+    info:
+      path: ShareExtension/Info.plist
+      properties:
+        CFBundleDisplayName: Fitti
+    entitlements:
+      path: ShareExtension/ShareExtension.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.matthewpark.fitti.share
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "6.0"
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_STYLE: Automatic
+        GENERATE_INFOPLIST_FILE: NO
+
 schemes:
   Fitti:
     build:
