@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05C905B05F02848150848B81 /* LimitMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C41DB872F198D1C10437CAE /* LimitMeter.swift */; };
+		0A040C5F4BAB49AE77EA0144 /* GarmentTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F576CE8E8A2C8529009A2C60 /* GarmentTile.swift */; };
+		157550F9AA2853FB3BEE6105 /* MockCloset.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACB3C577653B74F746E9132 /* MockCloset.swift */; };
+		1A2DC53F817853C0094D37D4 /* BlobDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1432DE04B822CA01CA7277AB /* BlobDots.swift */; };
+		4AE37454E9F8DE68A983C51A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040AEA4711A463996E0FBE60 /* RootView.swift */; };
+		5142D87E9C37BADB2CB5CB95 /* YouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404463EAF586A240F2745FCA /* YouView.swift */; };
+		51CC56DFAE1AE6248BC975F4 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A4CB6F123472ED628E028D /* CaptureView.swift */; };
+		524485FC4410AC8D25C1513E /* FittiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FA0AAD024EC690A12A6A1 /* FittiApp.swift */; };
+		5413313D32BC40EF3731987F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44B600506594AD66C711E8F /* AppState.swift */; };
+		559AFF3F3CBF9BEAD8BF4B83 /* OutfitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E450B3F33E88DB8EBD82590 /* OutfitsView.swift */; };
+		67AEAF8D3C0757C4EEFC9F56 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E51D01B4C9CDAC8793385 /* TabBar.swift */; };
+		6C23B4658A6A4CE76828CF35 /* BlobShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2922D787E623D64E7026B1 /* BlobShape.swift */; };
+		9B64EA9DFF629D51FD2A2F3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B49747846F9E0724C42F07E /* Assets.xcassets */; };
+		A585CD34B87F8F9498A90CF0 /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066E85FFA903207CE4626768 /* Mascot.swift */; };
+		B2C8544A01804A01741C71E1 /* FittiDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 7006F125F21C75A43BE223B0 /* FittiDesign */; };
+		D62C4AC08A732B56579C4438 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */; };
+		E5E1155B9CB5B463B7D687EC /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9572F402D3F3A4F3C8E8A7D6 /* DiscoverView.swift */; };
+		EFDFB0F4D4B1FCBE04D533F8 /* ClosetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9133E8BDA773FA9239CD9B81 /* ClosetView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		040AEA4711A463996E0FBE60 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		066E85FFA903207CE4626768 /* Mascot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mascot.swift; sourceTree = "<group>"; };
+		0ACC00DCCC5B78DD1A9A2017 /* Fitti.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Fitti.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1432DE04B822CA01CA7277AB /* BlobDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobDots.swift; sourceTree = "<group>"; };
+		1E450B3F33E88DB8EBD82590 /* OutfitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitsView.swift; sourceTree = "<group>"; };
+		2C41DB872F198D1C10437CAE /* LimitMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitMeter.swift; sourceTree = "<group>"; };
+		404463EAF586A240F2745FCA /* YouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouView.swift; sourceTree = "<group>"; };
+		40A4CB6F123472ED628E028D /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
+		412E51D01B4C9CDAC8793385 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		438B4D1A37F42683388FD483 /* FittiDesign */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FittiDesign; path = FittiDesign; sourceTree = SOURCE_ROOT; };
+		8B2922D787E623D64E7026B1 /* BlobShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobShape.swift; sourceTree = "<group>"; };
+		8B49747846F9E0724C42F07E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9133E8BDA773FA9239CD9B81 /* ClosetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetView.swift; sourceTree = "<group>"; };
+		9572F402D3F3A4F3C8E8A7D6 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		9D0A59926269C48C949A67EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CACB3C577653B74F746E9132 /* MockCloset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCloset.swift; sourceTree = "<group>"; };
+		D09FA0AAD024EC690A12A6A1 /* FittiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FittiApp.swift; sourceTree = "<group>"; };
+		D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		F44B600506594AD66C711E8F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		F576CE8E8A2C8529009A2C60 /* GarmentTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarmentTile.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33BA7421A015B850DC32C609 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2C8544A01804A01741C71E1 /* FittiDesign in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		302E0CB6088A7DCD8123021C /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				438B4D1A37F42683388FD483 /* FittiDesign */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		3851609581E74423776C8BA8 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				40A4CB6F123472ED628E028D /* CaptureView.swift */,
+				9133E8BDA773FA9239CD9B81 /* ClosetView.swift */,
+				9572F402D3F3A4F3C8E8A7D6 /* DiscoverView.swift */,
+				1E450B3F33E88DB8EBD82590 /* OutfitsView.swift */,
+				404463EAF586A240F2745FCA /* YouView.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		845D9812FDD8D5603028B15C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				EFA11147CE55166762ED556E /* Components */,
+				3851609581E74423776C8BA8 /* Features */,
+				C95AC3DBEC5B05B657E4C01C /* Model */,
+				964ADECFF7377554401A8ACC /* Root */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		964ADECFF7377554401A8ACC /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				F44B600506594AD66C711E8F /* AppState.swift */,
+				D09FA0AAD024EC690A12A6A1 /* FittiApp.swift */,
+				040AEA4711A463996E0FBE60 /* RootView.swift */,
+				412E51D01B4C9CDAC8793385 /* TabBar.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		C85152ABF58CD30CF4BA941E = {
+			isa = PBXGroup;
+			children = (
+				CEB76D5BCEBA1C7D4E495AF8 /* Fitti */,
+				302E0CB6088A7DCD8123021C /* Packages */,
+				EEAADDF00301E11A560F5005 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C95AC3DBEC5B05B657E4C01C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CACB3C577653B74F746E9132 /* MockCloset.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CEB76D5BCEBA1C7D4E495AF8 /* Fitti */ = {
+			isa = PBXGroup;
+			children = (
+				8B49747846F9E0724C42F07E /* Assets.xcassets */,
+				9D0A59926269C48C949A67EC /* Info.plist */,
+				D2D9DBD79392DA9C855C36AD /* PrivacyInfo.xcprivacy */,
+				845D9812FDD8D5603028B15C /* Sources */,
+			);
+			path = Fitti;
+			sourceTree = "<group>";
+		};
+		EEAADDF00301E11A560F5005 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0ACC00DCCC5B78DD1A9A2017 /* Fitti.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFA11147CE55166762ED556E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1432DE04B822CA01CA7277AB /* BlobDots.swift */,
+				8B2922D787E623D64E7026B1 /* BlobShape.swift */,
+				F576CE8E8A2C8529009A2C60 /* GarmentTile.swift */,
+				2C41DB872F198D1C10437CAE /* LimitMeter.swift */,
+				066E85FFA903207CE4626768 /* Mascot.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A98DADFDDB4A97DFC4C986FB /* Fitti */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 514543E18F437BADF9C57AC4 /* Build configuration list for PBXNativeTarget "Fitti" */;
+			buildPhases = (
+				58CED4E0213B6F0FCCEB55AB /* Sources */,
+				6F019DD3FA35C9CC9B41F000 /* Resources */,
+				33BA7421A015B850DC32C609 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fitti;
+			packageProductDependencies = (
+				7006F125F21C75A43BE223B0 /* FittiDesign */,
+			);
+			productName = Fitti;
+			productReference = 0ACC00DCCC5B78DD1A9A2017 /* Fitti.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4293A2257E0CED92807F8C66 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					A98DADFDDB4A97DFC4C986FB = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DB526CBD81A5941A72D95952 /* Build configuration list for PBXProject "Fitti" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = C85152ABF58CD30CF4BA941E;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6F3E4FDD167DC7ADB806E35A /* XCLocalSwiftPackageReference "FittiDesign" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EEAADDF00301E11A560F5005 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A98DADFDDB4A97DFC4C986FB /* Fitti */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6F019DD3FA35C9CC9B41F000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B64EA9DFF629D51FD2A2F3F /* Assets.xcassets in Resources */,
+				D62C4AC08A732B56579C4438 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58CED4E0213B6F0FCCEB55AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5413313D32BC40EF3731987F /* AppState.swift in Sources */,
+				1A2DC53F817853C0094D37D4 /* BlobDots.swift in Sources */,
+				6C23B4658A6A4CE76828CF35 /* BlobShape.swift in Sources */,
+				51CC56DFAE1AE6248BC975F4 /* CaptureView.swift in Sources */,
+				EFDFB0F4D4B1FCBE04D533F8 /* ClosetView.swift in Sources */,
+				E5E1155B9CB5B463B7D687EC /* DiscoverView.swift in Sources */,
+				524485FC4410AC8D25C1513E /* FittiApp.swift in Sources */,
+				0A040C5F4BAB49AE77EA0144 /* GarmentTile.swift in Sources */,
+				05C905B05F02848150848B81 /* LimitMeter.swift in Sources */,
+				A585CD34B87F8F9498A90CF0 /* Mascot.swift in Sources */,
+				157550F9AA2853FB3BEE6105 /* MockCloset.swift in Sources */,
+				559AFF3F3CBF9BEAD8BF4B83 /* OutfitsView.swift in Sources */,
+				4AE37454E9F8DE68A983C51A /* RootView.swift in Sources */,
+				67AEAF8D3C0757C4EEFC9F56 /* TabBar.swift in Sources */,
+				5142D87E9C37BADB2CB5CB95 /* YouView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		34771CBFA02D86FECE6AEC30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		4F1F80C0943B3D5CB1177643 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Fitti/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewpark.fitti;
+				SDKROOT = iphoneos;
+				SWIFT_UPCOMING_FEATURE_CONCURRENCY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		5DE2810960BC255EA507024B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E186B97636C71A7CCBB72354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Fitti/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matthewpark.fitti;
+				SDKROOT = iphoneos;
+				SWIFT_UPCOMING_FEATURE_CONCURRENCY = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		514543E18F437BADF9C57AC4 /* Build configuration list for PBXNativeTarget "Fitti" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F1F80C0943B3D5CB1177643 /* Debug */,
+				E186B97636C71A7CCBB72354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DB526CBD81A5941A72D95952 /* Build configuration list for PBXProject "Fitti" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DE2810960BC255EA507024B /* Debug */,
+				34771CBFA02D86FECE6AEC30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		6F3E4FDD167DC7ADB806E35A /* XCLocalSwiftPackageReference "FittiDesign" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = FittiDesign;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7006F125F21C75A43BE223B0 /* FittiDesign */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FittiDesign;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4293A2257E0CED92807F8C66 /* Project object */;
+}

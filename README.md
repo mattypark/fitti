@@ -1,3 +1,5 @@
+<img src="assets/logo/banner.png" alt="Fitti" width="100%">
+
 # Fitti
 
 Your closet, but it knows what's in it.
