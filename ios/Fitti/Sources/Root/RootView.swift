@@ -43,6 +43,13 @@ struct RootView: View {
                 Task { await state.reloadCaptures() }
             }
         }
+        .sheet(isPresented: $state.showAIConsent) {
+            AIConsentView(palette: state.palette) { granted in
+                AIConsent.isGranted = granted
+                state.showAIConsent = false
+                state.isCapturing = true
+            }
+        }
         .sheet(isPresented: $state.showPaywall) {
             PaywallView(entitlements: state.entitlements, palette: state.palette)
         }

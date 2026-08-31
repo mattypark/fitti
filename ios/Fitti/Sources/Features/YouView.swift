@@ -60,6 +60,31 @@ struct YouView: View {
                 }
 
                 VStack(alignment: .leading, spacing: Space.xs) {
+                    Text("PRIVACY")
+                        .fittiLabelStyle()
+                        .foregroundStyle(state.palette.onGroundSoft)
+
+                    Toggle(isOn: Binding(
+                        get: { AIConsent.isGranted },
+                        set: { AIConsent.isGranted = $0 }
+                    )) {
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text("Let Fitti label my clothes")
+                                .font(.fittiBody)
+                            Text("Sends one photo per piece to Google Gemini")
+                                .font(.fittiCallout)
+                                .foregroundStyle(state.palette.onGroundSoft)
+                        }
+                    }
+                    .tint(Fixed.yellow)
+
+                    Link("Privacy policy", destination: URL(string: "https://fitti.app/privacy")!)
+                        .font(.fittiCallout)
+                        .foregroundStyle(state.palette.accent)
+                        .padding(.top, Space.xxs)
+                }
+
+                VStack(alignment: .leading, spacing: Space.xs) {
                     Text("ACCOUNT")
                         .fittiLabelStyle()
                         .foregroundStyle(state.palette.onGroundSoft)

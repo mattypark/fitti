@@ -24,6 +24,9 @@ final class AppState {
     /// Shown when capture is tapped and the closet is already at the ceiling.
     var showPaywall = false
 
+    /// Asked once, before any photo could reach an outside service.
+    var showAIConsent = false
+
     let entitlements = Entitlements()
 
     /// Real captures, newest first. Shown ahead of the mock pieces so a photo
@@ -58,11 +61,17 @@ final class AppState {
     }
 
     func requestCapture() {
-        if canAddGarment {
-            isCapturing = true
-        } else {
+        guard canAddGarment else {
             showPaywall = true
+            return
         }
+        // Ask before the first capture rather than at launch: by now the user
+        // knows what the app is for, so the question means something.
+        if !AIConsent.hasDecided {
+            showAIConsent = true
+            return
+        }
+        isCapturing = true
     }
 
     /// Discover is deliberately paper rather than the user's ground: a white
