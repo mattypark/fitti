@@ -65,8 +65,10 @@ private struct ListingTile: View {
                     .fill(Color.black.opacity(0.035))
 
                 // The garment, alone.
-                BlobShape(seed: listing.name.paletteSeed, wobble: 0.15)
-                    .fill(Color(OKLCH(0.66, 0.14, listing.hue)))
+                LiquidBlob(seed: listing.name.paletteSeed,
+                           base: OKLCH(0.66, 0.14, listing.hue),
+                           wobble: 0.15,
+                           glow: 14)
                     .padding(26)
                     .opacity(peeking ? 0 : 1)
 

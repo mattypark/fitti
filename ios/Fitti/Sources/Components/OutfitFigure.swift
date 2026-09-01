@@ -17,29 +17,29 @@ struct OutfitFigure: View {
         // read as a snowman; a narrow head, shoulders wider than the head, and
         // legs longer than the torso read as a person even at 74pt.
         VStack(spacing: -height * 0.012) {
-            Circle()
-                .fill(skin)
+            JellyBlob(shape: Circle(), base: skin, glow: height * 0.02, isFlat: isGhost)
                 .frame(width: height * 0.115, height: height * 0.115)
 
             // Top: widest element, short. Shoulders are what say "clothed body".
-            BlobShape(seed: outfit.id.uuidString.paletteSeed, wobble: 0.06)
-                .fill(color(outfit.topHue, 0.60))
+            JellyBlob(shape: BlobShape(seed: outfit.id.uuidString.paletteSeed, wobble: 0.06),
+                      base: pigment(outfit.topHue, 0.60),
+                      glow: height * 0.05, isFlat: isGhost)
                 .frame(width: height * 0.30, height: height * 0.30)
 
             // Bottom: narrower than the top and longer, which is what makes it
             // read as legs rather than as a second torso.
-            UnevenRoundedRectangle(
+            JellyBlob(shape: UnevenRoundedRectangle(
                 topLeadingRadius: height * 0.02,
                 bottomLeadingRadius: height * 0.05,
                 bottomTrailingRadius: height * 0.05,
                 topTrailingRadius: height * 0.02,
                 style: .continuous
-            )
-            .fill(color(outfit.bottomHue, 0.46))
+            ), base: pigment(outfit.bottomHue, 0.46),
+               glow: height * 0.05, isFlat: isGhost)
             .frame(width: height * 0.20, height: height * 0.40)
 
-            Capsule()
-                .fill(color(outfit.shoeHue, 0.38))
+            JellyBlob(shape: Capsule(), base: pigment(outfit.shoeHue, 0.38),
+                      glow: height * 0.02, isFlat: isGhost)
                 .frame(width: height * 0.23, height: height * 0.045)
         }
         .frame(height: height)
@@ -48,12 +48,12 @@ struct OutfitFigure: View {
         .accessibilityLabel("Outfit worn by \(outfit.wearer)")
     }
 
-    private var skin: Color {
-        Color(OKLCH(isGhost ? 0.80 : 0.72, 0.04, 60))
+    private var skin: OKLCH {
+        OKLCH(isGhost ? 0.80 : 0.72, 0.04, 60)
     }
 
-    private func color(_ hue: Double, _ lightness: Double) -> Color {
-        Color(OKLCH(lightness, isGhost ? 0.02 : 0.11, hue))
+    private func pigment(_ hue: Double, _ lightness: Double) -> OKLCH {
+        OKLCH(lightness, isGhost ? 0.02 : 0.11, hue)
     }
 }
 

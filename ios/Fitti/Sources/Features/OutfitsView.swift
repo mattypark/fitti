@@ -109,8 +109,9 @@ struct OutfitsView: View {
                     .frame(width: 26, height: 26)
                     .background {
                         if day.isToday {
-                            BlobShape(seed: "today".paletteSeed, wobble: 0.2)
-                                .fill(Fixed.yellow)
+                            JellyBlob(shape: BlobShape(seed: "today".paletteSeed, wobble: 0.2),
+                                      base: Fixed.yellowPigment,
+                                      glow: 7)
                         }
                     }
 
@@ -152,8 +153,11 @@ struct OutfitsView: View {
             .foregroundStyle(palette.onGround)
             .padding(.horizontal, Space.md)
             .frame(height: 50)
-            .background(palette.groundLift,
-                        in: RoundedRectangle(cornerRadius: Radius.pill, style: .continuous))
+            .background {
+                JellyBlob(shape: Capsule(),
+                          base: Palette.Role.groundLift.oklch(on: .butter),
+                          glow: 10)
+            }
         }
         .buttonStyle(.squash)
         .padding(.horizontal, Space.gutter)
@@ -212,8 +216,7 @@ struct OutfitsView: View {
         if let day = selectedDay, let outfit = day.outfit {
             VStack(alignment: .leading, spacing: Space.sm) {
                 HStack(spacing: Space.xs) {
-                    Circle()
-                        .fill(Fixed.yellow)
+                    JellyBlob(shape: Circle(), base: Fixed.yellowPigment, glow: 5)
                         .frame(width: 22, height: 22)
                         .overlay {
                             Text(String(outfit.wearer.prefix(1)))

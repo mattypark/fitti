@@ -54,7 +54,7 @@ public extension OKLCH {
         )
     }
 
-    var isInGamut: Bool {
+    public var isInGamut: Bool {
         let (r, g, b) = rawSRGB
         let tolerance = 1e-6
         return [r, g, b].allSatisfy { $0 >= -tolerance && $0 <= 1 + tolerance }
@@ -69,7 +69,7 @@ public extension OKLCH {
     /// chroma instead desaturates slightly and keeps the hue exact, and because
     /// lightness is untouched, every contrast guarantee in `docs/DESIGN.md` survives
     /// the mapping.
-    func gamutMapped() -> OKLCH {
+    public func gamutMapped() -> OKLCH {
         if isInGamut { return self }
 
         var low = 0.0

@@ -52,9 +52,7 @@ struct YouView: View {
                             .foregroundStyle(Fixed.ink)
                             .frame(maxWidth: .infinity)
                             .frame(height: 48)
-                            .background(Fixed.yellow,
-                                        in: RoundedRectangle(cornerRadius: Radius.sm,
-                                                             style: .continuous))
+                            .jellySurface(RoundedRectangle(cornerRadius: Radius.sm, style: .continuous), glow: 16)
                             .buttonStyle(.squash)
                     }
                 }
@@ -149,8 +147,9 @@ struct YouView: View {
                 state.chooseGround(ground)
             }
         } label: {
-            BlobShape(seed: ground.rawValue.paletteSeed, wobble: 0.18)
-                .fill(Color(Palette.Role.accent.oklch(on: ground)))
+            JellyBlob(shape: BlobShape(seed: ground.rawValue.paletteSeed, wobble: 0.18),
+                      base: Palette.Role.accent.oklch(on: ground),
+                      glow: 9)
                 .overlay {
                     BlobShape(seed: ground.rawValue.paletteSeed, wobble: 0.18)
                         .stroke(Color(Palette.Role.onGround.oklch(on: ground)),

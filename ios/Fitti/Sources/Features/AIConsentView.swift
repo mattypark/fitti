@@ -49,8 +49,7 @@ struct AIConsentView: View {
                         .foregroundStyle(Fixed.ink)
                         .frame(maxWidth: .infinity)
                         .frame(height: 54)
-                        .background(Fixed.yellow,
-                                    in: RoundedRectangle(cornerRadius: Radius.sm, style: .continuous))
+                        .jellySurface(RoundedRectangle(cornerRadius: Radius.sm, style: .continuous), glow: 16)
                 }
                 .buttonStyle(.squash)
 

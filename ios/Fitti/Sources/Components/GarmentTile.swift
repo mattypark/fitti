@@ -23,8 +23,10 @@ struct GarmentTile: View {
     let palette: Palette
 
     var body: some View {
-        BlobShape(seed: garment.name.paletteSeed, wobble: 0.14)
-            .fill(Color(OKLCH(0.68, 0.13, garment.hue)))
+        LiquidBlob(seed: garment.name.paletteSeed,
+                   base: OKLCH(0.68, 0.13, garment.hue),
+                   wobble: 0.14,
+                   glow: 22)
             .aspectRatio(garment.tileAspectRatio, contentMode: .fit)
             .frame(maxWidth: .infinity)
             .padding(.horizontal, Space.xs)

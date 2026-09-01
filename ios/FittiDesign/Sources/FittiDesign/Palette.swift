@@ -157,6 +157,11 @@ public enum Fixed {
     public static let paper = Color(red: 0.984, green: 0.980, blue: 0.965)
     /// The brand mark: logo, launch screen, App Store icon.
     public static let yellow = Color(red: 0.937, green: 0.773, blue: 0.247)
+
+    /// The same yellow in OKLCH. `JellyBlob` builds its subsurface ramp by moving
+    /// lightness, which only stays the same colour if the hue is held explicitly —
+    /// darkening an sRGB triple drags it toward orange.
+    public static let yellowPigment = OKLCH(0.838, 0.152, 91)
 }
 
 /// Small, fast, and — unlike `SystemRandomNumberGenerator` — reproducible, which is the

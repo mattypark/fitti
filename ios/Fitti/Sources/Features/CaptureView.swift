@@ -126,8 +126,9 @@ struct CaptureView: View {
             }
         } label: {
             ZStack {
-                BlobShape(seed: "shutter".paletteSeed, wobble: 0.12)
-                    .fill(Fixed.yellow)
+                JellyBlob(shape: BlobShape(seed: "shutter".paletteSeed, wobble: 0.12),
+                          base: Fixed.yellowPigment,
+                          glow: 26)
                 Image(systemName: "camera.fill")
                     .font(.system(size: 30, weight: .semibold))
                     .foregroundStyle(Fixed.ink)

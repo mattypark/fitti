@@ -38,6 +38,7 @@
 		7080EE8FC002F88F9E8B4371 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1545C3FB121A35033002CA58 /* WelcomeView.swift */; };
 		7A5209434350EFE552A65096 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D275C55980E36D741B280774 /* AuthService.swift */; };
 		7D12D395C7B158A6FC81ECF4 /* SharedInbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC91082661EBE5FEB81516 /* SharedInbox.swift */; };
+		7D36C7919B44E380267D83DB /* JellyBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B58F40E452968304CBE890 /* JellyBlob.swift */; };
 		89FEFFCE9B54AB0F8AF87C21 /* CaptureItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC214A2790F1B31AC3B0992A /* CaptureItem.swift */; };
 		8E9B96C0E6FF9D48CE09EC67 /* RootGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DC35D70D5ABE8836246932 /* RootGate.swift */; };
 		95550376DDA815443892F28D /* SharedInbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FC91082661EBE5FEB81516 /* SharedInbox.swift */; };
@@ -91,6 +92,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00B58F40E452968304CBE890 /* JellyBlob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyBlob.swift; sourceTree = "<group>"; };
 		00FC91082661EBE5FEB81516 /* SharedInbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedInbox.swift; sourceTree = "<group>"; };
 		040AEA4711A463996E0FBE60 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		066E85FFA903207CE4626768 /* Mascot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mascot.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				EA57EAEA89E0A8A37DEEFA02 /* CaptureTile.swift */,
 				3392184995BA15A41F4BABBD /* FittiBlob.swift */,
 				F576CE8E8A2C8529009A2C60 /* GarmentTile.swift */,
+				00B58F40E452968304CBE890 /* JellyBlob.swift */,
 				2C41DB872F198D1C10437CAE /* LimitMeter.swift */,
 				066E85FFA903207CE4626768 /* Mascot.swift */,
 				8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */,
@@ -486,6 +489,7 @@
 				0A040C5F4BAB49AE77EA0144 /* GarmentTile.swift in Sources */,
 				B1CAFF942AA7A1C6CC547021 /* Haptics.swift in Sources */,
 				18F78AAB526647CE6136CD55 /* ImagePipeline.swift in Sources */,
+				7D36C7919B44E380267D83DB /* JellyBlob.swift in Sources */,
 				1C1C8C0E84C4608F23725A24 /* LibraryImport.swift in Sources */,
 				05C905B05F02848150848B81 /* LimitMeter.swift in Sources */,
 				A585CD34B87F8F9498A90CF0 /* Mascot.swift in Sources */,

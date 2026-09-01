@@ -23,8 +23,16 @@ struct TabBar: View {
         .padding(.horizontal, Space.xs)
         .padding(.top, Space.xs)
         .background {
-            palette.groundSunk
-                .ignoresSafeArea(edges: .bottom)
+            ZStack {
+                palette.groundSunk
+                // A shelf catches the same key light everything else does, so
+                // the bar reads as a surface in the room rather than as a strip
+                // laid over the top of it.
+                LinearGradient(colors: [.white.opacity(0.24), .clear],
+                               startPoint: .top, endPoint: .bottom)
+                    .blendMode(.softLight)
+            }
+            .ignoresSafeArea(edges: .bottom)
         }
     }
 
@@ -63,8 +71,14 @@ struct TabBar: View {
             onCapture()
         } label: {
             ZStack {
-                BlobShape(seed: "capture".paletteSeed, wobble: 0.14)
-                    .fill(Fixed.yellow)
+                // Nearly a circle. Every other blob in the app is free to be
+                // lopsided, but this one is a control you aim at forty times a
+                // day — an irregular target reads as a decoration that happens
+                // to be tappable, and the teardrop it made was pointing at the
+                // Outfits tab.
+                JellyBlob(shape: BlobShape(seed: "capture".paletteSeed, wobble: 0.045),
+                          base: Fixed.yellowPigment,
+                          glow: 15)
                 Image(systemName: "plus")
                     .font(.system(size: 26, weight: .bold))
                     .foregroundStyle(Fixed.ink)

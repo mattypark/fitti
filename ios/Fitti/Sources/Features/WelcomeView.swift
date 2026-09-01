@@ -204,7 +204,7 @@ struct WelcomeView: View {
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundStyle(Fixed.ink)
                         .frame(width: 38, height: 38)
-                        .background(Fixed.yellow, in: Circle())
+                        .jellySurface(Circle(), glow: 10)
                 }
                 .buttonStyle(.squash)
                 .disabled(email.isEmpty || busy)

@@ -12,6 +12,19 @@ struct RootView: View {
             // One butter ground for everybody. The personal hue is the accent.
             state.palette.ground.ignoresSafeArea()
 
+            // The same key light every blob is lit by, falling on the room. It
+            // keeps the ground from reading as a flat sheet of paint and gives
+            // the glow under each blob something to sit against.
+            EllipticalGradient(stops: [
+                .init(color: .white.opacity(0.42), location: 0.00),
+                .init(color: .white.opacity(0.10), location: 0.55),
+                .init(color: .white.opacity(0.00), location: 1.00),
+            ], center: UnitPoint(x: 0.18, y: 0.04),
+               startRadiusFraction: 0, endRadiusFraction: 0.95)
+            .ignoresSafeArea()
+            .blendMode(.softLight)
+            .allowsHitTesting(false)
+
             VStack(spacing: 0) {
                 Group {
                     switch state.tab {
