@@ -70,6 +70,7 @@ struct FittiBlob: View {
         .gesture(
             DragGesture(minimumDistance: 0)
                 .onChanged { value in
+                    if squash == 0 { Haptics.shared.squish() }
                     touch = value.location
                     withAnimation(.spring(response: 0.18, dampingFraction: 0.45)) {
                         squash = 1

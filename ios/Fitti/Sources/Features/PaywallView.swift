@@ -20,6 +20,8 @@ struct PaywallView: View {
             BlobDots(screen: "paywall", count: 3).ignoresSafeArea()
 
             VStack(spacing: Space.lg) {
+                SheetChrome(palette: palette) { dismiss() }
+
                 Spacer()
 
                 Mascot(size: 110)
@@ -59,16 +61,17 @@ struct PaywallView: View {
                 .font(.fittiCallout)
                 .foregroundStyle(palette.onGroundSoft)
 
-                Button("Not now") { dismiss() }
-                    .font(.fittiCallout)
-                    .foregroundStyle(palette.onGroundSoft)
+
             }
             .padding(.horizontal, Space.lg)
             .padding(.bottom, Space.xl)
         }
         .task { await entitlements.refresh() }
         .onChange(of: entitlements.isPlus) { _, isPlus in
-            if isPlus { dismiss() }
+            if isPlus {
+                Haptics.shared.success()
+                dismiss()
+            }
         }
     }
 

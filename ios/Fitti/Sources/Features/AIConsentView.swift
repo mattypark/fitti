@@ -21,6 +21,8 @@ struct AIConsentView: View {
             BlobDots(screen: "consent", count: 3).ignoresSafeArea()
 
             VStack(spacing: Space.lg) {
+                SheetChrome(palette: palette) { onDecision(false) }
+
                 Spacer()
                 Mascot(size: 100)
 
@@ -64,7 +66,9 @@ struct AIConsentView: View {
             .padding(.horizontal, Space.lg)
             .padding(.bottom, Space.xl)
         }
-        .interactiveDismissDisabled()
+        // Swipe-to-dismiss counts as declining, rather than being blocked. A
+        // sheet you cannot leave is worse than one whose default answer is no.
+        .presentationDragIndicator(.visible)
     }
 
     private func row(_ title: String, _ body: String) -> some View {

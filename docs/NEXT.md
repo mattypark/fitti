@@ -36,6 +36,39 @@ straight into the app. Two launch arguments exist for automation, both DEBUG-onl
 
 ---
 
+## Fixed this session
+
+- **The back button.** There was no back control anywhere in the app, and the AI
+  consent sheet combined `interactiveDismissDisabled()` with no exit — tapping
+  **+** for the first time trapped you. Every sheet now has the same back chevron
+  in the same place (`SheetChrome`), and swipe-to-dismiss counts as declining.
+- **Haptics.** `Haptics.shared` wraps the feedback generators and Core Haptics.
+  Tab changes get selection feedback, the shutter gets the heaviest impact in the
+  app, and the blob has a real two-stage `squish` pattern — a firm hit, then a
+  softer rebound 110ms later, which reads as something soft compressing rather
+  than as a button click. Welcome landing has its own `land` pattern.
+  Generators are prepared ahead of use; an unprepared one fires late, and a late
+  haptic reads as a glitch.
+
+## Open: the UI does not look designed yet
+
+Matthew's verdict: *"I don't like how the entire app looks, it looks AI-coded."*
+Research is in flight on this. The targets he named:
+
+- **Alta** (altadaily.com, and the Mobbin teardown) — the direct competitor and
+  the visual reference. Near-monochrome, product photography as the only colour,
+  heavy condensed wordmark, dense but calm.
+- **Cosmos** (cosmos.so) — "Pinterest but much more aesthetic." Copy its grid,
+  spacing and restraint.
+- **What makes feeds addictive** without dark patterns — Instagram, TikTok,
+  YouTube, Google.
+
+The open question the research must answer: **is the full-bleed butter yellow a
+mistake?** Alta is nearly monochrome and the clothes supply all the colour. Fitti
+currently paints every screen, which may be exactly the tell that reads as
+AI-generated. `docs/DESIGN.md` has the whole colour system, so changing this is a
+token-level change, not a rewrite.
+
 ## The next task: the welcome-screen mascot
 
 **What Matthew asked for, precisely:** on the **welcome page only** — not the home
@@ -70,7 +103,13 @@ redrawing it, which is precisely why it cannot repeat the flat-vector failure.
 4. Export to `ios/Fitti/Resources/fitti.riv`. `RiveMascot` already loads it and
    already sends `mood` / `level` / `poke`; add `lookX` for the gaze.
 
-**Needs paying for: $9/mo Cadet.** Rive's Free tier cannot export a `.riv` at
+**Matthew does not want to pay for Rive.** So the Cadet seat is off the table for
+now, and the alternatives are: the third-party `rive-mcp` (writes `.riv` binaries
+directly, no plan needed — but 4 stars, single maintainer, validates against the
+*web* runtime not `rive-ios`, so treat as a prototype-only escape hatch), or stay
+on the Metal shader, which already deforms the real artwork and costs nothing.
+
+For reference, if that changes — **$9/mo Cadet.** Rive's Free tier cannot export a `.riv` at
 all — not even for a debug build. That is the one purchase this route requires.
 App size is **6 MB** arm64, ~2–3 MB after thinning, so the size worry is dead.
 

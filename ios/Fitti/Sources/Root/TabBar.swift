@@ -32,6 +32,8 @@ struct TabBar: View {
 
     private func item(_ tab: Tab, symbol: String, label: String) -> some View {
         Button {
+            guard selection != tab else { return }
+            Haptics.shared.select()
             withAnimation(Motion.respecting(Motion.blob, reduceMotion: reduceMotion)) {
                 selection = tab
             }
@@ -63,7 +65,10 @@ struct TabBar: View {
     }
 
     private var captureButton: some View {
-        Button(action: onCapture) {
+        Button {
+            Haptics.shared.tap()
+            onCapture()
+        } label: {
             ZStack {
                 BlobShape(seed: "capture".paletteSeed, wobble: 0.14)
                     .fill(Fixed.yellow)

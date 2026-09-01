@@ -39,6 +39,9 @@ struct WelcomeSequence<Content: View>: View {
             return
         }
 
+        // Warm the Taptic Engine before the landing, so the impact isn't late.
+        Haptics.shared.prepare()
+
         // 1. Drop. Stretched vertically on the way down — anticipation is what
         //    makes the landing land.
         withAnimation(.interpolatingSpring(stiffness: 170, damping: 14)) {
@@ -49,6 +52,9 @@ struct WelcomeSequence<Content: View>: View {
         try? await Task.sleep(for: .milliseconds(340))
 
         // 2. Impact: squash hard and scatter the dots outward from underneath.
+        //    The haptic fires with the visual, not after it — a late haptic
+        //    reads as a glitch rather than as weight.
+        Haptics.shared.land()
         withAnimation(.easeOut(duration: 0.09)) {
             beat.mascotStretch = 0.80
             beat.impact = 1

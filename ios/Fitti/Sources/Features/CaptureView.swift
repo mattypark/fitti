@@ -79,10 +79,21 @@ struct CaptureView: View {
 
     private var topBar: some View {
         HStack {
-            Button("Done") { dismiss() }
-                .font(.fittiHeadline)
-                .foregroundStyle(Fixed.paper)
+            Button {
+                Haptics.shared.tap()
+                dismiss()
+            } label: {
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 17, weight: .semibold))
+                    .foregroundStyle(Fixed.paper)
+                    .frame(width: 40, height: 40)
+                    .background(.ultraThinMaterial, in: Circle())
+            }
+            .buttonStyle(.squash)
+            .accessibilityLabel("Back")
+
             Spacer()
+
             if shots > 0 {
                 Text("\(shots) added")
                     .font(.fittiCallout)
@@ -92,7 +103,7 @@ struct CaptureView: View {
             }
         }
         .padding(.horizontal, Space.gutter)
-        .padding(.top, Space.md)
+        .padding(.top, Space.sm)
     }
 
     private var libraryButton: some View {
@@ -133,7 +144,7 @@ struct CaptureView: View {
                 try await CaptureQueue.shared.enqueue(data, source: camera.isAvailable ? .camera : .library)
                 shots += 1
                 onCaptured()
-                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                Haptics.shared.shutter()
                 if !reduceMotion {
                     withAnimation(.easeOut(duration: 0.06)) { flash = true }
                     withAnimation(.easeIn(duration: 0.18).delay(0.06)) { flash = false }
