@@ -146,8 +146,7 @@ struct YouView: View {
         let isSelected = state.ground == ground
         return Button {
             withAnimation(Motion.blob) {
-                state.ground = ground
-                state.groundIsAuto = false
+                state.chooseGround(ground)
             }
         } label: {
             BlobShape(seed: ground.rawValue.paletteSeed, wobble: 0.18)

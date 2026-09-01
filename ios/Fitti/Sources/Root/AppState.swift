@@ -28,10 +28,13 @@ final class AppState {
     }()
     var isCapturing = false
 
-    /// The screen colour. Assigned at signup today; later derived from the
+    /// The personal accent. Assigned at signup today; later derived from the
     /// dominant colour of the clothes you own, and always overridable here.
-    var ground: Ground = .butter
-    var groundIsAuto = true
+    ///
+    /// It no longer tints the screen — the ground is one butter for everybody —
+    /// so this shows up on a ring, an active tab and a price.
+    var ground: Ground = GroundStore.ground
+    var groundIsAuto = GroundStore.isAutomatic
 
     var garments: [MockGarment] = MockCloset.garments
 
@@ -65,6 +68,16 @@ final class AppState {
 
     var palette: Palette { Palette(ground) }
 
+    /// Picking a colour has to survive a relaunch, which it did not before: the
+    /// server's random assignment never reached the device and a hand-picked
+    /// accent was gone by the next launch.
+    func chooseGround(_ colour: Ground) {
+        ground = colour
+        groundIsAuto = false
+        GroundStore.ground = colour
+        GroundStore.isAutomatic = false
+    }
+
     /// The client's copy of the rule. The database enforces the same ceiling in
     /// `enforce_garment_limit`, so this only decides whether to open the camera
     /// or the paywall — it is not what actually stops a 26th garment.
@@ -86,5 +99,34 @@ final class AppState {
             return
         }
         isCapturing = true
+    }
+}
+
+/// The chosen accent, across launches.
+///
+/// The raw string is stored, never the enum: `UserDefaults` throws on anything
+/// that is not a property-list value, and that exact mistake — writing a
+/// non-plist value straight in — already crashed sign-in once.
+///
+/// This is the local half. `profiles.ground` is assigned at signup and is still
+/// not read on the session path; see docs/NEXT.md.
+enum GroundStore {
+    private static let colourKey = "fitti.ground"
+    private static let isAutoKey = "fitti.groundIsAuto"
+
+    static var ground: Ground {
+        get {
+            guard let raw = UserDefaults.standard.string(forKey: colourKey) else {
+                return .default
+            }
+            return Ground(rawValue: raw) ?? .default
+        }
+        set { UserDefaults.standard.set(newValue.rawValue, forKey: colourKey) }
+    }
+
+    /// Absent means "never chosen", which is not the same as false.
+    static var isAutomatic: Bool {
+        get { UserDefaults.standard.object(forKey: isAutoKey) as? Bool ?? true }
+        set { UserDefaults.standard.set(newValue, forKey: isAutoKey) }
     }
 }
