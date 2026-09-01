@@ -36,7 +36,14 @@ final class AppState {
     var ground: Ground = GroundStore.ground
     var groundIsAuto = GroundStore.isAutomatic
 
-    var garments: [MockGarment] = MockCloset.garments
+    var garments: [MockGarment] = {
+        #if DEBUG
+        // Lets the empty state be launched into and screenshotted. DEBUG-only,
+        // like -fittiSignedIn and -fittiTab, so it cannot ship.
+        if ProcessInfo.processInfo.arguments.contains("-fittiEmpty") { return [] }
+        #endif
+        return MockCloset.garments
+    }()
 
     /// Shown when capture is tapped and the closet is already at the ceiling.
     var showPaywall = false
@@ -45,6 +52,10 @@ final class AppState {
     var showAIConsent = false
 
     let entitlements = Entitlements()
+
+    /// Discover is the only screen whose content comes from outside, so it is the
+    /// only one that can be empty for a reason the user can do something about.
+    let reachability = Reachability()
 
     /// Real captures, newest first. Shown ahead of the mock pieces so a photo
     /// taken thirty seconds ago is the first thing in the grid.

@@ -11,6 +11,9 @@ import FittiDesign
 /// This screen runs on paper rather than the user's ground colour, so the clothes
 /// are the only colour on it.
 struct DiscoverView: View {
+    /// The shop is the one part of Fitti that needs a network.
+    var isOnline: Bool = true
+
     private let columns = [GridItem(.adaptive(minimum: 150), spacing: Space.sm)]
 
     var body: some View {
@@ -24,12 +27,22 @@ struct DiscoverView: View {
                     .font(.fittiCallout)
                     .foregroundStyle(Fixed.ink.opacity(0.55))
 
-                LazyVGrid(columns: columns, spacing: Space.sm) {
-                    ForEach(MockCatalog.listings) { listing in
-                        ListingTile(listing: listing)
+                if !isOnline {
+                    StateView(kind: .offline,
+                              message: "no signal — I'll bring the shop back\nwhen you're online again",
+                              foreground: Fixed.ink)
+                } else if MockCatalog.listings.isEmpty {
+                    StateView(kind: .empty,
+                              message: "nothing new in here today",
+                              foreground: Fixed.ink)
+                } else {
+                    LazyVGrid(columns: columns, spacing: Space.sm) {
+                        ForEach(MockCatalog.listings) { listing in
+                            ListingTile(listing: listing)
+                        }
                     }
+                    .padding(.top, Space.xs)
                 }
-                .padding(.top, Space.xs)
             }
             .padding(.horizontal, Space.gutter)
             .padding(.top, Space.md)

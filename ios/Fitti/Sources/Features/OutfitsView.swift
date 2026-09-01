@@ -276,6 +276,11 @@ struct OutfitsView: View {
                 Rectangle().fill(palette.onGroundSoft.opacity(0.25)).frame(height: 1)
             }
 
+            if suggested.isEmpty {
+                StateView(kind: .empty,
+                          message: "add a few more pieces and I can\nstart putting looks together",
+                          foreground: palette.onGround)
+            } else {
             ScrollView(.horizontal) {
                 HStack(spacing: Space.md) {
                     ForEach(suggested) { outfit in
@@ -299,6 +304,7 @@ struct OutfitsView: View {
             }
             .scrollIndicators(.hidden)
             .padding(.horizontal, -Space.gutter)
+            }
         }
         .padding(.horizontal, Space.gutter)
     }

@@ -9,14 +9,14 @@ struct RootView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            // Paper everywhere. The clothes supply the colour.
+            // One butter ground for everybody. The personal hue is the accent.
             state.palette.ground.ignoresSafeArea()
 
             VStack(spacing: 0) {
                 Group {
                     switch state.tab {
                     case .closet:   ClosetView(state: state)
-                    case .discover: DiscoverView()
+                    case .discover: DiscoverView(isOnline: state.reachability.isOnline)
                     case .outfits:  OutfitsView(palette: state.palette, name: session.displayName, garments: state.garments)
                     case .you:      YouView(state: state, session: session, onSignOut: onSignOut)
                     }

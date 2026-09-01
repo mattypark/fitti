@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01361DB19715E7F43A4D8749 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F9AFCBC4BD5A9635E36309 /* Reachability.swift */; };
 		048EAB5BA20184F2A22A10EE /* CaptureTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA57EAEA89E0A8A37DEEFA02 /* CaptureTile.swift */; };
 		053075B7B926C6AD0425AEBC /* AIConsentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A6F87F819DBE3950203195 /* AIConsentView.swift */; };
 		05C905B05F02848150848B81 /* LimitMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C41DB872F198D1C10437CAE /* LimitMeter.swift */; };
@@ -45,6 +46,7 @@
 		9B64EA9DFF629D51FD2A2F3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B49747846F9E0724C42F07E /* Assets.xcassets */; };
 		9C3EA37D56FFDDDAEEB53998 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0BA39694A9FA5019689054 /* Entitlements.swift */; };
 		A585CD34B87F8F9498A90CF0 /* Mascot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066E85FFA903207CE4626768 /* Mascot.swift */; };
+		A75826E63C1346A605E19F22 /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1F03C2D5488335F4E62C76 /* StateView.swift */; };
 		AF603CCD7A90F46062B33E8D /* SheetChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695E7402C558FF0537CB1B0B /* SheetChrome.swift */; };
 		AF66445F8402133F9527F958 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB952A5CCCB454E83C93561 /* Supabase */; };
 		B1CAFF942AA7A1C6CC547021 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0070872BFB46CF1C8D84C12 /* Haptics.swift */; };
@@ -106,6 +108,7 @@
 		40A4CB6F123472ED628E028D /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
 		412E51D01B4C9CDAC8793385 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		438B4D1A37F42683388FD483 /* FittiDesign */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FittiDesign; path = FittiDesign; sourceTree = SOURCE_ROOT; };
+		55F9AFCBC4BD5A9635E36309 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		5A34AA96F83E878E9C7D77BA /* CutoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutoutService.swift; sourceTree = "<group>"; };
 		64DC35D70D5ABE8836246932 /* RootGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootGate.swift; sourceTree = "<group>"; };
 		695E7402C558FF0537CB1B0B /* SheetChrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetChrome.swift; sourceTree = "<group>"; };
@@ -144,6 +147,7 @@
 		F44B600506594AD66C711E8F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		F576CE8E8A2C8529009A2C60 /* GarmentTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarmentTile.swift; sourceTree = "<group>"; };
 		F63154BEC0703B0C155C119A /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		FB1F03C2D5488335F4E62C76 /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
 		FC214A2790F1B31AC3B0992A /* CaptureItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				D0070872BFB46CF1C8D84C12 /* Haptics.swift */,
+				55F9AFCBC4BD5A9635E36309 /* Reachability.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 				8AF342CB1F5E28ED159609C0 /* OutfitFigure.swift */,
 				695E7402C558FF0537CB1B0B /* SheetChrome.swift */,
 				0EE2C3F3876BBF86086DC12D /* StaggeredGrid.swift */,
+				FB1F03C2D5488335F4E62C76 /* StateView.swift */,
 				8B316D01B7E75A1FD69AE07A /* WelcomeSequence.swift */,
 			);
 			path = Components;
@@ -489,11 +495,13 @@
 				1FE3F6BD23F108B82306DFB1 /* OutfitFigure.swift in Sources */,
 				559AFF3F3CBF9BEAD8BF4B83 /* OutfitsView.swift in Sources */,
 				EB0E20980DF6F6EB7AAD127C /* PaywallView.swift in Sources */,
+				01361DB19715E7F43A4D8749 /* Reachability.swift in Sources */,
 				8E9B96C0E6FF9D48CE09EC67 /* RootGate.swift in Sources */,
 				4AE37454E9F8DE68A983C51A /* RootView.swift in Sources */,
 				95550376DDA815443892F28D /* SharedInbox.swift in Sources */,
 				AF603CCD7A90F46062B33E8D /* SheetChrome.swift in Sources */,
 				DBEFC8D752BDD3E8B508689E /* StaggeredGrid.swift in Sources */,
+				A75826E63C1346A605E19F22 /* StateView.swift in Sources */,
 				FADE44F388623332601F450B /* SupabaseAuthService.swift in Sources */,
 				67AEAF8D3C0757C4EEFC9F56 /* TabBar.swift in Sources */,
 				CB9BE3079A0EDD409D0F2468 /* WelcomeSequence.swift in Sources */,

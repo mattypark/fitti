@@ -11,6 +11,12 @@ struct ClosetView: View {
             VStack(alignment: .leading, spacing: Space.lg) {
                 header
 
+                if items.isEmpty {
+                    StateView(kind: .empty,
+                              message: "nothing in here yet — tap the +\nand I'll start remembering what you own",
+                              foreground: state.palette.onGround,
+                              actionTitle: "Add a piece") { state.requestCapture() }
+                } else {
                 // Two columns, not three. Three at iPhone width turns a wall of
                 // clothes into a spreadsheet; two is what Alta and Cosmos both
                 // settle on, and it leaves each silhouette large enough to be
@@ -29,6 +35,7 @@ struct ClosetView: View {
                 // One fade for the whole grid, not one per tile.
                 .opacity(loaded ? 1 : 0)
                 .animation(.easeOut(duration: 0.18), value: loaded)
+                }
             }
             .padding(.horizontal, Space.gutter)
             .padding(.top, Space.md)
