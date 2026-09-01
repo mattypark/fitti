@@ -93,7 +93,7 @@ export function BlobField({ seed, count = 4 }: { seed: string; count?: number })
         const midpoint = (a: [number, number], b: [number, number]): [number, number] =>
           [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
 
-        let start = midpoint(vertices[points - 1], vertices[0]);
+        const start = midpoint(vertices[points - 1], vertices[0]);
         context.moveTo(start[0], start[1]);
         for (let i = 0; i < points; i += 1) {
           const control = vertices[i];
