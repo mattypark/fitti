@@ -50,6 +50,41 @@ straight into the app. Two launch arguments exist for automation, both DEBUG-onl
   Generators are prepared ahead of use; an unprepared one fires late, and a late
   haptic reads as a glitch.
 
+## Done: the visual pass
+
+The research came back and the diagnosis was specific. Executed:
+
+- **Ground inverted to paper** (L 0.985 / C 0.004). The hue survives as a
+  temperature. All 20 tests still pass — contrast holds.
+- **Cards deleted from garment tiles.** A cutout has its own silhouette; a
+  rounded rect behind it is a second shape competing with the first.
+- **Forced 1:1 deleted.** A coat is tall, a belt is wide. Normalising them was
+  what made the grid read as algorithmic rather than curated.
+- **Ambient blob dots deleted** from every screen — decoration with no
+  information role.
+- **Per-tile entrance animation deleted** — it fired on scroll-in, so every tile
+  popped as you scrolled. One container fade now.
+- **Radii tightened** — 20→12 on tiles, 32→28 on sheets.
+- **Tab indicator blob removed**; selection is weight and opacity.
+- **Overshoot reserved for the mascot alone.** It only reads as alive because
+  nothing else in the app bounces.
+
+### Still open from the research
+
+| Change | Impact | Effort |
+|---|---|---|
+| One type family + Cosmos's scale; demote Bagel/Gloria to wordmark + speech bubble only | 9 | 1.5 half-days |
+| Demote the 12 grounds to accent-only | 6 | 1 |
+| Garment-native staggered grid | 8 | 2 |
+| Edge-to-edge + minimizing tab bar (iOS 26) | 6 | 1.5 |
+| **Design the empty / loading / error / offline states** | 7 | 2.5 |
+| Alta's month-strip: the streak as a growing visual artifact you own | 8 | 4 |
+
+The type change is the biggest remaining one. Both Alta and Cosmos ship exactly
+two faces — a licensed text family plus its own mono — and **no display face at
+all**. Alta's 100px hero is weight 500, not black. That restraint is most of what
+"expensive" means.
+
 ## Open: the UI does not look designed yet
 
 Matthew's verdict: *"I don't like how the entire app looks, it looks AI-coded."*

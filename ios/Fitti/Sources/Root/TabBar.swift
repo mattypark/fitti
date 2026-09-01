@@ -12,8 +12,6 @@ struct TabBar: View {
     let palette: Palette
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @Namespace private var indicator
-
     var body: some View {
         HStack(spacing: 0) {
             item(.closet, symbol: "square.grid.2x2", label: "Closet")
@@ -34,27 +32,22 @@ struct TabBar: View {
         Button {
             guard selection != tab else { return }
             Haptics.shared.select()
-            withAnimation(Motion.respecting(Motion.blob, reduceMotion: reduceMotion)) {
+            withAnimation(Motion.respecting(Motion.snappy, reduceMotion: reduceMotion)) {
                 selection = tab
             }
         } label: {
             VStack(spacing: 3) {
-                ZStack {
-                    if selection == tab {
-                        BlobShape(seed: label.paletteSeed, wobble: 0.2)
-                            .fill(palette.groundLift)
-                            .frame(width: 40, height: 34)
-                            .matchedGeometryEffect(id: "pill", in: indicator)
-                    }
-                    Image(systemName: symbol)
-                        .font(.system(size: 19, weight: selection == tab ? .semibold : .regular))
-                }
-                .frame(height: 34)
+                // Selection is carried by weight and opacity, not by a shape
+                // behind the icon. One decorative form doing five different jobs
+                // is what made the app read as assembled from parts.
+                Image(systemName: symbol)
+                    .font(.system(size: 20, weight: selection == tab ? .semibold : .regular))
+                    .frame(height: 34)
 
                 Text(label)
                     .font(.system(size: 10, weight: .medium))
             }
-            .foregroundStyle(selection == tab ? palette.onGround : palette.onGroundSoft)
+            .foregroundStyle(selection == tab ? palette.onGround : palette.onGroundFaint)
             .frame(maxWidth: .infinity)
             .padding(.bottom, Space.xxs)
             .contentShape(Rectangle())

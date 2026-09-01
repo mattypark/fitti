@@ -18,11 +18,12 @@ public enum Space {
 }
 
 public enum Radius {
-    public static let xs: CGFloat = 6
-    public static let sm: CGFloat = 12
-    /// Garment tiles.
-    public static let tile: CGFloat = 20
-    /// Sheets.
-    public static let sheet: CGFloat = 32
+    public static let xs: CGFloat = 4
+    public static let sm: CGFloat = 8
+    /// Garment tiles. Past ~16 a card stops reading as a card and starts reading
+    /// as a blob, which is the single most common tell of a generated interface.
+    public static let tile: CGFloat = 12
+    /// Sheets. Matches the device corner so the sheet looks concentric with it.
+    public static let sheet: CGFloat = 28
     public static let pill: CGFloat = 999
 }

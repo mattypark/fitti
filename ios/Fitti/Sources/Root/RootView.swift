@@ -9,15 +9,8 @@ struct RootView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            // The screen IS the colour, edge to edge. Discover is the one
-            // exception, where the clothes should be the only colour present.
-            (state.isGalleryTab ? Fixed.paper : state.palette.ground)
-                .ignoresSafeArea()
-
-            if !state.isGalleryTab {
-                BlobDots(screen: screenName, count: 3)
-                    .ignoresSafeArea()
-            }
+            // Paper everywhere. The clothes supply the colour.
+            state.palette.ground.ignoresSafeArea()
 
             VStack(spacing: 0) {
                 Group {
@@ -37,7 +30,7 @@ struct RootView: View {
                 )
             }
         }
-        .animation(Motion.settle, value: state.tab)
+        .animation(Motion.snappy, value: state.tab)
         .sheet(isPresented: $state.isCapturing) {
             CaptureView(palette: state.palette) {
                 Task { await state.reloadCaptures() }

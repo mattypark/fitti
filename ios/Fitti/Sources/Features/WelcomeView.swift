@@ -33,10 +33,6 @@ struct WelcomeView: View {
 
             // The blobs are pushed outward by the landing, so the impact has a
             // consequence beyond the mascot itself.
-            BlobDots(screen: "welcome", count: 4)
-                .scaleEffect(0.6 + 0.4 * beat.dotScatter)
-                .opacity(beat.dotScatter)
-                .ignoresSafeArea()
 
             VStack(spacing: Space.lg) {
                 #if DEBUG

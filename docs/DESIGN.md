@@ -6,8 +6,22 @@ Black, white, and yellow — with the whole screen taking a color.
 
 ## The idea
 
-A Fitti screen is not a white page with colored bits on it. The screen **is** a color,
-edge to edge, and the garment cutouts float on top of it. Text is a deep tone of that
+**Paper, not pigment.** The screen is near-white with a trace of the user's hue —
+a temperature rather than a colour — and the clothes supply everything else.
+
+This replaced a full-bleed saturated field on every screen, and the reason is
+functional rather than aesthetic. Simultaneous contrast shifts the perceived hue
+of anything sitting on a coloured ground. Butter sits at H≈85; garments cluster
+at H≈220–255 — every navy, blue and denim. The old field maximised perceptual
+error exactly where the wardrobe lives, which is a colour-judgement bug in an app
+whose one irreplaceable job is colour judgement. It also made the pale matting
+halo on every cutout visible, where paper hides it.
+
+Yellow survives, but as a **mark rather than a field**: the app icon, the launch
+screen, the capture button, the mascot. Scarcity is what makes a brand colour
+read as branding.
+
+Historical note — the original intent was: Text is a deep tone of that
 same hue, not black. This comes straight from the sneaker reference: a full butter-yellow
 field, brown type, one crimson accent, product floating with no card behind it.
 

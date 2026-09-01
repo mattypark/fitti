@@ -18,7 +18,6 @@ struct AIConsentView: View {
     var body: some View {
         ZStack {
             palette.ground.ignoresSafeArea()
-            BlobDots(screen: "consent", count: 3).ignoresSafeArea()
 
             VStack(spacing: Space.lg) {
                 SheetChrome(palette: palette) { onDecision(false) }

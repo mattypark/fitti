@@ -11,8 +11,10 @@ import SwiftUI
 /// ProMotion caps the app at 60fps and every spring below looks like a cheaper version
 /// of itself.
 public enum Motion {
-    /// The signature. Tab changes, the mascot, the dots. Visibly overshoots — that
-    /// overshoot is the "jello" the whole brand is built on.
+    /// The mascot, and nothing else. Visibly overshoots — that overshoot is the
+    /// jello the brand is built on, and it only reads as alive because nothing
+    /// else in the app does it. Spring bounce on ordinary interface chrome reads
+    /// dated; reserve it.
     public static let blob = Animation.spring(response: 0.55, dampingFraction: 0.62)
 
     /// Buttons, toggles, chips. Fast, barely overshoots.
@@ -42,12 +44,11 @@ public struct SquashButtonStyle: ButtonStyle {
 
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .scaleEffect(
-                x: configuration.isPressed ? 0.96 : 1,
-                y: configuration.isPressed ? 1.03 : 1,
-                anchor: .center
-            )
-            .animation(Motion.respecting(Motion.blob, reduceMotion: reduceMotion),
+            // Uniform, and no overshoot. The asymmetric squash reads as a
+            // character trait, which is right for the mascot and wrong for
+            // every button in the app.
+            .scaleEffect(configuration.isPressed ? 0.97 : 1)
+            .animation(Motion.respecting(Motion.snappy, reduceMotion: reduceMotion),
                        value: configuration.isPressed)
     }
 }

@@ -53,38 +53,51 @@ public struct Palette: Equatable, Sendable {
         /// Price, destructive, the one thing that must be seen.
         case accent
 
+        /// Paper, not pigment.
+        ///
+        /// The old system put a saturated field on every screen. That is wrong
+        /// here for a reason specific to this product, not for taste: simultaneous
+        /// contrast shifts the perceived hue of everything sitting on a coloured
+        /// field, and butter (H 85) sits near the opposite of where garments
+        /// actually cluster (H 220-255 — every navy, blue and denim). A wardrobe
+        /// app whose background biases blue judgement has a bug in the one job it
+        /// cannot get wrong.
+        ///
+        /// It also broke the cutouts. Background removal leaves a pale matting
+        /// halo on the alpha edge; invisible on paper, obvious on colour.
+        ///
+        /// The hue survives — at C 0.004 it is a temperature rather than a colour.
+        /// A butter user's paper is imperceptibly warm, a teal user's
+        /// imperceptibly cool.
         var lightness: Double {
             switch self {
-            case .ground: 0.89
-            case .groundSunk: 0.83
-            case .groundLift: 0.955
-            case .onGround: 0.32
-            case .onGroundSoft: 0.47
-            case .accent: 0.46
+            case .ground: 0.985
+            case .groundSunk: 0.960
+            case .groundLift: 1.000   // lift is WHITER than ground, not tinted
+            case .onGround: 0.180
+            case .onGroundSoft: 0.480
+            case .accent: 0.520
             }
         }
 
-        /// Chroma is deliberately uniform across the surface and text roles rather than
-        /// "as saturated as this hue allows".
+        /// Chroma now has one job: make `accent` visible.
         ///
-        /// sRGB holds far more chroma at yellow than at blue for the same lightness — at
-        /// L 0.89 the ceiling is 0.21 for moss and 0.054 for blue. Taking a fixed
-        /// *fraction* of each hue's ceiling would make a moss user's app look neon next
-        /// to a blue user's washed-out one. Blue therefore sets the budget for everyone,
-        /// which is why `ground` is 0.052: the most any hue can hold at L 0.89 while
-        /// every hue holds the same amount.
+        /// Every surface and text role is effectively neutral, which is exactly
+        /// why the accent can be 0.170 where it previously needed 0.085 and still
+        /// failed to read — it no longer competes with a coloured field for
+        /// attention. Scarcity is what makes a brand colour read as branding.
         ///
-        /// `accent` is the exception. It is a small emphasis color, not a surface, so it
-        /// asks for more than blue can give and lets `gamutMapped()` pull it back per
-        /// hue — hue and lightness survive, only saturation gives.
+        /// The hue survives at these values as a temperature rather than a
+        /// colour: a butter user's paper is imperceptibly warm, a teal user's
+        /// imperceptibly cool.
         var chroma: Double {
             switch self {
-            case .ground: 0.052
-            case .groundSunk: 0.052
-            case .groundLift: 0.020
-            case .onGround: 0.052
-            case .onGroundSoft: 0.050
-            case .accent: 0.085
+            case .ground: 0.004
+            case .groundSunk: 0.006
+            case .groundLift: 0.000
+            case .onGround: 0.012
+            case .onGroundSoft: 0.010
+            case .accent: 0.170
             }
         }
 
@@ -111,6 +124,12 @@ public struct Palette: Equatable, Sendable {
     public let onGround: Color
     public let onGroundSoft: Color
     public let accent: Color
+
+    /// Tertiary text. The same ink at lower opacity, never a different colour —
+    /// opacity composites correctly over paper, over a white sheet and over a
+    /// garment photograph, where a fixed grey goes muddy on one and vanishes on
+    /// another.
+    public var onGroundFaint: Color { onGround.opacity(0.38) }
 
     public init(_ groundColor: Ground) {
         ground       = Color(Role.ground.oklch(on: groundColor))
