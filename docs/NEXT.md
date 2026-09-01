@@ -166,6 +166,31 @@ every screen. SceneKit is now hard-deprecated, and `Model3D` is visionOS-only.
 
 ---
 
+## The figures have to stop being blobs
+
+`OutfitFigure` draws a head, a top, a bottom and shoes as four stacked shapes in
+the house jelly material. That is honest as a proportion study and it is now
+rendered like everything else in the app, but it is still a placeholder standing
+where the product's whole promise goes.
+
+Two routes, and they are not exclusive:
+
+1. **The real garments, stacked.** Once capture is producing Vision cutouts, an
+   outfit is its own pieces layered on a figure — no generation, no cost, no
+   latency, and it is literally your clothes. This is the honest default and it
+   is gated only on stage 5 running on a physical device, since the Vision
+   cutout does not work in the Simulator at all.
+2. **A person wearing them, generated.** A model shot from the cutouts. Higher
+   ceiling and the thing people actually screenshot, but it needs a provider, a
+   budget, a consent story beyond the Gemini labelling disclosure already
+   shipped, and an answer for what the body looks like — whose body, and who
+   decides.
+
+Route 1 first. Route 2 is the upgrade, not the foundation, and shipping it first
+would mean the app cannot show you an outfit without spending money.
+
+---
+
 ## Open items that need Matthew
 
 | | Needed for |

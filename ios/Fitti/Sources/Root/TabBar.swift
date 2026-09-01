@@ -76,6 +76,9 @@ struct TabBar: View {
                 // day — an irregular target reads as a decoration that happens
                 // to be tappable, and the teardrop it made was pointing at the
                 // Outfits tab.
+                // Nearly round. Every other blob in the app is free to be a
+                // shape; this one is a control you hit with your thumb, and a
+                // lopsided target reads as a mistake rather than as character.
                 JellyBlob(shape: BlobShape(seed: "capture".paletteSeed, wobble: 0.045),
                           base: Fixed.yellowPigment,
                           glow: 15)
