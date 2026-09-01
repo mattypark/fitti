@@ -53,7 +53,7 @@ every time. Everything is embedded into a vector index so the app can answer
 ## Layout
 
 ```
-fittie/
+fitti/
 ├── ios/         SwiftUI app — capture, cutout, closet, discovery
 ├── web/         Next.js 16 — landing, auth, read-only closet
 ├── worker/      Cloudflare Worker — image delivery + ingest queue
@@ -64,15 +64,13 @@ fittie/
 
 ## Research
 
-- **[docs/RIVE.md](docs/RIVE.md)** — how to author the mascot's animation file,
-  and why Rive and the shader both earn their place.
 - **[docs/ANIMATION.md](docs/ANIMATION.md)** — why the mascot is a Metal shader and
-  not a sprite sheet or a transparent video, what each shader does, and the Rive
-  plan for when we want real character performance.
+  not a sprite sheet or a transparent video, what each shader does, and why Rive
+  was taken back out.
 - **[docs/DECISIONS.md](docs/DECISIONS.md)** — why the stack is what it is, with
   the numbers that settled each call.
-- **[docs/DESIGN.md](docs/DESIGN.md)** — the colour system, and why blue sets the
-  chroma budget for every other hue.
+- **[docs/DESIGN.md](docs/DESIGN.md)** — the colour system: one butter ground, the
+  twelve hues demoted to a personal accent, and the jelly every form is made of.
 - **[docs/STAGES.md](docs/STAGES.md)** — build progress.
 - **[docs/RUNNING.md](docs/RUNNING.md)** — how to run it.
 

@@ -144,59 +144,44 @@ animation files.** This is the argument for shaders over any pre-baked format:
 the character can respond to data that didn't exist when the art was made.
 
 For *performance* — blinks, expressions, looking at a garment, a reaction when an
-outfit is saved — that's where **Rive** earns its place.
+outfit is saved — the obvious candidate was Rive. It was tried, wired, and then
+taken back out.
 
 ---
 
-## Rive — the plan when we want character performance
+## Rive — tried, and removed
 
-| | |
-|---|---|
-| Runtime | `RiveRuntime` 6.25.0 (Aug 2026), **MIT**, free forever |
-| Install | SPM `https://github.com/rive-app/rive-ios` |
-| Min iOS | 14.0, Swift 5.9 |
-| Editor | Free tier usable; **$9/seat/mo** to ship to production |
-| Renderer | Custom Metal vector rasterizer, dirty-rect, **~0% idle CPU** |
+`RiveRuntime` 6.25.0 was a real dependency, `RiveMascot` was written against it,
+and `docs/RIVE.md` planned the whole rig down to the MCP tool sequence. None of
+it ever ran: `fitti.riv` was never authored, so `RiveMascot` only ever took its
+fallback branch.
 
-Benchmarks (Android, architecturally indicative): **Rive ~60fps at 31.8% CPU vs
-Lottie 17fps at 91.8%** on the same complex animation.
+**What killed it was the export gate, not the runtime.** The runtime is MIT and
+free forever, and the app-size worry turned out to be wrong — the thinned arm64
+slice is about 6 MB, 2–3 MB after thinning, not the 115 MB the fat XCFramework
+zip suggests. The problem is that Rive's **Free tier cannot export a `.riv` at
+all** — not for production, not for a debug build, not to look at it on a phone.
+Authoring anything at all costs $9/seat/month, which is a purchase this project
+declined.
 
-**How you'd rig our mascot — concretely:**
+So the whole path was removed: the SPM package, `RiveMascot`, and `docs/RIVE.md`.
 
-1. Import `mascot.png` (or a PSD with face/body/highlight on separate layers).
-2. Select it → **Create Mesh** → **New Contour** → click ~12–20 vertices around
-   the silhouette. Fewer is better; you weight them by hand after.
-3. **Subdivide** with interior vertices, plus forced edges around the face so it
-   doesn't smear when the body deforms.
-4. Add 2–4 **bones**: a root, a squish bone, optionally left/right lobes.
-5. **Bind** bones to the mesh — Rive **auto-generates initial weights**; refine
-   with the Smooth tool.
-6. Timelines: `idle` (2s loop), `press` (0.15s squash), `release` (0.4s
-   overshoot), `react` (per outfit event).
-7. **State machine** with inputs: `isPressed: Bool`, `level: Number`,
-   `mood: Number`, `celebrate: Trigger`.
+**What replaced it.** The mascot stays on the Metal shader, which deforms the
+real artwork and therefore keeps the clay rendering that a redrawn vector could
+not reach — see "the flat-vector failure" above. Everything else coloured in the
+app is now drawn in the same material by `JellyBlob`: an OKLCH subsurface ramp, a
+specular offset toward the key light, a rim clipped back inside the silhouette,
+and a coloured glow. That is gradients and one shadow, no new dependency, and it
+made the rest of the app look like it is made of the same stuff as the mascot.
 
-```swift
-import RiveRuntime
+**What is still missing, honestly.** Blinking, gaze, and a genuine reaction to an
+outfit are performance, and the shader does not do performance — it does physics.
+Those remain unbuilt. If they are ever worth $9/month, the analysis above still
+holds and `git log` has the deleted plan.
 
-final class FittiRive: ObservableObject {
-    let rive = RiveViewModel(fileName: "fitti", stateMachineName: "Fitti")
-    func setMood(_ v: Double) { rive.setInput("mood", value: v) }   // outfit score
-    func celebrate()          { rive.triggerInput("celebrate") }
-}
-```
-
-**Learning path:** largely obsolete now that the MCP does the rigging. Realistic
-cost is ~15 minutes of human work (draw three bones), $9/month, and an afternoon
-of agent iteration — not the 8–16 hours originally budgeted.
-
-**Before committing, measure the app-size delta.** The XCFramework zip is 115 MB
-all-platform-fat; the thinned arm64 contribution is far smaller, but check an App
-Store size report. That's the single biggest reason a small app rejects Rive.
-
-**Keep the shader layer either way.** Rive does character performance; the shader
-does physics-y touch response, and going through a state machine for something a
-uniform does directly is the wrong trade.
+**The division of labour was the right idea.** Whatever eventually does character
+performance, the shader keeps physics-y touch response: routing a value that a
+uniform sets directly through a state machine is the wrong shape.
 
 ---
 

@@ -6,7 +6,7 @@ Counts here are `@Test` declarations, not executed cases — the palette suite i
 parameterised over twelve grounds, so 10 declarations run 46 cases.
 
 - [x] **0 — Repo + logo**
-  - Repo scaffolded, pushed to `mattypark/fittie`, `.gitignore` covering Xcode/Next/Supabase/Wrangler/SwiftPM
+  - Repo scaffolded, pushed to `mattypark/fitti`, `.gitignore` covering Xcode/Next/Supabase/Wrangler/SwiftPM
   - `ip-as-logo` skill installed; six mascot prompts written to `assets/logo/PROMPTS.md`
   - Mascot supplied by Matthew → `assets/logo/mascot.png`, exported to 12 iOS icon sizes + web favicons
 
