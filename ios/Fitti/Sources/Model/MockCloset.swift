@@ -11,6 +11,19 @@ struct MockGarment: Identifiable, Hashable {
     /// The garment's dominant colour, which is what the tile draws.
     let hue: Double
     let timesWorn: Int
+
+    /// Width ÷ height. A coat is tall, a belt is wide, and the grid needs to know
+    /// before it lays anything out — so the shape lives on the garment rather than
+    /// inside the tile that draws it.
+    var tileAspectRatio: CGFloat {
+        switch category.lowercased() {
+        case "outerwear", "dress": 0.72
+        case "bottom": 0.78
+        case "footwear": 1.25
+        case "accessory": 1.35
+        default: 0.92
+        }
+    }
 }
 
 enum MockCloset {

@@ -4,11 +4,6 @@ import FittiDesign
 struct ClosetView: View {
     @Bindable var state: AppState
 
-    /// Column gutter tighter than the row gutter, deliberately. Equal gutters
-    /// produce a mesh; unequal ones make each row read as a shelf. A single
-    /// spacing value used everywhere is the "monotonous spacing" tell.
-    private let columns = Array(repeating: GridItem(.flexible(), spacing: 12), count: 3)
-
     @State private var loaded = false
 
     var body: some View {
@@ -16,13 +11,18 @@ struct ClosetView: View {
             VStack(alignment: .leading, spacing: Space.lg) {
                 header
 
-                LazyVGrid(columns: columns, spacing: Space.lg) {
-                    // Real captures first — a piece photographed thirty seconds
-                    // ago should be the first thing you see.
-                    ForEach(state.captures) { item in
-                        CaptureTile(item: item, palette: state.palette)
-                    }
-                    ForEach(state.garments) { garment in
+                // Two columns, not three. Three at iPhone width turns a wall of
+                // clothes into a spreadsheet; two is what Alta and Cosmos both
+                // settle on, and it leaves each silhouette large enough to be
+                // recognised rather than merely counted.
+                StaggeredGrid(items: items,
+                              columns: 2,
+                              spacing: Space.sm,
+                              aspectRatio: \.aspectRatio) { item in
+                    switch item {
+                    case .capture(let capture):
+                        CaptureTile(item: capture, palette: state.palette)
+                    case .garment(let garment):
                         GarmentTile(garment: garment, palette: state.palette)
                     }
                 }
@@ -45,6 +45,12 @@ struct ClosetView: View {
         }
     }
 
+    /// Real captures first — a piece photographed thirty seconds ago should be
+    /// the first thing you see.
+    private var items: [ClosetItem] {
+        state.captures.map(ClosetItem.capture) + state.garments.map(ClosetItem.garment)
+    }
+
     private var header: some View {
         VStack(alignment: .leading, spacing: Space.sm) {
             Text("YOUR CLOSET")
@@ -53,6 +59,30 @@ struct ClosetView: View {
 
             LimitMeter(used: state.totalPieces, limit: Entitlements.freeLimit)
                 .foregroundStyle(state.palette.onGround)
+        }
+    }
+}
+
+/// Captures and garments share one grid, so they need one identity and one
+/// declared shape. The grid packs columns before anything is drawn, which is why
+/// the aspect ratio has to be answerable up front rather than measured.
+private enum ClosetItem: Identifiable {
+    case capture(CaptureItem)
+    case garment(MockGarment)
+
+    var id: String {
+        switch self {
+        case .capture(let item): "capture-\(item.id)"
+        case .garment(let garment): "garment-\(garment.id)"
+        }
+    }
+
+    var aspectRatio: CGFloat {
+        switch self {
+        // A capture is square until its cutout lands and the real silhouette
+        // replaces the thumbnail.
+        case .capture: 1
+        case .garment(let garment): garment.tileAspectRatio
         }
     }
 }

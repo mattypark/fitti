@@ -12,30 +12,20 @@ import FittiDesign
 /// wastes most of the cell and normalises exactly the variety that makes a wall
 /// of clothes look curated rather than algorithmic.
 ///
-/// No per-tile entrance animation. This lives in a LazyVGrid, so `.onAppear`
+/// No per-tile entrance animation. This lives in a lazy stack, so `.onAppear`
 /// fires on scroll-in and every tile pops as you scroll past. One container-level
 /// fade, once, is the version that doesn't announce itself.
+///
+/// The shape itself comes from `MockGarment.tileAspectRatio`, because
+/// `StaggeredGrid` has to know it before it can pack a column.
 struct GarmentTile: View {
     let garment: MockGarment
     let palette: Palette
 
-    /// Until real cutouts land, the placeholder carries the garment's own colour
-    /// and a category-appropriate shape, so the grid's rhythm is honest about
-    /// what it will look like.
-    private var aspect: CGFloat {
-        switch garment.category.lowercased() {
-        case "outerwear", "dress": 0.72
-        case "bottom": 0.78
-        case "footwear": 1.25
-        case "accessory": 1.35
-        default: 0.92
-        }
-    }
-
     var body: some View {
         BlobShape(seed: garment.name.paletteSeed, wobble: 0.14)
             .fill(Color(OKLCH(0.68, 0.13, garment.hue)))
-            .aspectRatio(aspect, contentMode: .fit)
+            .aspectRatio(garment.tileAspectRatio, contentMode: .fit)
             .frame(maxWidth: .infinity)
             .padding(.horizontal, Space.xs)
             .contentShape(Rectangle())
