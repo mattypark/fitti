@@ -17,11 +17,11 @@ struct DiscoverView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: Space.md) {
                 Text("DISCOVER")
-                    .font(.fittiTitle)
+                    .fittiTitleStyle()
                     .foregroundStyle(Fixed.ink)
 
                 Text("Hold a piece to see it worn")
-                    .font(.fittiHand)
+                    .font(.fittiCallout)
                     .foregroundStyle(Fixed.ink.opacity(0.55))
 
                 LazyVGrid(columns: columns, spacing: Space.sm) {

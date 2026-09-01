@@ -24,9 +24,6 @@ public enum Motion {
     /// arriving with a bounce is harder to read.
     public static let settle = Animation.spring(response: 0.45, dampingFraction: 1.0)
 
-    /// The limit meter filling. Slow and liquid.
-    public static let pour = Animation.spring(response: 0.90, dampingFraction: 0.75)
-
     /// Honors Reduce Motion by collapsing to a crossfade rather than removing feedback
     /// entirely — a control that responds to a tap with nothing at all feels broken.
     public static func respecting(_ animation: Animation, reduceMotion: Bool) -> Animation {
@@ -34,9 +31,8 @@ public enum Motion {
     }
 }
 
-/// The house press: squash on the press axis, stretch on the cross axis, wobble back.
-/// The mascot does it on launch, the dots do it on scroll, the shutter does it on
-/// every shot — one physical language across the whole app.
+/// The house press. The mascot does it on launch and the shutter does it on every
+/// shot — one physical language across the whole app.
 public struct SquashButtonStyle: ButtonStyle {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 

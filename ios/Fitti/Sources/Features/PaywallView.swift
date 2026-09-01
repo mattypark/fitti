@@ -27,7 +27,7 @@ struct PaywallView: View {
 
                 VStack(spacing: Space.xs) {
                     Text("CLOSET FULL")
-                        .font(.fittiTitle)
+                        .fittiTitleStyle()
                         .foregroundStyle(palette.onGround)
 
                     Text("that's 25 pieces —\nnice closet")

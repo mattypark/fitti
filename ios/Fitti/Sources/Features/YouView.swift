@@ -15,7 +15,7 @@ struct YouView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: Space.lg) {
                 Text("YOU")
-                    .font(.fittiTitle)
+                    .fittiTitleStyle()
                     .foregroundStyle(state.palette.onGround)
 
                 VStack(alignment: .leading, spacing: Space.sm) {
@@ -151,7 +151,7 @@ struct YouView: View {
             }
         } label: {
             BlobShape(seed: ground.rawValue.paletteSeed, wobble: 0.18)
-                .fill(Color(Palette.Role.ground.oklch(on: ground)))
+                .fill(Color(Palette.Role.accent.oklch(on: ground)))
                 .overlay {
                     BlobShape(seed: ground.rawValue.paletteSeed, wobble: 0.18)
                         .stroke(Color(Palette.Role.onGround.oklch(on: ground)),

@@ -48,7 +48,7 @@ struct ClosetView: View {
     private var header: some View {
         VStack(alignment: .leading, spacing: Space.sm) {
             Text("YOUR CLOSET")
-                .font(.fittiTitle)
+                .fittiTitleStyle()
                 .foregroundStyle(state.palette.onGround)
 
             LimitMeter(used: state.totalPieces, limit: Entitlements.freeLimit)

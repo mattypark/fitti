@@ -98,12 +98,12 @@ struct OutfitsView: View {
         } label: {
             VStack(spacing: Space.xxs) {
                 Text(day.weekdayLabel)
-                    .font(.system(size: 10, weight: .medium))
+                    .font(.fittiFine.weight(.medium))
                     .tracking(0.6)
                     .foregroundStyle(isSelected ? palette.onGround : palette.onGroundSoft)
 
                 Text(day.dayNumber)
-                    .font(.system(size: 13, weight: isSelected ? .bold : .regular))
+                    .font(.fittiFootnote.weight(isSelected ? .bold : .regular))
                     .monospacedDigit()
                     .foregroundStyle(isSelected ? palette.onGround : palette.onGroundSoft)
                     .frame(width: 26, height: 26)
@@ -165,10 +165,10 @@ struct OutfitsView: View {
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 2) {
                 Text(salutation)
-                    .font(.fittiTitle)
+                    .fittiTitleStyle()
                     .foregroundStyle(palette.onGround)
                 Text(forecast.advice)
-                    .font(.fittiHand)
+                    .font(.fittiCallout)
                     .foregroundStyle(palette.onGroundSoft)
             }
 
@@ -184,7 +184,7 @@ struct OutfitsView: View {
                         .monospacedDigit()
                         .foregroundStyle(palette.onGround)
                     Text("H:\(forecast.high)° L:\(forecast.low)°")
-                        .font(.system(size: 11))
+                        .font(.fittiFine)
                         .monospacedDigit()
                         .foregroundStyle(palette.onGroundSoft)
                 }
@@ -217,7 +217,7 @@ struct OutfitsView: View {
                         .frame(width: 22, height: 22)
                         .overlay {
                             Text(String(outfit.wearer.prefix(1)))
-                                .font(.system(size: 11, weight: .bold))
+                                .font(.fittiFine.weight(.bold))
                                 .foregroundStyle(Fixed.ink)
                         }
                     Text("\(outfit.wearer) logged this")
@@ -232,7 +232,7 @@ struct OutfitsView: View {
                             .font(.fittiHeadline)
                             .foregroundStyle(palette.onGround)
                         Label(outfit.place, systemImage: "mappin.and.ellipse")
-                            .font(.system(size: 12))
+                            .font(.fittiFootnote)
                             .foregroundStyle(palette.onGroundSoft)
                     }
                     Spacer()
@@ -288,7 +288,7 @@ struct OutfitsView: View {
                                                                  style: .continuous))
                             // The engine's own reason, not a caption written here.
                             Text(outfit.reasons.first ?? "worth a try")
-                                .font(.system(size: 12))
+                                .font(.fittiFootnote)
                                 .foregroundStyle(palette.onGroundSoft)
                                 .frame(width: 106)
                                 .multilineTextAlignment(.center)

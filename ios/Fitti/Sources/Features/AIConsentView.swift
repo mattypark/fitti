@@ -26,7 +26,7 @@ struct AIConsentView: View {
                 Mascot(size: 100)
 
                 Text("BEFORE WE START")
-                    .font(.fittiTitle)
+                    .fittiTitleStyle()
                     .foregroundStyle(palette.onGround)
 
                 VStack(alignment: .leading, spacing: Space.md) {
@@ -59,7 +59,7 @@ struct AIConsentView: View {
                     .foregroundStyle(palette.onGroundSoft)
 
                 Text("You can change this any time in You → Privacy.")
-                    .font(.system(size: 11))
+                    .font(.fittiFine)
                     .foregroundStyle(palette.onGroundSoft)
             }
             .padding(.horizontal, Space.lg)

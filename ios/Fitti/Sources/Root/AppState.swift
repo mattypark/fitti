@@ -87,8 +87,4 @@ final class AppState {
         }
         isCapturing = true
     }
-
-    /// Discover is deliberately paper rather than the user's ground: a white
-    /// gallery, so the only colour on screen belongs to the clothes.
-    var isGalleryTab: Bool { tab == .discover }
 }

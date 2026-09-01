@@ -45,7 +45,7 @@ struct TabBar: View {
                     .frame(height: 34)
 
                 Text(label)
-                    .font(.system(size: 10, weight: .medium))
+                    .font(.fittiFine.weight(.medium))
             }
             .foregroundStyle(selection == tab ? palette.onGround : palette.onGroundFaint)
             .frame(maxWidth: .infinity)

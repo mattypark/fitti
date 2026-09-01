@@ -11,9 +11,6 @@ packages:
   Supabase:
     url: https://github.com/supabase/supabase-swift
     from: 2.0.0
-  RiveRuntime:
-    url: https://github.com/rive-app/rive-ios
-    from: 6.0.0
 
 targets:
   Fitti:
@@ -31,8 +28,6 @@ targets:
         product: FittiEngine
       - package: Supabase
         product: Supabase
-      - package: RiveRuntime
-        product: RiveRuntime
       - target: ShareExtension
     info:
       path: Fitti/Info.plist

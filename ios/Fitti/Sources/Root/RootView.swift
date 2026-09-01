@@ -49,13 +49,4 @@ struct RootView: View {
         .task { await state.entitlements.refresh() }
         .tint(state.palette.accent)
     }
-
-    private var screenName: String {
-        switch state.tab {
-        case .closet: "closet"
-        case .discover: "discover"
-        case .outfits: "outfits"
-        case .you: "you"
-        }
-    }
 }

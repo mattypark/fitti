@@ -58,14 +58,14 @@ struct WelcomeView: View {
 
                 Spacer()
 
-                RiveMascot(size: 130)
+                Mascot(size: 130)
                     .scaleEffect(x: 2 - beat.mascotStretch, y: beat.mascotStretch,
                                  anchor: .bottom)
                     .offset(y: beat.mascotDrop)
 
                 VStack(spacing: Space.xs) {
                     Text("Fitti")
-                        .font(.fittiDisplay)
+                        .fittiDisplayStyle()
                         .foregroundStyle(palette.onGround)
                         .opacity(beat.wordmark)
                         .offset(y: (1 - beat.wordmark) * 18)
@@ -101,7 +101,7 @@ struct WelcomeView: View {
                 }
 
                 Text("By continuing you agree to the Terms and Privacy Policy.")
-                    .font(.system(size: 11))
+                    .font(.fittiFine)
                     .foregroundStyle(palette.onGroundSoft)
                     .multilineTextAlignment(.center)
                     .padding(.top, Space.xxs)

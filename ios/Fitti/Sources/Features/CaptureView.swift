@@ -39,7 +39,7 @@ struct CaptureView: View {
                         .padding(.horizontal, Space.lg)
                 } else if !camera.isAvailable {
                     Text("No camera here — the shutter still\nadds a piece so you can try the flow")
-                        .font(.fittiHand)
+                        .font(.fittiCallout)
                         .multilineTextAlignment(.center)
                         .foregroundStyle(Fixed.paper.opacity(0.6))
                 }
