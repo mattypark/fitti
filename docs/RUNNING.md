@@ -1,7 +1,8 @@
 # Running Fitti locally
 
-Honest status: stages 0–2 are done, so what runs today is the design system and
-the database. The iOS app and web app get scaffolded in stages 3 and 12.
+Honest status: **the iOS app builds and runs.** Open `ios/Fitti.xcodeproj` and ⌘R on
+an iPhone 17 Pro simulator. There is a DEBUG-only **Skip** button on the welcome
+screen to get straight in. The web app is a landing page and is parked.
 
 **Fitti runs on its own ports** (`54421`–`54429`) so it never collides with the
 Supabase stacks of your other projects. `rit-web` holds the default `5432x`
@@ -16,9 +17,14 @@ cd ios/FittiDesign
 swift test
 ```
 
-Verifies the colour system: that primary text clears AAA and that secondary text
-and the accent clear AA against the ground, on all twelve ground colours, and
-that gamut mapping never shifts a hue. 8 tests, 12 cases each where parameterised.
+Verifies the colour system: primary text clears AAA on the butter ground, secondary
+clears AA on all three surfaces, the accent clears AA on all twelve, gamut mapping
+never shifts a hue, and the ground is asserted *warm* so a future inversion to
+near-white fails here instead of shipping. 10 tests, 46 executed cases.
+
+**This is the only way to run them.** `xcodebuild test -scheme Fitti` runs **zero**
+tests — the scheme's `<Testables>` block is empty and the Xcode project has no test
+target, so it compiles everything and asserts nothing.
 
 Needs nothing but Xcode, which you have.
 
@@ -54,13 +60,50 @@ enforced by trigger; and every public table has RLS on.
 
 It runs in a transaction that rolls back, so it never leaves test data behind.
 
+### The iOS app
+
+```bash
+cd ios
+xcodegen generate     # only after editing project.yml
+xcodebuild build -project Fitti.xcodeproj -scheme Fitti -configuration Debug \
+  -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
+```
+
+The built product goes to **DerivedData**, not `ios/build/`. That directory holds a
+stale husk containing nothing but a `PrivacyInfo.xcprivacy`, and installing it fails
+with "Missing bundle ID" — which looks like a working install if you are not reading
+the output. Find the real path with:
+
+```bash
+xcodebuild -project Fitti.xcodeproj -scheme Fitti -showBuildSettings \
+  | grep BUILT_PRODUCTS_DIR
+```
+
+DEBUG launch arguments, for screenshots and UI runs:
+
+```bash
+xcrun simctl launch booted com.matthewpark.fitti -fittiSignedIn -fittiTab closet
+xcrun simctl io booted screenshot closet.png
+```
+
+`-fittiSignedIn` · `-fittiTab closet|discover|outfits|you` · `-fittiEmpty`
+
+`ios/Fitti/Secrets.xcconfig` is gitignored and absent, so `SUPABASE_URL` and
+`SUPABASE_ANON_KEY` resolve empty and the app falls back to the local mock. That is a
+working state, by design, rather than a broken one.
+
+### The web tests
+
+```bash
+cd web && npm run verify      # lint + tsc --noEmit + 36 tests
+```
+
 ## What doesn't exist yet
 
 | | Stage | Will run with |
 |---|---|---|
-| iOS app | 3 | `open ios/Fitti.xcodeproj`, ⌘R |
-| Web app | 12 | `cd web && npm run dev` → localhost:3000 |
 | Ingest worker | 6 | `cd worker && npx wrangler dev` |
+| Catalogue adapters | 13 | not started |
 
 ## Prerequisites, and which you already have
 
@@ -72,3 +115,6 @@ It runs in a transaction that rolls back, so it never leaves test data behind.
 | Docker | installed but **not running** |
 | Apple Developer Program | needed at stage 4 for Sign in with Apple + StoreKit |
 | `fitti.app` domain | needed at stage 8 for receipt forwarding |
+| fal.ai credit | needed at stage 9, and for the cloud cutout fallback |
+
+There is **no CI**. Every check above is manual.

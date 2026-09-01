@@ -2,17 +2,23 @@
 
 Live checklist. Updated as each stage lands; each one is committed on completion.
 
+Counts here are `@Test` declarations, not executed cases — the palette suite is
+parameterised over twelve grounds, so 10 declarations run 46 cases.
+
 - [x] **0 — Repo + logo**
   - Repo scaffolded, pushed to `mattypark/fittie`, `.gitignore` covering Xcode/Next/Supabase/Wrangler/SwiftPM
   - `ip-as-logo` skill installed; six mascot prompts written to `assets/logo/PROMPTS.md`
   - Mascot supplied by Matthew → `assets/logo/mascot.png`, exported to 12 iOS icon sizes + web favicons
 
 - [x] **1 — Brand + design system**
-  - Six color roles derived from one hue angle in OKLCH, twelve grounds
-  - Gamut mapping by chroma reduction so hue never drifts
-  - Type (SF Pro / Bagel Fat One / Gloria Hallelujah), spring motion set, spacing, radii
+  - Six color roles in OKLCH; gamut mapping by chroma reduction so hue never drifts
+  - **Revised after the visual pass**: one butter ground for everybody, the twelve
+    hues demoted to the per-user accent; SF Pro carries all text, Bagel Fat One is
+    the wordmark alone, Gloria Hallelujah is a human voice only
+  - `JellyBlob` — the house material every coloured form is made of
   - Mirrored in `ios/FittiDesign` and `web/src/styles/tokens.css`
-  - 8 tests passing: AAA primary text, AA secondary and accent, on all twelve grounds
+  - 10 tests passing: AAA primary text, AA secondary on all three surfaces, AA accent
+    on all twelve, and the ground asserted warm so a future inversion fails loudly
 
 - [x] **2 — Supabase schema + security**
   - 14 tables: garments, assets, embeddings, outfits, wears, catalog, events, entitlements, jobs
@@ -29,22 +35,21 @@ Live checklist. Updated as each stage lands; each one is committed on completion
   - Limit meter that loses its wobble as it fills, so a full closet reads as tense
   - Discover: garment-only tiles, press-and-hold to see it worn, on paper not the ground
   - Privacy manifest, encryption declaration, signing — TestFlight prerequisites in place
-  - **Blocked:** the iOS 26.5 platform is not installed in Xcode 26.6, so nothing on this
-    machine can build for iOS — the same failure happens on the existing SaVur project.
-    Fix with `xcodebuild -downloadPlatform iOS`.
-  - Sources pass a syntax check; a full typecheck needs that platform
+  - Blob dots removed in the visual pass — decoration with no information role
+  - The old iOS 26.5 platform blocker is **resolved**: the SDK and the 26.0 and 26.5
+    simulator runtimes are installed, and the app builds and runs
 
-- [ ] **4 — Auth + paywall**
+- [x] **4 — Auth + paywall**
   - Sign in with Apple, email magic link, Google
   - StoreKit 2 subscription; 25-garment ceiling verified server-side
   - Limit meter blob that tightens as it fills
 
-- [ ] **5 — Capture core**
+- [x] **5 — Capture core** *(built; never exercised on a physical device — the Vision cutout does not work in the Simulator at all)*
   - Rapid-fire camera, zero forms
   - On-device Vision cutout, aesthetics gate, on-device quick tags
   - GRDB job queue + background upload that survives app termination
 
-- [ ] **6 — Server ingest pipeline**
+- [x] **6 — Server ingest pipeline**
   - EXIF/GPS strip → moderation → attribute extraction → color naming → embedding
   - Cloudflare Queue consumer, retries, dead-letter, per-user spend ceiling
 
@@ -66,7 +71,7 @@ Live checklist. Updated as each stage lands; each one is committed on completion
     controlled input, so `file://`, localhost and cloud metadata are all blocked
   - 11 tests passing, including the full SSRF set
 
-- [ ] **9 — Bulk photo split**
+- [ ] **9 — Bulk photo split** *(skipped — needs fal.ai credit)*
   - SAM 3 with a mandatory review grid. Never auto-commits.
 
 - [~] **10 — Outfit engine** *(scoring done and tested; UI wiring next)*
@@ -79,10 +84,11 @@ Live checklist. Updated as each stage lands; each one is committed on completion
     complaint about every competitor
   - Two-pass selection: substantially different outfits first, then top up, so a
     small closet still gets three options
-  - 23 tests passing
+  - 24 tests passing (12 Swift + 12 web; the two implementations assert the same
+    behaviour because the phone must work offline and the server writes the copy)
 
-- [ ] **10b — Closet + Outfits UI**
-  - Grid, filters, detail sheet, wear tracking
+- [~] **10b — Closet + Outfits UI**
+  - Two-column waterfall grid landed; filters, detail sheet and wear tracking next
   - Outfit engine: SQL filter → colour/pattern/novelty ranking → LLM pass with the reason
 
 - [~] **11 — Feed ranking** *(engine done and tested; UI + real catalogue next)*
@@ -92,17 +98,19 @@ Live checklist. Updated as each stage lands; each one is committed on completion
   - Popularity is Bayesian-smoothed, so one click in three views is not a hit
   - Brand/seller/category caps, an adjacent-similarity ceiling, and MMR diversity
   - Exploration in fixed slots 3/10/18 so its effect is measurable
-  - 36 tests passing
+  - 13 tests passing in `web/tests/feed.test.ts` (36 is the repo-wide web total)
 
 - [ ] **11b — Discover feed UI**
   - Seeded catalog, five retrieval pools, MMR diversity, fixed explore slots
   - Full event logging, press-and-hold worn-photo peek
 
-- [ ] **12 — Web app**
+- [~] **12 — Web app** *(landing page built; parked, app-first for now)*
   - Landing page, auth, read-only closet
 
 - [ ] **13 — Catalog adapters**
   - Affiliate feed ingestion behind one adapter interface, VLM caption enrichment
 
-- [ ] **14 — Hardening + submission**
-  - Privacy manifest, usage strings, account deletion, TestFlight
+- [~] **14 — Hardening + submission**
+  - Privacy manifest, usage strings, account deletion in place
+  - `./scripts/pre-submit.sh` — 13 automated App Store checks passing
+  - TestFlight blocked on the Apple Developer Program; see `docs/TESTFLIGHT.md`

@@ -1,181 +1,221 @@
-# Fitti design system
+# The design system
 
-Black, white, and yellow — with the whole screen taking a color.
+Written from the Swift, which is the only source of truth. `ios/FittiDesign` is a
+local SPM package with no dependencies, so every token below is testable on macOS
+without a simulator: `cd ios/FittiDesign && swift test`.
 
 ---
 
-## The idea
+## Colour
 
-**Paper, not pigment.** The screen is near-white with a trace of the user's hue —
-a temperature rather than a colour — and the clothes supply everything else.
+### One ground, twelve accents
 
-This replaced a full-bleed saturated field on every screen, and the reason is
-functional rather than aesthetic. Simultaneous contrast shifts the perceived hue
-of anything sitting on a coloured ground. Butter sits at H≈85; garments cluster
-at H≈220–255 — every navy, blue and denim. The old field maximised perceptual
-error exactly where the wardrobe lives, which is a colour-judgement bug in an app
-whose one irreplaceable job is colour judgement. It also made the pale matting
-halo on every cutout visible, where paper hides it.
+The app is butter for everybody. The personal hue — assigned at signup, overridable
+in You — survives as the **accent alone**: a selected swatch, an active tab, a price.
 
-Yellow survives, but as a **mark rather than a field**: the app icon, the launch
-screen, the capture button, the mascot. Scarcity is what makes a brand colour
-read as branding.
+This replaced a system where the ground itself was personal. That version had a real
+argument behind it (simultaneous contrast shifts the perceived hue of anything on a
+coloured field, and butter at H 85 sits near the opposite of where garments actually
+cluster, H 220–255 — every navy, blue and denim) and it was answered by taking the
+ground to L 0.985 / C 0.004. Paper.
 
-Historical note — the original intent was: Text is a deep tone of that
-same hue, not black. This comes straight from the sneaker reference: a full butter-yellow
-field, brown type, one crimson accent, product floating with no card behind it.
+The result was that all twelve grounds rendered within about five RGB points of
+`#FAFAFA` and the brand left the screen entirely. The launch screen still opened on
+butter and then flashed to white.
 
-Yellow is the default and the brand color. But the ground is per-user: today it is
-assigned at random on signup, later it becomes the dominant color of the clothes you
-actually own, and it is always overridable in **You → Appearance**.
+The answer is scarcity, not neutrality: one warm ground, and the two screens where
+garment colour genuinely has to be judged opt out by hand. **Discover** runs on
+`Fixed.paper` and **Capture** on `Fixed.ink`.
 
-That means every color on screen has to be *derived*, not hand-picked — otherwise
-twelve grounds means twelve hand-tuned palettes and eleven of them are wrong.
+### The six roles
 
-## One hue, six roles
+Five are pinned to the brand hue. Only `accent` rotates.
 
-Everything on a screen comes from a single hue angle, in OKLCH, at fixed
-lightness/chroma. OKLCH because it is perceptually uniform: the same L means the same
-apparent lightness at every hue, so a green ground and a red ground get text with
-identical contrast. In HSL they would not.
-
-| Role | L | C | H | What it is |
+| Role | L | C | Hue | Renders |
 |---|---|---|---|---|
-| `ground` | 0.890 | 0.052 | H | The whole screen |
-| `ground-sunk` | 0.830 | 0.052 | H | Recessed wells, the tab bar, pressed states |
-| `ground-lift` | 0.955 | 0.020 | H | Sheets and cards that must sit above the ground |
-| `on-ground` | 0.320 | 0.052 | H | All primary text. Reads as brown on butter, ink-teal on jade |
-| `on-ground-soft` | 0.470 | 0.050 | H | Secondary text, metadata, counts |
-| `accent` | 0.460 | 0.085 | H + 25 | Price, destructive, the one thing that must be seen |
+| `ground` | 0.900 | 0.075 | 85 | `#F5DBA5` |
+| `groundSunk` | 0.855 | 0.075 | 85 | `#E6CC97` |
+| `groundLift` | 0.945 | 0.055 | 85 | `#FEEBC4` |
+| `onGround` | 0.180 | 0.012 | 85 | `#14110C` |
+| `onGroundSoft` | 0.460 | 0.010 | 85 | `#5B5852` |
+| `accent` | 0.460 | 0.170 | **hue − 40** | per user |
 
-### Why the chroma is so low, and identical everywhere
+`onGroundFaint` is `onGround` at 0.38 opacity — never a different colour, because
+opacity composites correctly over the ground, over a lifted sheet and over a garment
+photograph, where a fixed grey goes muddy on one and vanishes on another.
 
-sRGB is not evenly shaped. At L 0.89 the most chroma you can hold is **0.21 at moss and
-0.054 at blue** — a four-fold difference for the same apparent lightness.
+### Measured contrast
 
-The tempting move is to give each hue a fixed *fraction* of its own ceiling, so every
-ground is as colorful as it can be. Don't: a moss user's app comes out neon next to a
-blue user's washed-out one, and the twelve grounds stop feeling like one system.
+| Pair | Ratio |
+|---|---|
+| `onGround` on `ground` | **13.93:1** |
+| `onGround` on `groundLift` | 16.00:1 |
+| `onGround` on `groundSunk` | 12.07:1 |
+| `onGroundSoft` on `ground` | 5.28:1 |
+| `onGroundSoft` on `groundSunk` | 4.57:1 — the tightest pair in the system |
+| `accent` on `ground` | 4.99:1 worst (teal) → 5.82:1 best (terracotta) |
+| `accent` on `groundLift` | 5.73:1 worst |
 
-So blue sets the budget for everyone. `ground` is 0.052 because that is the most chroma
-every hue can hold at L 0.89. `accent` is the single exception — it is a small emphasis
-color rather than a surface, so it asks for 0.085 and lets gamut mapping pull it back
-per hue, which costs saturation but never hue.
+### Why the accent is −40°, not +25°
 
-Gamut mapping reduces chroma only, never clamps RGB channels. Clamping shifts hue — a
-clipped teal drifts visibly green — and that would quietly destroy the premise that the
-twelve grounds are evenly spaced.
+At +25 butter's accent lands on 110°, which gamut-maps to a muddy olive `#6D6E00`
+that loses to the very ground it is supposed to jump off, and fails AA at 3.92:1.
 
-The accent sits 25° off the ground hue on purpose. In the reference the price is
-crimson against yellow — near enough to feel intentional, far enough to jump. A
-complementary 180° accent would read as a second brand color rather than an emphasis.
+At −40 butter's accent is a burnt orange near `#913900` — the crimson-against-yellow
+the sneaker reference always described — and the worst case across all twelve rises
+to 4.99:1. A 180° complement was tried and reads as a second brand colour rather
+than as emphasis.
 
-`on-ground` against `ground` clears **9.1:1** at its worst hue — comfortably AAA
-everywhere, which is the reason the roles are pinned to lightness rather than to
-swatches. Secondary text clears 4.9:1 and the accent 5.0:1, both AA. These are asserted
-in `FittiDesignTests/PaletteTests.swift` across all twelve grounds, so a future palette
-tweak that breaks one hue fails the build instead of shipping.
+### The twelve
 
-### The grounds
+butter 85 (default) · amber 55 · terracotta 30 · rose 15 · blush 350 · orchid 320 ·
+violet 285 · blue 255 · sky 220 · teal 195 · jade 160 · moss 130
 
-Twelve hues, evenly spaced enough to be told apart at a glance:
+Assigned randomly at signup by `handle_new_user()`, persisted locally in
+`GroundStore`, overridable in You. The enum is still called `Ground` because the
+value is stored as `profiles.ground` and the raw strings are that column's check
+constraint.
 
-| Name | H | | Name | H |
-|---|---|---|---|---|
-| **butter** (default) | 85 | | orchid | 320 |
-| amber | 55 | | violet | 285 |
-| terracotta | 30 | | blue | 255 |
-| rose | 15 | | sky | 220 |
-| blush | 350 | | teal | 195 |
-| jade | 160 | | moss | 130 |
+### Fixed
 
-## The fixed three
+| | |
+|---|---|
+| `ink` | `rgb(0.055, 0.055, 0.047)` — the mascot's marks, the app icon, Capture |
+| `paper` | `rgb(0.984, 0.980, 0.965)` — Discover, a white gallery |
+| `yellow` | `#EFC53F` — the brand mark, the shutter, the liquid meter |
+| `yellowPigment` | the same yellow as `OKLCH(0.838, 0.152, 91)` |
 
-The derived hue system covers screens. Three colors never move:
+`yellowPigment` exists because `JellyBlob` builds its ramp by moving lightness, and
+that only holds the colour if the hue is stated. Darkening an sRGB triple drags it
+toward orange.
 
-```
-ink       #0E0E0C   the mascot's marks, the app icon, pure statements
-paper     #FBFAF6   the Discover grid, where clothes are the only color
-yellow    #EFC53F   the brand mark — the logo, the launch screen, the App Store icon
-```
+### Gamut mapping
 
-Discover is deliberately **paper**, not the user's ground. Everywhere else in Fitti is
-your color; the shopping grid is a white gallery so the only color on screen belongs to
-the clothes.
+`OKLCH.gamutMapped()` is a 20-iteration binary search on **chroma alone**. Lightness
+and hue come out exactly as requested. Naive RGB clamping shifts hue — a clipped teal
+drifts green — which would break the premise that the twelve are evenly spaced.
 
-## Rainbow blob dots
+---
 
-Two to four irregular colored blobs per screen. Not decoration that repeats — they are
-seeded from the screen's route name so a given screen always has the same dots in the
-same places, and they drift on a slow loop.
+## The material
 
-- Drawn as a superellipse with per-vertex jitter from the seed. Never a circle.
-- Size 14–46 pt, opacity 0.85, sitting behind content.
-- Colors pulled from the twelve ground hues at L 0.72 / C 0.17 — saturated enough to
-  register against any ground, never competing with a garment.
-- They squish toward the scroll direction while scrolling and settle back with the
-  standard spring.
-- On success (item saved, outfit built) the nearest dot pops once.
+Every coloured form in Fitti is a blob of the same stuff, lit by one key light from
+the upper left. `JellyBlob` wraps any `Shape`:
+
+1. **Subsurface ramp** — light gathers at the crown (L +0.13, chroma ×0.82) and pools
+   darker at the base (L −0.12, chroma ×1.08). The deep end gains chroma because that
+   is what translucent material does: the light that survives the longest path through
+   it is the most saturated.
+2. **Specular** — an elliptical highlight at `(0.33, 0.20)`, soft-edged. A hard edge
+   reads as a sticker; this reads as a wet surface catching a window.
+3. **Rim** — a diagonal stroke, bright top-left where the key grazes it and bright
+   again bottom-right where the ground bounces back up, **clipped to the silhouette**.
+   An unclipped stroke straddles the path and its outer half reads as a drawn outline.
+4. **Glow** — a coloured shadow beneath, so the blob sits *in* the scene rather than
+   on it.
+
+All gradients and one shadow. Never `.blur()` on the shape — these live in scroll
+views on an animated path, where a blur costs a full offscreen pass per frame.
+
+`LiquidBlob` adds the breath: a `TimelineView` at 30fps driving `BlobShape.phase` at
+0.055 cycles/second, offset per seed so no two blobs pulse in step. The clock is **per
+blob, not per screen** — one wrapped around the grid would invalidate packing and
+columns sixty times a second, where one around a tile invalidates only that tile, and
+a tile scrolled out of a lazy stack does not tick at all. It pauses on background and
+on Reduce Motion.
+
+`jellySurface(_:base:glow:)` puts the same material behind a control, so a primary
+button is made of the app rather than pasted onto it.
+
+The room gets the same key light: a soft elliptical bloom at `(0.18, 0.04)` in
+`softLight` over the ground, and a top-edge sheen on the tab bar.
+
+---
 
 ## Type
 
-**SF Pro** does the work. It is the system font, it ships at every optical size, and it
-makes the app feel native by default.
+SF Pro carries all text. Bagel Fat One appears exactly once. Gloria Hallelujah is a
+human voice — Fitti's or yours — and never chrome.
 
-**Bagel Fat One** carries the loud moments — the logotype, section headers, big counts.
-Used at size, never below 20 pt, never for more than four words.
+Both Alta and Cosmos ship one licensed text family and no display face at all; Alta's
+100px hero is weight 500, not black. That restraint is most of what "expensive" means,
+and a display face carrying section headers across five screens is what does not.
 
-**Gloria Hallelujah** is the handwriting. Your note on an outfit, the empty states, the
-mascot's speech. It is a voice, not a typeface for UI, and it never labels a control.
+| Style | Face | Text style | Weight | Tracking |
+|---|---|---|---|---|
+| `fittiDisplay` | Bagel Fat One 34 | `.largeTitle` | — | −0.5 |
+| `fittiTitle` | SF Pro | `.title` (28) | medium | −0.2 |
+| `fittiHeadline` | SF Pro | `.headline` (17) | medium | 0 |
+| `fittiBody` | SF Pro | `.body` (17) | regular | 0 |
+| `fittiCallout` | SF Pro | `.subheadline` (15) | regular | 0 |
+| `fittiFootnote` | SF Pro | `.footnote` (13) | regular | 0 |
+| `fittiLabel` | SF Pro | `.caption` (12) | medium | +0.8 upper |
+| `fittiFine` | SF Pro | `.caption2` (11) | regular | 0 |
+| `fittiHand` | Gloria Hallelujah 16 | `.callout` | — | 0 |
 
-| Style | Face | Size / Weight | Tracking |
-|---|---|---|---|
-| `display` | Bagel Fat One | 34 | −0.5 |
-| `title` | Bagel Fat One | 22 | −0.2 |
-| `headline` | SF Pro | 17 semibold | 0 |
-| `body` | SF Pro | 17 regular | 0 |
-| `callout` | SF Pro | 15 regular | 0 |
-| `label` | SF Pro | 12 medium | +0.8, uppercase |
-| `numeral` | Bagel Fat One | 44 | −1 |
-| `hand` | Gloria Hallelujah | 16 | 0 |
+Everything is a Dynamic Type style, so the app scales with the system setting. Use
+`fittiDisplayStyle()`, `fittiTitleStyle()` and `fittiLabelStyle()` rather than `.font`
+directly — the tracking lives in the modifier.
 
-Both Google faces ship bundled (OFL). Nothing is fetched at runtime.
+**Gloria's rule:** a human voice. The welcome tagline, Fitti's line in an empty state,
+your own note on an outfit. Not instructions, not weather chrome, not labels.
 
-## Shape and depth
+The only remaining raw `Font.system(size:)` calls are SF Symbols, which are sized
+rather than typeset.
 
-Radii `6 / 12 / 20 / 32 / 999`. Garment tiles use 20; sheets use 32; the capture button
-is a full circle.
+Both `.ttf` files ship bundled under the OFL and are registered in **two** places that
+must stay in sync: `ios/project.yml` and `ios/Fitti/Info.plist`. Gloria's PostScript
+name is `GloriaHallelujah`, not `GloriaHallelujah-Regular`, and `Font.custom` falls
+back to the system font silently on a mismatch.
 
-There are no drop shadows. Depth comes from the ground/sunk/lift lightness triplet —
-a card is lighter than the ground, a well is darker, and that is the whole system. It
-survives every hue, and it never produces the gray haze that a shadow over saturated
-yellow does.
+---
 
-## Motion
+## Space, radius, motion
 
-Everything is spring physics. No duration-and-easing curves anywhere in the app, because
-a spring interrupted mid-flight continues from its current velocity and a curve snaps.
+```
+Space   xxs 4 · xs 8 · sm 12 · md 16 · gutter 20 · lg 24 · xl 32 · xxl 48
+Radius  sm 8 · tile 12 · pill 999
+```
 
-| Spring | Response | Damping | Used for |
-|---|---|---|---|
-| `blob` | 0.55 | 0.62 | The signature. Tab changes, mascot, dots. Visibly overshoots |
-| `snappy` | 0.32 | 0.86 | Buttons, toggles, chips. Fast, barely overshoots |
-| `settle` | 0.45 | 1.0 | Sheets and navigation. No overshoot at all |
-| `pour` | 0.90 | 0.75 | The limit meter filling. Slow and liquid |
+The closet is a **two-column waterfall** (`StaggeredGrid`), not a `LazyVGrid`. Grid
+rows align to the tallest cell, so a belt beside a coat left a band of dead space —
+and evenly-gapped ragged whitespace is a large part of what makes a grid read as
+generated. Each item drops into whichever column is currently shortest, packed on the
+declared aspect ratios with no measurement pass. A garment's shape lives on
+`MockGarment.tileAspectRatio` because the grid must know it before it lays anything
+out.
 
-**120 fps is a build setting, not a hope.** `CADisableMinimumFrameDurationOnPhone` must
-be `true` in `Info.plist` or ProMotion caps the app at 60 and every spring above looks
-like a cheaper version of itself.
+Two columns, not three: three at iPhone width turns a wall of clothes into a
+spreadsheet.
 
-Squash-and-stretch is the house move: pressing anything scales it to 0.96 on the press
-axis and 1.03 on the cross axis, and it wobbles back. The mascot does it on launch. The
-dots do it on scroll. The capture button does it on every shot.
+```
+Motion  blob   0.55 / 0.62   the mascot, and nothing else
+        snappy 0.32 / 0.86   buttons, toggles, chips
+        settle 0.45 / 1.00   sheets and navigation, critically damped
+```
 
-All of it is gated on `prefers-reduced-motion` / `UIAccessibility.isReduceMotionEnabled`,
-which drops to opacity crossfades and holds the dots still.
+Every animation is a spring, because a spring interrupted mid-flight continues from
+its current velocity and a curve restarts — and this app is built to be tapped fast.
+Requires `CADisableMinimumFrameDurationOnPhone` in Info.plist, without which ProMotion
+caps at 60fps and every spring looks like a cheaper version of itself.
 
-## Spacing
+`Motion.blob` visibly overshoots and is reserved for the mascot. Overshoot on ordinary
+chrome reads dated; it only reads as alive because nothing else in the app does it.
+`Motion.respecting(_:reduceMotion:)` collapses to a 0.12s crossfade rather than to
+nothing — a control that answers a tap with silence feels broken.
 
-A 4 pt base: `4 8 12 16 24 32 48 64`. Screen gutters are 20. The garment grid is a
-3-column adaptive grid with a 2 pt gap — the tiles nearly touch, so the closet reads as
-one continuous surface rather than a set of cards.
+No drop shadows as depth. Depth is the ground/sunk/lift lightness triplet, plus each
+blob's own glow.
+
+---
+
+## The four states
+
+`StateView` draws empty, loading, failed and offline: Fitti, one line in his voice,
+and at most one way out. Loading raises the mascot's wobble rather than adding a
+`ProgressView` — he is already a per-frame shader, and a spinner beside him is a
+second, duller animation competing for the same attention. Offline is real
+(`NWPathMonitor` behind `Reachability`), and only Discover needs it, because it is the
+only screen whose content comes from outside.
+
+Copy never says "Error".
